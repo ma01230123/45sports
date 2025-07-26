@@ -1,0 +1,29 @@
+/* p-template-bread
+--------------------------- */
+@use "./../0_foundation/vars"as *;
+
+// -----
+// template/bread.php
+// -----
+
+.p-template-bread {
+  padding-top: 1.9rem;
+  padding-bottom: 1.9rem;
+  font-weight: 500;
+  font-size: 1.4rem;
+  // line-height: 1.5;
+  color:$color-main;
+  background: #000;
+  @include mq("sp") {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+  .p-template-bread--space{
+    margin-left: 0.4rem;
+    margin-right: 0.1rem;
+  }
+  .current-item{
+    color:#FFF;
+  }
+}
+

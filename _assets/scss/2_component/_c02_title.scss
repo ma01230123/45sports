@@ -1,0 +1,463 @@
+@use "./../0_foundation/vars" as *;
+
+.c-ttl-orange {
+  color: $color-main;
+  font-weight: 700;
+  position: relative;
+  &.c-ttl-orange--22 {
+    font-size: 2.2rem;
+    line-height: 1.5;
+    letter-spacing: 0;
+    @include mq("sp") {
+      font-size: 1.8rem;
+    }
+  }
+  &.c-ttl-orange--24 {
+    font-size: 2.4rem;
+    line-height: 1.5;
+    @include mq("sp") {
+      font-size: 1.9rem;
+    }
+  }
+  &.c-ttl-orange--26 {
+    font-size: 2.6rem;
+    line-height: 1.5;
+    @include mq("sp") {
+      font-size: 2rem;
+    }
+  }
+  &.c-ttl-orange--28 {
+    font-size: 2.8rem;
+    line-height: 1.5;
+    @include mq("sp") {
+      font-size: 2rem;
+    }
+  }
+  &.c-ttl-orange--29 {
+    font-size: 2.9rem;
+    line-height: 1.5;
+    @include mq("sp") {
+      font-size: 2rem;
+    }
+  }
+  &.c-ttl-orange--33 {
+    font-size: 3.3rem;
+    line-height: 1.5;
+    @include mq("sp") {
+      font-size: 2.2rem;
+    }
+  }
+  &.c-ttl-orange--37 {
+    font-size: 3.7rem;
+    @include mq("sp") {
+      font-size: 2.5rem;
+    }
+  }
+  &.c-ttl-orange--39 {
+    font-size: 3.9rem;
+    @include mq("sp") {
+      font-size: 2.5rem;
+    }
+  }
+  &.c-ttl-orange--50 {
+    font-size: 5rem;
+    @include mq("sp") {
+      font-size: 3rem;
+    }
+  }
+}
+
+/*トップページのタイトル*/
+.c-ttl-bordering {
+  color: #000;
+  font-size: 7.3rem;
+  font-weight: bold;
+  line-height: 1.2;
+  -webkit-text-stroke: 2px #fff;
+  text-stroke: 2px #fff;
+  @include mq("sp") {
+    font-size: 5rem;
+  }
+  &.c-ttl-bordering--2row {
+    font-size: 5.3rem;
+    @include mq("sp") {
+      font-size: 3.8rem;
+    }
+  }
+}
+
+.c-ttl-white {
+  color: #fff;
+  font-weight: bold;
+  &.c-ttl-white--37 {
+    font-size: 3.7rem;
+    @include mq("sp") {
+      font-size: 2.5rem;
+    }
+  }
+  &.c-ttl-white--40 {
+    font-size: 4rem;
+    @include mq("sp") {
+      font-size: 3rem;
+    }
+  }
+  &.c-ttl-white--2row {
+    font-size: 3.2rem;
+    font-weight: 900;
+    line-height: 1.5;
+    @include mq("sp") {
+      font-size: 2.5rem;
+    }
+  }
+}
+
+.c-ttl-line2color {
+  padding-bottom: 2rem;
+  color: #fff;
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-align: center;
+  @include mq("sp") {
+    font-size: 1.6rem;
+    padding-bottom: 1rem;
+  }
+  position: relative;
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    width: 3.8rem;
+    height: 7px;
+    bottom: 0;
+    left: 50%;
+  }
+  &::before {
+    background-color: $color-main;
+    transform: translate(-100%, 0);
+  }
+  &::after {
+    background-color: #fff;
+  }
+  &.c-ttl-line2color--fz20 {
+    font-size: 2rem;
+    letter-spacing: 0.15rem;
+    @include mq("sp") {
+      font-size: 1.7rem;
+    }
+  }
+  &.c-ttl-line2color--orange {
+    color: $color-main;
+    &::after {
+      background: #000;
+    }
+  }
+}
+
+/*サムネイル デフォルト*/
+.c-ttl-thumbnail {
+  color: #fff;
+  font-size: 3.2rem;
+  font-weight: bold;
+  @include mq("sp") {
+    font-size: 2.5rem;
+  }
+  &.c-ttl-thumbnail--black{
+    font-size: 2.9rem;
+    color: #000;
+    line-height: 1.8;
+  }
+  &.c-ttl-thumbnail--blackShadow {
+    color: #000;
+    font-size: 2.9rem;
+    line-height: 1.8;
+    text-shadow: 3px 3px 0 #FFF, -3px -3px 0 #FFF,
+    -3px 3px 0 #FFF,  3px -3px 0 #FFF,
+    3px 0 0 #FFF, -3px  0 0 #FFF,
+    0 3px 0 #FFF,  0 -3px 0 #FFF;
+  }
+}
+.c-ttl-thumbnail-en {
+  color: $color-main;
+  font-size: 4.3rem;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  margin-top: -2rem;
+  @include mq("sp") {
+    margin-top: -1rem;
+    font-size: 2.5rem;
+  }
+}
+.c-ttl-thumbnail-lineup {
+  padding: 0.4rem 3rem 0.5rem;
+  display: inline-block;
+  color: #fff;
+  font-size: 2.4rem;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  line-height: 1;
+  background: $color-main;
+  @include mq("sp") {
+    font-size: 2rem;
+  }
+}
+.c-thumbnail__interview-title {
+  text-align: center;
+  margin-bottom: 1rem;
+  .c-thumbnail__interview-title-orange {
+    padding: 0 3.5rem;
+    vertical-align: middle;
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    @include mq("sp") {
+      padding: 0 2rem;
+    }
+    position: relative;
+    &::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 4.4rem;
+      background: $color-main;
+      transform: translate(-50%, -50%) skew(-20deg);
+      top: 50%;
+      left: 50%;
+      z-index: -1;
+    }
+  }
+  .c-thumbnail__interview-title-white {
+    padding: 0 3.5rem;
+    vertical-align: middle;
+    color: #4a4949;
+    font-size: 2.2rem;
+    font-weight: bold;
+    letter-spacing: 0.25em;
+    text-align: center;
+    @include mq("sp") {
+      font-size: 2rem;
+      padding: 0 2rem;
+    }
+    position: relative;
+    &::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 4.4rem;
+      background: #fff;
+      transform: translate(-50%, -50%) skew(-20deg);
+      top: 50%;
+      left: 50%;
+      z-index: -1;
+    }
+  }
+}
+
+/*子ページタイトル*/
+.c-ttl-interview {
+  position: relative;
+  @include mq("sp") {
+    height: 35rem;
+  }
+  figure {
+    position: relative;
+    img {
+      @include mq("sp") {
+        height: 20rem;
+        object-fit: cover;
+        object-position: center right;
+      }
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      width: calc(50vw + 12rem);
+      height: 100%;
+      background: #868686;
+      mix-blend-mode: multiply;
+      top: 0;
+      left: 0;
+      @include mq("sp") {
+        background: transparent;
+      }
+    }
+  }
+  .c-ttl-interview__content {
+    position: absolute;
+    top: 50%;
+    left: calc(50vw - 50rem);
+    transform: translateY(-50%);
+    width: 66rem;
+    color: #fff;
+    @include mq("tab") {
+      left: 5%;
+    }
+    @include mq("sp") {
+      gap:0;
+      width: auto;
+      position: static;
+      color: #000;
+      padding-top: 6rem;
+      padding-left: 1.5rem;
+    }
+    h2 {
+      color: $color-main;
+      font-weight: bold;
+      font-size: 2.1rem;
+      span {
+        font-size: 9.6rem;
+        @include mq("sp") {
+          font-size: 6rem;
+          line-height: 1.4;
+        }
+      }
+    }
+
+  }
+}
+
+.c-ttl-children {
+  margin-left: calc(50% - 50vw);
+  padding: 6.9rem 0;
+  padding-left: calc(50vw - 54rem);
+  width: 55vw;
+  background: $color-accent;
+  color: #fff;
+  font-size: 2.8rem;
+  letter-spacing: 0.25em;
+  @include mq("sp") {
+    font-size: 2rem;
+    width: 85vw;
+    padding: 2.9rem 0;
+    padding-left: 2rem;
+    letter-spacing: 0.1em;
+  }
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: calc(50vw - 10rem);
+    transform: translate(-50%, -50%);
+    width: 16.6rem;
+    height: 1px;
+    background: #fff;
+    @include mq("sp") {
+      left: 75%;
+      width: 10rem;
+    }
+  }
+}
+
+/*製品ページのタイトル*/
+// .c-ttl-product {
+//   margin-bottom: 5rem;
+//   font-size: 2.8rem;
+//   color: #743410;
+//   line-height: 1.5;
+//   text-align: center;
+//   @include mq("sp") {
+//     font-size: 2rem;
+//   }
+//   position: relative;
+//   &::after {
+//     content: "";
+//     position: absolute;
+//     bottom: -2rem;
+//     left: 50%;
+//     transform: translate(-50%, -50%);
+//     width: 6.25rem;
+//     height: 2px;
+//     background: #743410;
+//     @include mq("sp") {
+//       width: 3rem;
+//     }
+//   }
+// }
+
+/*投稿ページタイトル*/
+// .c-ttl-single,
+// .c-ttl-job {
+//   color: $color-main;
+//   font-size: 3.6rem;
+//   font-weight: 500;
+//   letter-spacing: 0.02em;
+//   text-align: center;
+//   @include mq("sp") {
+//     font-size: 2rem;
+//   }
+// }
+
+/*求人ページ　下線の入ったタイトル*/
+// .c-ttl-border {
+//   margin-top: 3rem;
+//   padding-bottom: 0.5rem;
+//   color: $color-accent;
+//   font-size: 2.4rem;
+//   font-weight: 500;
+//   letter-spacing: 0.1em;
+//   border-bottom: 3px solid $color-main;
+//   @include mq("sp") {
+//     margin-top: 2rem;
+//     font-size: 1.8rem;
+//   }
+// }
+/*求人ページ　リンクタイトル*/
+// .c-ttl-link {
+//   color: $color-main;
+//   font-size: 1.8rem;
+//   font-weight: 500;
+//   text-decoration: underline;
+//   @include mq("sp") {
+//     font-size: 1.6rem;
+//   }
+// }
+
+/*fフォーム等で使われているタイトル*/
+// .c-ttl-square {
+//   padding: 1.2rem 0;
+//   background: $color-main;
+//   color: #fff;
+//   font-size: 1.6rem;
+//   font-weight: bold;
+//   letter-spacing: 0.1rem;
+//   text-align: center;
+//   @include mq("sp") {
+//     font-size: 1.5rem;
+//   }
+// }
+
+/*アバウトページで、使用しているタイトル*/
+// .c-ttl-about {
+//   font-size: 2.8rem;
+//   letter-spacing: 0.25em;
+//   @include mq("sp") {
+//     font-size: 2rem;
+//   }
+//   position: relative;
+//   &::after {
+//     content: "";
+//     position: absolute;
+//     top: 50%;
+//     right: 0%;
+//     transform: translate(0%, -50%);
+//     width: calc(100% - 16rem);
+//     height: 1px;
+//     background: #000;
+//     @include mq("sp") {
+//       width: calc(100% - 11rem);
+//     }
+//   }
+// }
+
+/*アクセスページ　下線の入ったタイトル*/
+// .c-ttl-access {
+//   padding-bottom: 0.2rem;
+//   color: $color-accent;
+//   font-weight: 500;
+//   letter-spacing: 0.1em;
+//   border-bottom: 3px solid $color-main;
+//   @include mq("sp") {
+//     font-size: 1.6rem;
+//   }
+// }

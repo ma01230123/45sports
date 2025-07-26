@@ -1,0 +1,279 @@
+@use "./../0_foundation/vars" as *;
+
+/* To-top*/
+.c-toTop {
+  width: 6.8rem;
+  height: 6.8rem;
+  background: $color-main;
+  border: 2px solid #fff;
+  position: fixed;
+  right: 3.6rem;
+  bottom: 4rem;
+  z-index: 100;
+  opacity: 0;
+  box-sizing: content-box;
+  transition: opacity 0.3s;
+  &.is-scroll {
+    opacity: 1;
+  }
+  @include mq("sp") {
+    right: 1.5rem;
+    bottom: 7rem;
+    width: 4.8rem;
+    height: 4.8rem;
+  }
+  a {
+    display: block;
+    width: 6.8rem;
+    height: 6.8rem;
+    text-decoration: none;
+    @include mq("sp") {
+      width: 4.8rem;
+      height: 4.8rem;
+    }
+    position: relative;
+    &::before {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: "Font Awesome 6 Free";
+      font-weight: 900;
+      content: "\f106";
+      font-size: 3rem;
+      color: #fff;
+    }
+  }
+  &:hover {
+    opacity: $hover-opacity;
+    background: $color-main;
+    color: #fff;
+  }
+}
+
+/*　固定ページサムネール　*/
+.c-thumbnail {
+  position: relative;
+  min-height: 23.8rem;
+  background: #E3E2E2;
+  &.c-thumbnail--mini{
+    height: 24.3rem;
+    img{
+      @include mq("sp") {
+        height: 24.3rem;
+      }
+    }
+  }
+  .c-thumbnail__img {
+    height: 33.7rem;
+    @include mq("sp") {
+      height: 28.8rem; 
+    }
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      @include mq("sp") {
+        height: 28.8rem;
+      }
+    }
+    &.c-thumbnail__img--mini{
+      height: 24.3rem;
+      img{
+        @include mq("sp") {
+          height: 24.3rem;
+        }
+      }
+    }
+  }
+  .c-thumbnail__skew {
+    position: absolute;
+    top: 0%;
+    left: -30rem;
+    background: #878585;
+    mix-blend-mode: multiply;
+    transform: skew(-25deg);
+    width: calc(50vw + 8rem);
+    min-width: 42rem;
+    height: 33.7rem;
+    overflow-x: hidden;
+    @include mq("sp") {
+      left: -10rem;
+      min-width: 30rem;
+      height: 28.8rem;
+    }
+    &.c-thumbnail__skew--right{
+      left: 90%;
+      transform: skew(25deg);
+      width: calc(50vw - 30rem);
+      @include mq("sp") {
+        display: none;
+      }
+    }
+  }
+  .c-thumbnail__body{
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  &.c-thumbnail--lineup{
+    .c-thumbnail__skew{
+      background: #d9d9d9;
+    }
+  }
+  &.c-thumbnail--interview{
+    @include mq("sp") {
+      height: 40rem;
+    }
+    .c-thumbnail__img{
+      img{
+        @include mq("sp") {
+          height: 40rem;
+        }      
+      }
+    }
+  }
+}
+
+
+
+/*　ページナビ　*/
+.c-pagenavi {
+  .wp-pagenavi {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  span,
+  a {
+    /*数字部分の共通CSS　大きさなど*/
+    margin: 0.7rem;
+    padding: 1.2rem 1.6rem;
+    display: inline-block;
+    background: #FFF;
+    border: 1px solid $color-main;
+    color:$color-main;
+    font-size: 1.9rem;
+    font-weight: 500;
+    line-height: 1;
+    text-decoration: none;
+    transition: all 0.3s;
+    &:hover {
+      border: 1px solid $color-main;
+      background: $color-main;
+      color: #fff;
+    }
+  }
+  span.current {
+    border-color:$color-main;
+    border: 1px solid $color-main;
+    background: $color-main;
+    color: #fff;
+  }
+  .nextpostslink,
+  .previouspostslink {
+    border: none;
+    background: #fff;
+    border: 1px solid #fff;
+    i {
+      font-size: 1.3rem;
+    }
+  }
+}
+
+.c-category {
+  display: flex;
+  gap: 2rem;
+  .c-category__item {
+    padding: 0.4rem 2rem;
+    border: 1px solid #000;
+    font-size: 1.4rem;
+    &.c-category__item-current {
+      background: #000;
+      color: #fff;
+    }
+  }
+}
+
+/*　箇条書き　*/
+.c-itemization{
+  li{
+    margin-bottom: 1.6rem;
+    padding-left: 1.2rem;
+    text-indent: -0.8rem;
+    line-height: 1.5;
+    &::before{
+      content: "●";
+      font-size: 1.2rem;
+      margin-right: 0.3rem;
+      display:inline-block;
+    }
+  }
+  &.c-itemization--orange{
+    li{
+      &::before{
+        color:$color-main;
+      }
+    }
+  }
+}
+
+/*　インタビューページ　*/
+.c-bg-interview{
+  position: relative;
+  &::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: url('../img/interview-bg.png');
+      background-size: contain;
+      top:-15rem;
+      left:0;
+      z-index: -1;
+      @include mq("sp") {
+        top:-20rem;
+      }
+  }
+  .wp-block-columns.is-layout-flex{
+    gap:10rem;
+    @include mq("tab") {
+      gap:5rem;
+    }
+  }
+  h3{
+    margin-bottom: 5rem;
+    padding-left: 8rem;
+    color:$color-main;
+    font-size: 2rem;
+    font-weight: bold;
+    line-height: 1,5;
+    position: relative;
+    &::before {
+        content: 'Q';
+        position: absolute;
+        width: 7rem;
+        height: 7rem;
+        border-radius: 50%;
+        background: $color-main;
+        font-size: 4.4rem;
+        color:#FFF;
+        text-align: center;
+        vertical-align: middle;
+        top:50%;
+        left: 0;
+        transform: translateY(-50%);
+        line-height: 1.4;
+    }
+  }
+  figure{
+    text-align: center;
+  }
+  img{
+    max-width: 36.5rem;
+  }
+}
+

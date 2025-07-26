@@ -1,0 +1,241 @@
+/* p-company
+--------------------------- */
+@use "./../0_foundation/vars" as *;
+
+/*会社概要　メッセージ*/
+.p-company-message {
+  padding-top: 4.5rem;
+  padding-bottom: 7rem;
+  background: url("../img/company-message-bg.jpg");
+  background-position: center, center;
+  background-size: cover;
+  @include mq("sp") {
+    padding-top: 2rem;
+    padding-bottom: 5rem;
+  }
+  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-color: #5fcefd transparent transparent transparent;
+    border-width: 15rem 50vw 0px 50vw;
+    mix-blend-mode: multiply;
+    @include mq("sp") {
+      border-width: 10rem 50vw 0px 50vw;
+    }
+  }
+  .p-company-message__subtitle {
+    margin-top: 9.5rem;
+    text-align: center;
+    @include mq("sp") {
+      margin-top: 7rem;
+    }
+  }
+  .p-company-message__text {
+    margin-top: 5.5rem;
+    @include mq("sp") {
+      margin-top: 2rem;
+    }
+  }
+  .p-company-message__signature {
+    margin-top: 1rem;
+    text-align: right;
+  }
+  .p-top-message__img {
+    max-width: 41.2rem;
+    @include mq("sp") {
+      width: 100%;
+      height: auto;
+    }
+  }
+}
+
+/*会社概要　経営理念とビジョン*/
+.p-company-flex {
+  margin-top: 4.5rem;
+  display: flex;
+  @include mq("sp") {
+    display: block;
+  }
+  .p-company-flex__left,
+  .p-company-flex__right {
+    width: 50vw;
+    padding-top: 11rem;
+    padding-bottom: 12rem;
+    background: url("../img/company-flex-left.jpg");
+    background-position: center, center;
+    background-size: cover;
+    @include mq("sp") {
+      width: 100vw;
+      padding-top: 5rem;
+      padding-bottom: 6rem;
+    }
+  }
+  .p-company-flex__right {
+    background: url("../img/company-flex-right.jpg");
+    background-position: center, center;
+    background-size: cover;
+    .p-company-flex__body {
+      margin-right: auto;
+      margin-left: 0;
+      @include mq("sp") {
+        width: 32.8rem;
+        margin: 0 auto;
+      }
+    }
+  }
+  .p-company-flex__body {
+    width: 55rem;
+    margin-left: auto;
+    @include mq("sp") {
+      width: 32.8rem;
+      margin: 0 auto;
+    }
+  }
+  .p-company-flex__text {
+    margin-top: 2rem;
+    color: #fff;
+    font-weight: 500;
+    text-align: center;
+  }
+}
+
+/*会社概要　会社概要*/
+.p-company-profile{
+  margin-top: 13.5rem;
+  @include mq("sp") {
+    margin-top: 6rem;
+  }
+  .p-company-profile__table{
+    margin-top: 8rem;
+  }
+}
+/*会社概要　主要取引先*/
+.p-company-partner {
+  margin-top: 13rem;
+  @include mq("sp") {
+    margin-top: 6rem;
+  }
+  .p-company-partner__content {
+    margin-top: 5.3rem;
+    display: flex;
+    gap:8.5rem;
+    @include mq("sp") {
+      display: block;
+    }
+  }
+  .p-company-partner__itemization{
+    width: 26rem;
+    @include mq("sp") {
+      margin: 0 auto;
+    }
+  }
+}
+/*会社概要　沿革*/
+.p-company-history {
+  margin-top: 15rem;
+  padding-top: 13.8rem;
+  padding-bottom: 4rem;
+  background: #000;
+  @include mq("sp") {
+    margin-top: 8rem;
+    padding-top: 3rem;
+  }
+  .p-company-history__inner {
+    display: flex;
+    gap: 9rem;
+    @include mq("sp") {
+      display: block;
+    }
+  }
+  .p-company-history__bordering {
+    padding-left: 5rem;
+    writing-mode: vertical-rl;
+    @include mq("sp") {
+      padding-left: 0;
+      writing-mode: horizontal-tb;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+  }
+  .p-company-history__content {
+    max-width: 62rem;
+    width: 100%;
+  }
+  .p-company-history__title {
+    margin-bottom: 9rem;
+    @include mq("sp") {
+      margin-bottom: 3rem;
+    }
+  }
+  .p-company-history__date {
+    color: $color-main;
+    float: left;
+    @include mq("sp") {
+      float: none;
+    }
+  }
+  .p-company-history__text {
+    padding-left: 16rem;
+    color: #fff;
+    line-height: 1.5;
+    height: 6.4rem;
+    @include mq("sp") {
+      margin-bottom: 2rem;
+      padding-left: 0;
+      height: auto;
+    }
+  }
+}
+/*会社概要　工場所在地*/
+.p-company-location {
+  margin-top: 11.5rem;
+  @include mq("sp") {
+    margin-top: 5rem;
+  }
+  .p-company-location__title {
+    margin-bottom: 6.5rem;
+    @include mq("sp") {
+      margin-bottom: 3rem;
+    }
+  }
+  .p-company-location__flex {
+    padding: 0 2.5rem 5rem 10.5rem;
+    display: flex;
+    gap: 2.5rem;
+    @include mq("tab") {
+      padding: 0 2.5rem 5rem 2.5rem;
+    }
+    @include mq("sp") {
+      padding: 0 0rem 5rem 0rem;
+      flex-direction: column;
+    }
+  }
+  .p-company-location__body-title {
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: $color-main;
+  }
+  .p-company-location__body-tel {
+    margin-top: -0.5rem;
+  }
+  .p-company-location__body-img {
+    margin-top: 1.5rem;
+  }
+  .p-company-location__map {
+    @include mq("sp") {
+      iframe {
+        margin-left: -1.5rem;
+        width: 100vw;
+        height: 25rem;
+      }
+    }
+  }
+}
+
+

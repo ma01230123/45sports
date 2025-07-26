@@ -1,0 +1,85 @@
+@charset "utf-8";
+
+//フォント 
+//グーグルフォント
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap');
+
+// @font-face {
+// 	font-family: 'Font-point';
+// 	src: url('../font/swiss 721 black condensed bt.ttf');
+// }
+// @font-face {
+// 	font-family: 'Brownhill';
+// 	src: url('../font/Brownhill Script.ttf');
+// }
+
+// メディアクエリの基準幅
+// $bp-sp: 640px;
+
+// color
+$color-main: #E95B3C;
+$color-accent: #000;
+$color-arrow: #9FA4A4;
+// $color-blue:#206fd6;
+// $color-pink:#EF718F;
+// $color-orange:#F98D55;
+$color-bg-base: #FFF; 
+$color-bg-dark: #000; 
+$color-bg-sub: #F2F3F1; 
+// $color-bg-blue: #CEDBEF; 
+$color-font-base: #000; // テキスト色
+$hover-opacity: 0.6; // 透過度
+
+// レイアウト幅
+$layout-width-inner: 106rem;
+$layout-width-inner-break: 1100px;
+
+// フォント
+$font_jp: 'Noto Sans JP',sans-serif;
+$font_ttl: 'Yu Mincho Light','YuMincho','Yu Mincho','游明朝体','ヒラギノ明朝 ProN','Hiragino Mincho ProN',sans-serif;
+$font_en: "Arial",sans-serif ;
+$font-family-base: $font_jp;
+$font-size-base: 1.6rem;
+$font-weight-base: 400;
+$line-height-base: 2;
+$letter-space-base: 0em;
+
+// 余白
+$padding-pc : 2rem;
+$padding-tab: 2rem;
+$padding-sp: 1.5rem;
+
+// ヘッダー高さ
+$header-height-pc: 7.7rem;
+$header-height-tab: 7.7rem;
+$header-height-sp: 4rem;
+
+// ブレークポイント
+$breakpoints: (
+  "xs": "(max-width: 350px)",
+  "sp": "(max-width: 767px)",
+  "tab":"(min-width: 768px) and (max-width:1099px)",
+  "pc": "(min-width: #{$layout-width-inner-break})",
+);
+
+// メディアクエリー
+@mixin mq($bp) {
+  @media #{map-get($breakpoints, $bp)} {
+    @content;
+  }
+}
+
+// 階層
+$layer: (
+  modal: 100,
+  // モダール
+  drawer: 40,
+  // ドロワー
+  floating: 30,
+  // フローティングアイテム
+  header: 20,
+  // ヘッダー
+  footer: 10,
+  // フッター
+  default: 1,
+);

@@ -1,0 +1,274 @@
+@use "./../0_foundation/vars"as *;
+
+/* ヘッダー　お問い合わせ */
+.c-btn-header {
+  a {
+    padding: 0rem 1.5rem;
+    display: inline-block;
+    background: #fff;
+    // border: 2px solid $color-main;
+    color: $color-main;
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: center;
+    transition: all 0.3s ease 0s;
+    @include mq("sp") {
+      width: 100%;
+    }
+    &:hover {
+      opacity: $hover-opacity;
+    }
+  }
+}
+
+/* トップページ　赤いボタン*/
+.c-btn-orange {
+  a {
+    padding: 1rem 1.9rem;
+    display: block;
+    width: 28rem;
+    height: 5rem;
+    background: $color-main;
+    color: #fff;
+    font-size: 1.4rem;
+    font-weight: bold;
+    text-align: center;
+    @include mq("sp") {
+      font-size: 1.6rem;
+      padding: 0.5rem 1.9rem;
+      display: block;
+      height: 4.2rem;
+    }
+    @include mq("xs") {
+      width: 100%;
+    }
+    position: relative;
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 90%;
+      transform: translate(-50%, -50%);
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-top: 7.5px solid transparent;
+      border-bottom: 7.5px solid transparent;
+      border-left: 9px solid #FFF;
+      border-right: 0;
+      background: transparent;
+    }
+    &:hover {
+      filter: brightness(1.2);
+    }
+  }
+  &.c-btn-orange--small{
+    a{
+      padding: 0.7rem 1.9rem;
+      width: 14.7rem;
+      height: 3.8rem;
+      font-size: 1.2rem;
+      font-weight: 500;
+      text-align: left;
+      &::before{
+        left: 90%;
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        border-left: 6px solid #FFF;
+      }
+    }
+  }
+}
+
+.c-btn-skeleton {
+  a {
+    padding: 1rem 1.9rem;
+    display: block;
+    width: 28rem;
+    height: 5rem;
+    background: transparent;
+    border: 1px solid #FFF;
+    color: #fff;
+    font-size: 1.4rem;
+    font-weight: bold;
+    text-align: center;
+    @include mq("sp") {
+      padding: 0.5rem 1.9rem;
+      display: block;
+    }
+    @include mq("xs") {
+      width: 100%;
+    }
+    position: relative;
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 90%;
+      transform: translate(-50%, -50%);
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-top: 5px solid transparent;
+      border-bottom: 5px solid transparent;
+      border-left: 6px solid #FFF;
+      border-right: 0;
+      background: transparent;
+    }
+    &:hover {
+      background: #FFF;
+      color:#000;
+      &::before{
+        border-left: 6px solid #000;
+      }
+    }
+  }
+  &.c-btn-skeleton--small{
+    a{
+      padding: 1rem;
+      width: 15.5rem;
+      height: 5rem;
+      &::before{
+        left: 85%;
+      }
+      @include mq("sp") {
+        height: 4rem;
+        padding: 0.5rem 1rem;
+      }
+    }
+  }
+}
+
+/* トップページ　黒いボタン*/
+.c-btn-black {
+  a {
+    padding: 1rem 3rem;
+    display: block;
+    width: 24.5rem;
+    height: 4.9rem;
+    background: $color-accent;
+    color: #fff;
+    font-size: 1.6rem;
+    text-align: right;
+    @include mq("sp") {
+      padding: 0.7rem 3rem;
+      display: block;
+      width: 24.5rem;
+      height: 4.5rem;
+    }
+    position: relative;
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 12%;
+      transform: translate(0%, -50%);
+      width: 7rem;
+      height: 0.1rem;
+      background: #fff;
+      // @include mq("sp") {
+      //   width: 22rem;
+      //   height: 1rem;
+      // }
+    }
+    &:hover {
+      filter: brightness(1.2);
+    }
+  }
+}
+
+/* カテゴリーボタン*/
+.c-btn-category {
+  display: inline-block;
+  ul {
+    display: flex;
+    gap: 1rem;
+  }
+  a {
+    padding: 0.2rem 0.5rem;
+    width: 9rem;
+    background: #FFF;
+    color: #000;
+    font-size: 1.1rem;
+    text-align: center;
+    display:inline-block;
+    @include mq("sp") {
+      padding: 0 1rem;
+      line-height: 1.7;
+      display: block;
+    }
+    &:hover {
+      color: #fff;
+      background: $color-main;
+    }
+  }
+  @include mq("sp") {
+    display: block;
+  }
+}
+
+
+/* ボタン　フォーム用　*/
+// .c-btn-form {
+//   text-align: center;
+//   input {
+//     padding: 1rem 2rem;
+//     display: inline-block;
+//     background: $color-main;
+//     border: 1px solid $color-main;
+//     color: #fff;
+//     font-size: 1.8rem;
+//     letter-spacing: 0.1rem;
+//     vertical-align: middle;
+//     text-align: center;
+//     @include mq("sp") {
+//       font-size: 1.6rem;
+//     }
+//     &:hover {
+//       opacity: $hover-opacity;
+//     }
+//   }
+// }
+
+
+
+
+// .c-btn-recruit{
+//   a{
+//     width: 100%;
+//     background: $color-main;
+//     border-radius: 0;
+//     color:#FFF;
+//     font-size: 3.1rem;
+//     font-weight: bold;
+//     letter-spacing: 0.1rem;
+//     text-align: center;
+//     @include mq("sp") {
+//       font-size: 2rem;
+//     }
+//     &:hover {
+//       opacity: $hover-opacity;
+//     }
+//     position: relative;
+//     &::after {
+//       content: "";
+//       position: absolute;
+//       top: 50%;
+//       right: 1.2rem;
+//       transform: translate(-50%, -50%);
+//       width: 2.3rem;
+//       height: 2.3rem;
+//       background: url("../img/btn-recruit.svg");
+//       background-position: center center;
+//       background-repeat: no-repeat;
+//       background-size: cover;
+//       z-index: 1;
+//       @include mq("sp") {
+//         right: 0.8rem;
+//         width: 2rem;
+//         height: 2rem;
+//       }
+//     }
+//   }
+// }

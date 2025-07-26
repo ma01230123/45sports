@@ -1,0 +1,146 @@
+@use "./../0_foundation/vars" as *;
+
+//ヘッダーメニュー
+.c-nav-header {
+  ul{
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: end;
+  }
+  ul > li{
+    margin-left: 0.7rem;
+    padding-left: 0.7rem;
+    border-left: 1px solid #FFF;
+  }
+  li > a {
+    display: block;
+    color: #fff;
+    font-size: 1.7rem;
+    font-weight: 500;
+    line-height: 1.5;
+    white-space: nowrap;
+    position: relative;
+    &::after {
+      position: absolute;
+      left: 0;
+      content: "";
+      width: 100%;
+      height: 1px;
+      background: #fff;
+      bottom: 0px;
+      transform: translateX(-100%);
+      transform-origin: left top;
+      transition: transform 0.6s;
+      opacity: 0;
+    }
+    &:hover {
+      opacity: $hover-opacity;
+      &::after {
+        transform: translateX(0%);
+        opacity: 1;
+      }
+    }
+  }
+  .sub-menu {
+    margin-left: -0.8rem;
+    padding-bottom: 1rem;
+    padding-right: 2rem;
+    background-color: $color-main;
+    position: absolute;
+    height: auto;
+    top: 7rem;
+    justify-content: center;
+    flex-direction: column;
+    transition: transform 0.4s, visibility 0.4s;
+    transition-delay: 0.1s;
+    visibility: hidden;
+    transform: scaleY(0);
+    transform-origin: top;
+    z-index: 1;
+    &:hover {
+      visibility: visible;
+      transform: scaleY(1);
+    }
+  }
+  .sub-menu li {
+    border: none;
+    width: 100%;
+  }
+  .sub-menu li a {
+    margin-top: 1rem;
+    font-size: 1.5rem;
+  }
+  a:hover ~ .sub-menu {
+    visibility: visible;
+    transform: scaleY(1);
+    transform-origin: top;
+  }
+  a:hover ~ .sub-menu-cover {
+    visibility: visible;
+  }
+  .sub-menu:hover ~ .sub-menu-cover {
+    visibility: visible;
+  }
+}
+
+.c-nav-footer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 0 8rem;
+  @include mq("sp") {
+    margin: 0 auto;
+    flex-wrap: wrap;
+    justify-content: start;
+    gap: 1rem 2rem;
+  }
+  @include mq("xs") {
+    gap: 1rem 2rem;
+  }
+  .menu {
+    @include mq("sp") {
+      width: calc(50vw - 3rem);
+    }
+  }
+  .menu > li {
+    padding-left: 2rem;
+    line-height: 2.4;
+    position: relative;
+    &::before {
+      content: '\f054';
+      position: absolute;
+      font-family: "Font Awesome 6 Free";
+      font-size: 1.8rem;
+      font-weight: 900;
+      color: $color-main;
+      left: 0;
+    }
+  }
+  .menu > li > a{
+    font-size: 1.6rem;
+    font-weight: bold;
+    color:$color-main;
+    @include mq("xs") {
+      font-size: 1.5rem;
+    }
+  }
+  li > a {
+    &:hover {
+      opacity: $hover-opacity;
+    }
+  }
+  .sub-menu{
+    margin-bottom:2rem;
+  }
+  .sub-menu li {
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+    line-height: 1.5;
+    font-weight: 400;
+    @include mq("xs") {
+      font-size: 1.3rem;
+    }
+  }
+}
+

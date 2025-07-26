@@ -1,0 +1,54 @@
+@use "./../0_foundation/vars" as *;
+
+
+/*　製品ページ　成分情報*/
+.c-table-product{
+  margin-left: auto;
+  margin-right: auto;
+  overflow-x: auto;
+  white-space: nowrap;
+  width: 100%;
+  max-width: 90rem;
+  table {
+    width: 100%;
+  }
+  td{
+    padding: 1rem 0.5rem;
+    vertical-align: middle;
+    @include mq("sp") {
+      padding: 0.5rem 0.5rem;
+      font-size: 1.5rem;
+    }
+  }
+}
+
+/*　２列テーブルの表*/
+.c-table-2col{
+  width: 100%;
+  tr{
+    border-bottom: 1px solid #000;
+    &:first-child {
+      border-top: 1px solid #000;
+    }
+  }
+  th{
+    padding:1.6rem 0rem 1.6rem 4rem;
+    width: 18rem;
+    color:$color-main;
+    font-weight: 500;
+    line-height: 1.5;
+    vertical-align: middle;
+    @include mq("sp") {
+      display: block;
+      padding:1.5rem 0rem 0rem 1rem; 
+    }
+  }
+  td{
+    padding:1.6rem 0;
+    vertical-align: middle;
+    @include mq("sp") {
+      display: block;
+      padding:0rem 1.5rem 1.5rem 3rem; 
+    }
+  }
+}

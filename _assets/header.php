@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="format-detection" content="telephone=no">
+  <link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/assets/img/favicon.ico">
+
+  <?php wp_head(); ?>
+</head>
+
+<body <?php body_class(['drawer', 'drawer--right']); ?>>
+  <!-- header -->
+  <header id="header" class="l-header">
+    <div class="c-inner c-inner--1300">
+
+      <div class="l-header__flex">
+        <div class="l-header__left">
+          <!-- トップページ用タグの設定 -->
+          <?php 
+            if(is_front_page()){
+              $tag_start = '<h1 class="l-header__left-logo">';
+              $tag_end = '</h1>';
+            }else{
+              $tag_start = '<div class="l-header__left-logo">';
+              $tag_end = '</div>';
+            }?>
+          <?php echo $tag_start; ?>
+          <a href="<?php echo esc_url(home_url('/')); ?>" class="l-header__left-logo-link">
+            <picture>
+              <source srcset="<?php echo get_template_directory_uri(); ?>/assets/img/logo-white.svg"
+                media="(min-width: 640px)" class="l-header__left-logo-img">
+              <img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo-white.svg" alt="信和工業株式会社のロゴ"
+                class="l-header__left-logo-img">
+            </picture>
+          </a>
+          <?php echo $tag_end; ?>
+        </div><!-- /.l-header__left -->
+
+        <div class="l-header__right u-hidden-sp">
+          <nav class="c-nav-header">
+            <!-- メニューより表示 -->
+            <?php wp_nav_menu( array('theme_location' => 'header_menu' )); ?>
+          </nav>
+        </div><!-- /.l-header__right -->
+      </div><!-- /.l-header__flex -->
+    </div><!-- /.c-inner c-inner--1300 -->
+
+
+    <!-- sp用ヘッダー（他では非表示） -->
+    <!-- ハンバーガーボタン -->
+    <button class="c-drawer__icon js-icon u-hidden-pc u-hidden-tab"><span class="c-drawer__bars">
+        <span class="c-drawer__bar"></span>
+        <span class="c-drawer__bar"></span>
+        <span class="c-drawer__bar"></span>
+      </span>
+    </button>
+    <div class="c-drawer__background js-background"></div>
+
+
+    <div class="c-drawer__content js-content" role="navigation">
+      <nav class="c-drawer__menus">
+        <!-- メニューより表示 -->
+        <?php wp_nav_menu( array('theme_location' => 'header_menu' )); ?>
+      </nav>
+    </div>
+  </header>

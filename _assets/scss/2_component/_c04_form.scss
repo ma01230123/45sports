@@ -1,0 +1,270 @@
+@use "./../0_foundation/vars" as *;
+
+.c-form__table {
+  &.wp-block-snow-monkey-forms-item.smf-item{
+    border: 1px solid #878585;
+  }
+  &.smf-form--business .smf-item__col--label{
+    margin-top: 1rem;
+background: #fff;
+border-right: none;
+display: flex;
+justify-content:space-between;
+flex:0 0 26rem;
+max-width: 26rem;
+@include mq("sp") {
+  // max-width: 100%;
+  border-bottom: none;
+}
+
+  } 
+  &.smf-form--business .smf-item__col--label .smf-item__description{
+    margin-right: 1rem;
+    padding: 0 1rem;
+    background: $color-main;
+    color:#FFF;
+    font-size: 1.5rem;
+    height: 2.5rem;
+  }
+  &.smf-form--business .smf-item {
+    padding: 1rem 3rem;
+    @include mq("sp") {
+      padding: 1.5rem 0rem;
+    }
+  }
+  &.smf-form--business .smf-radio-buttons-control__control{
+display: flex;
+@include mq("sp") {
+  display: block;
+}
+ }
+  &.smf-form--business .smf-radio-buttons-control__control .smf-radio-button-control{
+    margin-right: 2rem;
+    align-items: center;
+ }
+
+  .smf-item .smf-item__controls{
+    textarea,
+    select,
+    input[type="text"],
+    input[type="tel"],
+    input[type="email"] {
+      padding: 1.5rem 1rem;
+      border: 1px solid #636262;
+      border-radius: 0;
+      background: #f4f4f4;
+      mix-blend-mode: multiply;
+      width: 100%;
+      &.c-form__w500 {
+        max-width: 50rem;
+      }
+      &.c-form__w760 {
+        max-width: 76rem;
+      }
+    }
+    textarea {
+      overflow-wrap: break-word;
+    }
+    select {
+      width: 26.8rem;
+    }
+  }
+}
+
+//フォーム用ボタン
+.smf-form--business+ .smf-action{
+  margin-top: 3.5rem;
+  padding:5rem 2rem;
+  background: #E8E8E8;
+  @include mq("sp") {
+    margin-top: 2rem;
+    padding:4rem 2rem;
+  }
+  .smf-button-control__control {
+    padding: 0.8rem 8rem;
+    display: inline-block;
+    background: $color-main;
+    border: 1px solid $color-main;
+    border-radius: none;
+    color: #fff;
+    font-size: 1.9rem;
+    font-weight: bold;
+    letter-spacing: 0.1rem;
+    vertical-align: middle;
+    text-align: center;
+    @include mq("sp") {
+      padding: 0.5rem 6rem;
+      font-size: 1.6rem;
+    }
+    &:hover {
+      opacity: $hover-opacity;
+    }
+  } 
+}
+
+.c-form__link {
+  color: #2125aa;
+  &:hover {
+    opacity: $hover-opacity;
+  }
+}
+
+.c-form__required {
+  .smf-item__label {
+    font-size: 1.6rem;
+    &::before {
+      margin-right: 1rem;
+      content: "必須";
+      padding: 0.4rem 0.8rem 0.6rem;
+      display: inline-block;
+      // width: 5.5rem;
+      // height: 2.5rem;
+      border-radius: 4px;
+      background: $color-main;
+      color: #fff;
+      font-size: 1.4rem;
+      line-height: 1;
+      text-align: center;
+      vertical-align: text-bottom;
+    }
+  }
+}
+
+// .c-form__bottom-text {
+//   text-align: center;
+// }
+
+.confirm {
+  .c-form__select {
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+    &::after {
+      display: none;
+      position: absolute;
+      right: 15px;
+      width: 10px;
+      height: 7px;
+      background-color: #535353;
+      clip-path: polygon(0 0, 100% 0, 50% 100%);
+      content: "";
+      pointer-events: none;
+    }
+  }
+}
+
+
+//
+
+// .c-form__table {
+//   margin: 0 auto;
+//   padding: 0 2rem;
+//   width: 100%;
+//   dl {
+//     display: flex;
+//     padding: 3rem 0rem;
+//     @include mq("sp") {
+//       display: block;
+//       padding: 1rem 1.5rem 0;
+//       border-bottom: none;
+//     }
+//   }
+//   dt {
+//     width: 35rem;
+//     font-size: 1.6rem;
+//     @include mq("sp") {
+//       width: 28rem;
+//     }
+//   }
+//   dd {
+//     width: calc(100% - 35rem);
+//     font-size: 1.6rem;
+//     @include mq("sp") {
+//       width: 100%;
+//     }
+//   }
+
+//   .c-form__select {
+//     display: inline-flex;
+//     align-items: center;
+//     position: relative;
+//     &::after {
+//       position: absolute;
+//       right: 15px;
+//       width: 10px;
+//       height: 7px;
+//       background-color: #535353;
+//       clip-path: polygon(0 0, 100% 0, 50% 100%);
+//       content: "";
+//       pointer-events: none;
+//     }
+//   }
+
+//   textarea,
+//   select,
+//   input[type="text"],
+//   input[type="tel"],
+//   input[type="email"] {
+//     padding: 0.8rem 1rem;
+//     border: 1px solid #aaa;
+//     background: #fff;
+//     width: 100%;
+//     &.c-form__w500 {
+//       max-width: 50rem;
+//     }
+//     &.c-form__w760 {
+//       max-width: 76rem;
+//     }
+//   }
+//   textarea {
+//     overflow-wrap: break-word;
+//   }
+//   select {
+//     width: 26.8rem;
+//   }
+// }
+// .c-form__link {
+//   color: #2125aa;
+//   &:hover {
+//     opacity: $hover-opacity;
+//   }
+// }
+
+// .c-form__required {
+//   &::before {
+//     margin-right: 1rem;
+//     content: "必須";
+//     padding: 0.3rem 1.1rem;
+//     display: inline-block;
+//     width: 5rem;
+//     height: 2.2rem;
+//     background: $color-main;
+//     color: #fff;
+//     font-size: 1.4rem;
+//     line-height: 1;
+//     text-align: center;
+//   }
+// }
+
+// .c-form__bottom-text {
+//   text-align: center;
+// }
+
+// .confirm {
+//   .c-form__select {
+//     display: inline-flex;
+//     align-items: center;
+//     position: relative;
+//     &::after {
+//       display: none;
+//       position: absolute;
+//       right: 15px;
+//       width: 10px;
+//       height: 7px;
+//       background-color: #535353;
+//       clip-path: polygon(0 0, 100% 0, 50% 100%);
+//       content: "";
+//       pointer-events: none;
+//     }
+//   }
+// }

@@ -1,0 +1,28 @@
+/* p-template-fixed
+--------------------------- */
+@use "./../0_foundation/vars"as *;
+
+// -----
+// template/fixed.php
+// -----
+
+.p-template-fixed {
+  position: fixed;
+  top:41%;
+  right:-0.5rem;
+  z-index: 100;
+  @include mq("sp") {
+    width: 100vw;
+    right:0rem;
+    left:0rem;
+    top: 100%;
+    transform: translateY(-100%);
+  }
+  .p-template-fixed__inner{
+    display: flex;
+    flex-direction: column;
+    @include mq("sp") {
+      flex-direction: row;
+    }
+  }
+}

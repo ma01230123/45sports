@@ -1,0 +1,102 @@
+/* base
+--------------------------- */
+@use "./vars" as *;
+
+// -----
+// 初期設定
+// -----
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+html {
+	font-size: 62.5%;
+}
+
+
+@media screen and (min-width: 768px) and (max-width: 1099px) {
+	html {
+		font-size: 0.9vw;
+	}
+}
+
+
+body {
+	font-family: $font-family-base;
+	font-size: $font-size-base;
+	font-weight: $font-weight-base;
+	color: $color-font-base;
+	line-height: $line-height-base;
+	letter-spacing: $letter-space-base;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	background:$color-bg-base;
+	overflow-x: hidden;
+	overflow-wrap: break-word;
+	text-align: justify;
+	// padding-top: $header-height-pc;
+
+	@include mq("sp") {
+		// padding-top: $header-height-sp;
+		font-size: 1.5rem;
+		a[href*="tel:"] {
+			pointer-events: none;
+			cursor: default;
+			text-decoration: none;
+	}
+}
+}
+
+
+
+//wordpressスペースの調整
+//スペーサーの調整のCSS
+.wp-block-spacer[style="height:10rem"] {
+  @include mq("sp") {
+    height: 5rem !important;
+  }
+}
+.wp-block-spacer[style="height:9rem"] {
+  @include mq("sp") {
+    height: 4.5rem !important;
+  }
+}
+.wp-block-spacer[style="height:8rem"] {
+  @include mq("sp") {
+    height: 4rem !important;
+  }
+}
+.wp-block-spacer[style="height:7rem"] {
+	@include mq("sp") {
+		height: 3.5rem !important;
+  }
+}
+.wp-block-spacer[style="height:6rem"] {
+	@include mq("sp") {
+		height: 3rem !important;
+	}
+}
+.wp-block-spacer[style="height:5rem"] {
+  @include mq("sp") {
+    height: 2.5rem !important;
+  }
+}
+.wp-block-spacer[style="height:4rem"] {
+  @include mq("sp") {
+    height: 2rem !important;
+  }
+}
+.wp-block-spacer[style="height:3rem"] {
+  @include mq("sp") {
+    height: 1.5rem !important;
+  }
+}
+
+
