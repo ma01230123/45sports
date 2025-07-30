@@ -31,23 +31,10 @@
   </div>
 </div>
 
-
-
 <!-- トップ　メッセージ -->
 <section class="p-top-message">
   <div class="c-inner">
-    <div class="p-top-message__inner">
-      <div class="p-top-message__body">
-        <h2 class="p-top-message__title c-text-25 u-fwb u-underline">経営理念</h2>
-        <div class="p-top-message__text">
-          私たちは<br>
-          品質とより高度な技術革新で<br>
-          社会に愛される企業を目指します
-        </div>
-      </div><!-- /.p-top-message__body -->
-      <div class="p-top-message__img">
-        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/top-message.png" alt="">
-      </div>
+  <?php get_template_part('template/news-tab'); ?>
 
     </div>
   </div><!-- /.c-inner -->
@@ -172,95 +159,6 @@
   </div><!-- /.c-inner -->
 </section>
 
-
-
-<!-- トップ　新着情報 -->
-<section class="p-top-news">
-  <div class="c-inner">
-    <div class="p-top-news__inner">
-      <div class="p-top-news__left">
-        <div class="p-top-news__title-en c-ttl-orange c-ttl-orange--50">
-          NEWS
-        </div>
-        <h2 class="p-top-news__title-jp c-text-18">
-          ニュース
-        </h2>
-      </div>
-
-      <?php
-    $myposts = get_posts(array(
-      'post_type' => 'post', // 投稿タイプ
-      'posts_per_page' => '4', // 3件を取得
-      'orderby' => 'DESC'
-    ));
-    ?>
-      <div class="p-top-news__right c-card-top-news">
-        <?php foreach ($myposts as $post) : setup_postdata($post); ?>
-        <article class="c-card-top-news__item animate">
-          <div class="c-card-top-news__item-warp">
-            <time class="c-card-top-news__item-published" datetime="<?php the_time('c'); ?>">
-              <?php the_time('Y年m月d日'); ?>
-            </time>
-            <div class="c-card-top-news__item-category c-btn-category">
-              <?php the_category(); ?>
-            </div>
-            <a href="<?php echo esc_url(get_permalink($post)); ?>" class="c-card-top-news__item-link">
-              <h3 class="c-card-top-news__item-title">
-                <?php echo esc_html(get_the_title()); ?>
-              </h3>
-            </a>
-          </div>
-        </article>
-        <?php endforeach; wp_reset_postdata(); ?>
-        <div class="p-top-news__top-link">
-          <a href="<?php echo esc_url(home_url('/')); ?>new">
-            ニュースの一覧を見る
-          </a>
-        </div>
-      </div>
-    </div>
-  </div><!-- /.c-inner -->
-</section>
-
-
-<section class="p-top-topics">
-  <div class="c-inner">
-    <div class="p-top-topics__title-en c-ttl-orange c-ttl-orange--50">
-      TOPICS
-    </div>
-    <h2 class="p-top-topics__title-jp c-text-18">
-      トピックス
-    </h2>
-
-    <?php
-    $myposts = get_posts(array(
-      'post_type' => 'post', 
-      'post__in' => array(91, 93, 226),//表示したい記事のID
-      'order' => 'ASC', 
-      'orderby' => 'post__in',
-    ));
-    ?>
-
-    <div class="p-top-topics__content c-card-top-topics">
-      <?php foreach ($myposts as $post) : setup_postdata($post); ?>
-      <article class="c-card-top-topics__item">
-        <a href="<?php echo esc_url(get_permalink($post)); ?>" class="c-card-top-topics__item-link">
-          <div class="c-card-top-topics__item-thumbnail">
-            <?php if (has_post_thumbnail()) : ?>
-            <?php the_post_thumbnail('thumbnail'); ?>
-            <?php else : ?>
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/no-image.jpg" width="100" height="100" alt="デフォルト画像" />
-            <?php endif ; ?>
-          </div>
-          <h3 class="c-card-top-topics__item-title c-text-18">
-            <?php echo esc_html(get_the_title()); ?>
-          </h3>
-        </a>
-      </article>
-      <?php endforeach; wp_reset_postdata(); ?>
-    </div>
-  </div>
-</section>
 
 
 

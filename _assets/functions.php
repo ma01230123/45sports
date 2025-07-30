@@ -3,6 +3,22 @@
  * @ Wordpress -> セキュリティ設定
  *
  */
+
+// k01〜k06 のユーザーID配列
+function get_custom_users() {
+  return ['k01', 'k02', 'k03', 'k04', 'k05', 'k06'];
+}
+
+// カスタム投稿タイプ（post-k01〜post-k06）
+function get_custom_post_types() {
+  return array_map(fn($user) => 'post-' . $user, get_custom_users());
+}
+
+
+
+
+
+
 //wp_head部分からバージョン情報を削除する
 remove_action('wp_head', 'wp_generator');
 
@@ -103,7 +119,7 @@ function my_script_init()
 {
   wp_enqueue_style('fontawesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css', array(), '6.4.0', 'all');
 
-  
+
   wp_enqueue_style('my-slick-style', 'https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css', array(), '1.8.1');
 
   wp_enqueue_style('my', get_template_directory_uri() . '/assets/css/style.css', array(), '1.0.0', 'all');
@@ -114,7 +130,7 @@ function my_script_init()
   wp_enqueue_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js', array());
 
 
-  
+
 
   wp_enqueue_script('my-slick-js', 'https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js', array(), '1.8.1', true);
 
@@ -247,3 +263,81 @@ function Include_my_php($params = array()) {
 add_shortcode('myphp', 'Include_my_php');
 
 
+
+//カスタム投稿タイプの権限を調整
+add_filter('register_post_type_args', 'modify_post_type_capabilities', 10, 2);
+function modify_post_type_capabilities($args, $post_type) {
+
+  if (in_array($post_type, get_custom_post_types(), true)) {
+    $args['capability_type'] = $post_type;  // 例：post-k01
+    $args['map_meta_cap'] = true;           // 権限を細かく制御できるように
+  }
+
+  return $args;
+}
+
+
+
+//各ユーザー用のカスタムロールを作成
+function create_custom_roles_for_users() {
+//get_custom_users()でユーザーを呼び出し
+  foreach (get_custom_users() as $user) {
+    $post_type = 'post-' . $user;
+    $role_name = $user . '_author';
+
+    // 既にあれば削除（再設定用）
+    if (get_role($role_name)) {
+      remove_role($role_name);
+    }
+
+    add_role($role_name, strtoupper($role_name), [
+      // 基本の編集権限
+      "read" => true,
+      "edit_{$post_type}" => true,
+      "edit_{$post_type}s" => true,
+      "edit_others_{$post_type}s" => false,
+      "publish_{$post_type}s" => true,
+      "delete_{$post_type}s" => true,
+
+      // 他投稿・固定ページを一切触れないように
+      "edit_posts" => false,
+      "edit_pages" => false,
+      "delete_posts" => false,
+      "delete_pages" => false,
+      "publish_posts" => false,
+      "publish_pages" => false,
+    ]);
+  }
+}
+add_action('init', 'create_custom_roles_for_users');
+
+// 各ユーザーに専用ロールを割り当て
+function assign_roles_to_custom_users() {
+//get_custom_users()でユーザーを呼び出し
+  foreach (get_custom_users() as $user_login) {
+    $user = get_user_by('login', $user_login);
+    if ($user) {
+      $user->set_role($user_login . '_author');
+    }
+  }
+}
+add_action('init', 'assign_roles_to_custom_users');
+
+
+// adminにカスタム投稿の権限を付与
+function add_caps_to_administrator() {
+  $role = get_role('administrator');
+  if (!$role) return;
+  //get_custom_post_types()で全てのカスタム投稿を呼び出し
+  foreach (get_custom_post_types() as $pt) {
+    $role->add_cap("edit_{$pt}");
+    $role->add_cap("edit_{$pt}s");
+    $role->add_cap("edit_others_{$pt}s");
+    $role->add_cap("publish_{$pt}s");
+    $role->add_cap("delete_{$pt}s");
+    $role->add_cap("delete_others_{$pt}s");
+    $role->add_cap("read_{$pt}");
+    $role->add_cap("read_private_{$pt}s");
+  }
+}
+add_action('init', 'add_caps_to_administrator');

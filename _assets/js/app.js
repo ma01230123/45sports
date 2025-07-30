@@ -114,12 +114,12 @@ document.addEventListener('DOMContentLoaded', function () {
     contentMenu.classList.toggle('is-checked');
     iconButton.classList.toggle('is-checked');
   });
-  
+
   var submenuToggleButtons = document.querySelectorAll('.menu-item-has-children');
   // サブメニューのトグルボタン
   submenuToggleButtons.forEach(function (button) {
     button.addEventListener('click', function (event) {
-      // event.preventDefault(); 
+      // event.preventDefault();
       this.lastElementChild.classList.toggle('is-checked'); // サブメニューの表示・非表示を切り替え
       this.classList.toggle('is-checked'); // サブメニューの表示・非表示を切り替え
     });
@@ -192,4 +192,20 @@ jQuery(function ($) {
 
 });
 
+//トップページのタブの動き
+document.addEventListener('DOMContentLoaded', () => {
+  const buttons = document.querySelectorAll('.top .c-tab__btn');
+  const contents = document.querySelectorAll('.top .c-tab__content');
 
+  buttons.forEach(button => {
+    button.addEventListener('click', () => {
+      const target = button.dataset.tab;
+
+      buttons.forEach(btn => btn.classList.remove('is-active'));
+      contents.forEach(content => content.classList.remove('is-active'));
+
+      button.classList.add('is-active');
+      document.getElementById(target).classList.add('is-active');
+    });
+  });
+});

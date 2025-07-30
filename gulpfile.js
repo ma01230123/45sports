@@ -196,7 +196,7 @@ const browserSyncFunc = () => {
 const browserSyncOption = {
   // server: distBase
   //環境によって変更する!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-  proxy: 'http://localhost:10144/'
+  proxy: 'http://45sports.local/'
 }
 
 
