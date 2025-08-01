@@ -12,9 +12,9 @@
         <time class="l-single__time u-fw300" datetime="<?php the_time('c'); ?>">
           <?php the_time('Y.m.d'); ?>
         </time>
-        <!-- <div class="l-single__category c-btn-category">
+        <div class="l-single__category c-btn-category">
         <?php the_category(); ?>
-      </div> -->
+      </div>
         <div style="height:3rem" aria-hidden="true" class="wp-block-spacer"></div>
         <?php the_content(); ?>
       </div><!-- /.c-inner-650 -->
