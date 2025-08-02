@@ -35,19 +35,17 @@
   <div class="c-tab">
     <div class="c-tab__btn-wrap">
       <a class="c-tab__btn <?php if ($active_tab === 'tab01')
-        echo 'is-active'; ?>" href="?tab=tab01">タブ1</a>
+        echo 'is-active'; ?>" href="?tab=tab01">基本情報</a>
       <a class="c-tab__btn <?php if ($active_tab === 'tab02')
-        echo 'is-active'; ?>" href="?tab=tab02">タブ2</a>
+        echo 'is-active'; ?>" href="?tab=tab02">お知らせ</a>
       <a class="c-tab__btn <?php if ($active_tab === 'tab03')
-        echo 'is-active'; ?>" href="?tab=tab03">タブ3</a>
+        echo 'is-active'; ?>" href="?tab=tab03">アクセス</a>
     </div>
 
 
     <div class="c-tab__contents">
       <div class="c-tab__content <?php if ($active_tab === 'tab01')
         echo 'is-active'; ?>">
-        <h2>タブ1の内容</h2>
-        <p>ここにタブ1のコンテンツを記述します。</p>
         <?php the_content(); ?>
       </div>
 
@@ -80,37 +78,20 @@
 
       <div class="c-tab__content <?php if ($active_tab === 'tab03')
         echo 'is-active'; ?>">
+        <p>
+          <?php
+            $text = get_field('cf-map-text');
+            // HTML エスケープ＋改行を <br> に変換して出力
+            echo nl2br(esc_html($text));
+          ?>
+        </p>
         <?php get_template_part('template/club-map'); ?>
-        <?php
-        // 固定ページのスラッグ（例：club-k01）
-        // $slug = get_post_field('post_name', get_post());
-
-        // club-*** → post-*** に変換
-        // $custom_post_type = str_replace('club-', 'post-', $slug);
-
-        // ページャー用
-        $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-        // クエリ
-        $args = array(
-          // 'post_type' => $custom_post_type,
-          'post_type' => 'post-k02',
-          'posts_per_page' => 5,
-          'paged' => $paged,
-        );
-
-        $custom_query = new WP_Query($args);
-        // 変数をテンプレートに渡す
-        set_query_var('custom_query', $custom_query);
-
-        // ループテンプレートを呼び出す
-        get_template_part('template/tab-loop');
-        ?>
       </div>
     </div>
   </div>
 </div>
-  <div style="height:8rem"></div>
-  <div style="height:8rem" aria-hidden="true" class="wp-block-spacer"></div>
-  <div style="height:8rem" aria-hidden="true" class="wp-block-spacer"></div>
-  <?php get_footer(); ?>
+<div style="height:8rem"></div>
+<div style="height:8rem" aria-hidden="true" class="wp-block-spacer"></div>
+<div style="height:8rem" aria-hidden="true" class="wp-block-spacer"></div>
+<?php get_footer(); ?>
 

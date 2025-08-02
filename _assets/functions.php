@@ -183,7 +183,13 @@ function add_page_slug_class_name($classes)
   return $classes;
 }
 
-
+// 管理バーのバンプ処理を無効化
+function disable_admin_bar_bump() {
+  if ( is_admin_bar_showing() ) {
+      remove_action( 'wp_head', '_admin_bar_bump_cb' );
+  }
+}
+add_action( 'get_header', 'disable_admin_bar_bump' );
 
 /**
  * Gutenbergのカラーパレット設定
