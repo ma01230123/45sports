@@ -6,11 +6,11 @@
 .c-inner {
 	width: calc($layout-width-inner + $padding-pc * 2);
 	max-width: 100%;
-	margin: 0 auto 0rem;
+	margin: 0 auto;
 	// height: inherit;
 	padding-left: $padding-pc;
 	padding-right: $padding-pc;
-	
+
 	@include mq("tab") {
 		padding-left: $padding-tab;
 		padding-right: $padding-tab;
@@ -20,55 +20,58 @@
 		padding-left: $padding-sp;
 		padding-right: $padding-sp;
 	}
-	&.c-inner--1300{
-		width: 130rem;
-		margin: 0 auto;
+	&.c-inner--header{
+		width: 125rem;
 	}
-	&.c-inner--1100{
-		width: 110rem;
-		margin: 0 auto;
-	}
-	//c-innerの中で使用
-	.c-inner--1000{
-		max-width: 100rem;
-		margin: 0 auto;
-	}
-	.c-inner--900{
-		max-width: 90rem;
-		margin: 0 auto;
-	}
-	.c-inner--850{
-		max-width: 85rem;
-		margin: 0 auto;
-	}
-	.c-inner--800{
-		max-width: 80rem;
-		margin: 0 auto;
-	}
-	.c-inner--750{
-		max-width: 75rem;
-		margin: 0 auto;
-	}
-	.c-inner--700{
-		max-width: 70rem;
-		margin: 0 auto;
-	}
-	.c-inner--650{
-		max-width: 65rem;
-		margin: 0 auto;
-	}
-	.c-inner--600{
-		max-width: 60rem;
-		margin: 0 auto;
-	}
-	.c-inner--500{
-		max-width: 50rem;
-		margin: 0 auto;
-	}
-	.c-inner--400{
-		max-width: 40rem;
-		margin: 0 auto;
-	}
+	// &.c-inner--1300{
+	// 	width: 130rem;
+	// 	margin: 0 auto;
+	// }
+	// &.c-inner--1100{
+	// 	width: 110rem;
+	// 	margin: 0 auto;
+	// }
+	// //c-innerの中で使用
+	// .c-inner--1000{
+	// 	max-width: 100rem;
+	// 	margin: 0 auto;
+	// }
+	// .c-inner--900{
+	// 	max-width: 90rem;
+	// 	margin: 0 auto;
+	// }
+	// .c-inner--850{
+	// 	max-width: 85rem;
+	// 	margin: 0 auto;
+	// }
+	// .c-inner--800{
+	// 	max-width: 80rem;
+	// 	margin: 0 auto;
+	// }
+	// .c-inner--750{
+	// 	max-width: 75rem;
+	// 	margin: 0 auto;
+	// }
+	// .c-inner--700{
+	// 	max-width: 70rem;
+	// 	margin: 0 auto;
+	// }
+	// .c-inner--650{
+	// 	max-width: 65rem;
+	// 	margin: 0 auto;
+	// }
+	// .c-inner--600{
+	// 	max-width: 60rem;
+	// 	margin: 0 auto;
+	// }
+	// .c-inner--500{
+	// 	max-width: 50rem;
+	// 	margin: 0 auto;
+	// }
+	// .c-inner--400{
+	// 	max-width: 40rem;
+	// 	margin: 0 auto;
+	// }
 }
 
 

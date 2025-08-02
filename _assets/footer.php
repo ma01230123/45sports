@@ -17,7 +17,7 @@
       <div class="l-footer__address">
         <div class="l-footer__address-logo">
           <a href="<?php echo esc_url( home_url( '/' ) ); ?>">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo-color.svg" alt="信和工業株式会社のロゴ">
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo-white.svg" alt="総合型地域スポーツクラブ兵庫県協議会のロゴ">
           </a>
         </div>
         <div class="l-footer__address-item">

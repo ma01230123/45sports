@@ -14,27 +14,27 @@ function escapeStr(idname) {
 
 //スクロールしたらふわっと表示
 
-  document.addEventListener("DOMContentLoaded", function () {
+// document.addEventListener("DOMContentLoaded", function () {
 
-const header = document.querySelector('header');
-const content = document.querySelector('.js-content');
+// const header = document.querySelector('header');
+// const content = document.querySelector('.js-content');
 
-function onScrollCallback(entries) {
-  entries.forEach(entry => {
-    if (!entry.isIntersecting) {
-      header.classList.add('is-scroll');
-      content.classList.add('is-scroll');
-    } else {
-      header.classList.remove('is-scroll');
-      content.classList.remove('is-scroll');
-    }
-  });
-}
-const onScrollObserver = new IntersectionObserver(onScrollCallback);
+// function onScrollCallback(entries) {
+//   entries.forEach(entry => {
+//     if (!entry.isIntersecting) {
+//       header.classList.add('is-scroll');
+//       content.classList.add('is-scroll');
+//     } else {
+//       header.classList.remove('is-scroll');
+//       content.classList.remove('is-scroll');
+//     }
+//   });
+// }
+// const onScrollObserver = new IntersectionObserver(onScrollCallback);
 
-onScrollObserver.observe(document.querySelector('.p-top-mv'));
+// onScrollObserver.observe(document.querySelector('.p-top-mv'));
 
-});
+// });
 
 
 

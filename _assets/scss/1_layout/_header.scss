@@ -4,55 +4,47 @@
 @use "./../0_foundation/vars"as *;
 
 .l-header {
-  background-color: $color-main;
+  // background-color: $color-main;
   position: fixed;
   top: 0rem;
   left: 0;
+  right:0;
   width: 100%;
   z-index: map-get($layer, "header");
-  height: $header-height-pc;
-  @include mq("sp") {
-    height: $header-height-sp;
-  }
 }
-// トップページのみ
-.top .l-header {
-  top: 5rem;
-  &.is-scroll{
-    top:0;
-  }
-  @include mq("sp") {
-    top: 4rem;
-  }
-}
+
 
 .l-header__flex {
   padding: 1.5rem 0;
-  display: flex;
   width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap:3.7rem;
   height: $header-height-pc;
   @include mq("sp") {
+    height: $header-height-sp;
     padding: 0;
   }
 }
 
 .l-header__left-logo {
   margin-top: 1.6rem;
-  width: 29.3rem;
-  height: 3.1rem;
+  // width: 29.3rem;
+  height: 7.6rem;
   display: inline-block;
   @include mq("sp") {
     margin-top: 1.1rem;
-    width: calc(29.3rem * 0.8);
-    height: calc(3.1rem * 0.8);
+    // width: calc(29.3rem * 0.8);
+    height: 5.7rem;
   }
   &:hover {
     opacity: $hover-opacity;
   }
-  .l-header__left-logo-link {
-    display: block;
-    margin-top: -0.8rem;
-  }
+  // .l-header__left-logo-link {
+  //   display: block;
+  //   margin-top: -0.8rem;
+  // }
 }
 
 .l-header__right {

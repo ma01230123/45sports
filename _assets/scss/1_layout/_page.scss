@@ -11,7 +11,7 @@ page.php
      color:$color-main;
      &:hover{
       opacity: $hover-opacity;
-     } 
+     }
     }
   }
 }
@@ -37,7 +37,7 @@ page.php
     word-break: break-all;
     @include mq("sp") {
       padding: 3rem 2rem;
-      
+
     }
   }
 }
@@ -54,99 +54,6 @@ page.php
 }
 
 
-/*製品ページ　テンプレート*/
-.l-page-product__mv {
-  margin-bottom: 10rem;
-  display: flex;
-  background: url("../img/product-mv-bg.jpg");
-  background-size: cover;
-  @include mq("sp") {
-    margin-bottom: 5rem;
-    flex-wrap: wrap;
-  }
-  .l-page-product__mv-title-box {
-    margin-top: 0.6rem;
-    width: 20vw;
-    line-height: 20vw;
-    background: url("../img/product-mv-title-bg.jpg");
-    background-size: cover;
-    border-top: 2.8rem solid $color-main;
-    @include mq("sp") {
-      border-top: 1.4rem solid $color-main;
-    }
-  }
-  .l-page-product__mv-title {
-    padding: 4rem 0;
-    font-size: 3.7rem;
-    font-family: $font_ttl;
-    font-weight: 600;
-    letter-spacing: 0.2em;
-    writing-mode: vertical-rl;
-    @include mq("sp") {
-      padding: 2rem 0;
-      font-size: 2.2rem;
-    }
-    span {
-      display: inline-block;
-      width: 1px;
-      height: 20rem;
-      background: #000;
-    }
-  }
-  .l-page-product__mv-content {
-    display: flex;
-    flex-direction: row-reverse;
-    @include mq("sp") {
-      display: block;
-    }
-  }
-  .l-page-product__mv-box {
-    margin-top: 16rem;
-    margin-left: -4vw;
-    padding: 5rem 2rem;
-    width: 37vw;
-    height: fit-content;
-    background: #fff;
-    border: 1px solid $color-main;
-    @include mq("sp") {
-      margin-top: 2rem;
-      margin-bottom: 5rem;
-      padding: 2rem 1rem;
-      width: 80vw;
-      max-width: 47rem;
-    }
-    h2 {
-      font-size: 2.7rem;
-      color: $color-main;
-      @include mq("sp") {
-        font-size: 1.7rem;
-      }
-    }
-    p {
-      margin-top: 3rem;
-      font-size: 1.8rem;
-      @include mq("sp") {
-        margin-top: 1rem;
-        font-size: 1.5rem;
-      }
-    }
-  }
-  .l-page-product__mv-img {
-    margin-top: 7.3rem;
-    margin-left: 3.5rem;
-    margin-bottom: 10rem;
-    width: 37vw;
-    max-width: 54rem;
-    @include mq("sp") {
-      margin-bottom: 1rem;
-      width: 70vw;
-      margin-top: 3rem;
-    }
-    @include mq("xs") {
-      margin-left: 1.5rem;
-    }
-  }
-}
 
 /*固定ページ　フォームテンプレート*/
 .l-page__form {

@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-<div class="u-headerHight"></div>
+
 <!-- 固定ページタイトル部分 -->
 
   <?php the_content(); ?>

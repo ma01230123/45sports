@@ -6,12 +6,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="format-detection" content="telephone=no">
-  <link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/assets/img/favicon.ico">
 
   <?php wp_head(); ?>
 </head>
 
-<body <?php body_class(['drawer', 'drawer--right']); ?>>
+<body <?php body_class(); ?>>
+<div class="u-headerHight"></div>
   <!-- header -->
   <header id="header" class="l-header">
     <div class="c-inner c-inner--1300">
@@ -19,7 +19,7 @@
       <div class="l-header__flex">
         <div class="l-header__left">
           <!-- トップページ用タグの設定 -->
-          <?php 
+          <?php
             if(is_front_page()){
               $tag_start = '<h1 class="l-header__left-logo">';
               $tag_end = '</h1>';
@@ -29,12 +29,8 @@
             }?>
           <?php echo $tag_start; ?>
           <a href="<?php echo esc_url(home_url('/')); ?>" class="l-header__left-logo-link">
-            <picture>
-              <source srcset="<?php echo get_template_directory_uri(); ?>/assets/img/logo-white.svg"
-                media="(min-width: 640px)" class="l-header__left-logo-img">
-              <img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo-white.svg" alt="信和工業株式会社のロゴ"
+              <img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo-black.svg" alt="総合型地域スポーツクラブ兵庫県協議会のロゴ"
                 class="l-header__left-logo-img">
-            </picture>
           </a>
           <?php echo $tag_end; ?>
         </div><!-- /.l-header__left -->
