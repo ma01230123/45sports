@@ -55,8 +55,7 @@
             給湯器の品質上重要なガス通路部、水通路部のメカ制御部品と樹脂加工部品の製造を事業として成長しております。
           </p>
         </div><!-- /.p-top-strength__warp -->
-        <!-- テンプレート　topStrengthCard　の呼び出し -->
-        <?php get_template_part('template/topStrengthCard'); ?>
+
       </div>
     </section><!-- /.p-top-strength -->
 
@@ -73,8 +72,7 @@
             電気的エネルギーを機械的な動作に変換する装置を”ソレノイド”と呼んでいます。信和工業は”ソレノイド”を活用した流体制御機器で皆様のお役に立ち豊かな暮らしに貢献いたします。
           </p>
         </div><!-- /.p-top-product__warp -->
-        <!-- テンプレート　topProductCard　の呼び出し -->
-        <?php get_template_part('template/topProductCard'); ?>
+
       </div>
     </section><!-- /.p-top-product -->
   </div>
