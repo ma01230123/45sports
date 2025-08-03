@@ -159,11 +159,8 @@ function my_menu_init()
   register_nav_menus(
     array(
       'header_menu' => 'ヘッダーメニュー',
-      'footer_menu01' => 'フッターメニュー01',
-      'footer_menu02' => 'フッターメニュー02',
-      'footer_menu03' => 'フッターメニュー03',
-      'footer_menu04' => 'フッターメニュー04',
-      'footer_menu-bottom' => 'フッターメニューボトム',
+      'footer_menu_top' => 'フッターメニュー（上の方）',
+      'footer_menu_bottom' => 'フッターメニュー（住所の下）',
       // 'test_menu' => 'テストメニュー',
 
     )
