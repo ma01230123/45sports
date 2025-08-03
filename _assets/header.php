@@ -2,11 +2,9 @@
 <html lang="ja">
 
 <head>
-
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="format-detection" content="telephone=no">
-
   <?php wp_head(); ?>
 </head>
 
@@ -14,7 +12,7 @@
 <div class="u-headerHight"></div>
   <!-- header -->
   <header id="header" class="l-header">
-    <div class="c-inner c-inner--1300">
+    <div class="c-inner c-inner--header">
 
       <div class="l-header__flex">
         <div class="l-header__left">
@@ -40,14 +38,18 @@
             <!-- メニューより表示 -->
             <?php wp_nav_menu( array('theme_location' => 'header_menu' )); ?>
           </nav>
+          <div class="l-header__right-mail">
+            <a href="#" class="l-header__right-mail-link"><i class="fa-regular fa-envelope"></i></a>
+          </div><!-- /.l-header__right-mail -->
         </div><!-- /.l-header__right -->
       </div><!-- /.l-header__flex -->
-    </div><!-- /.c-inner c-inner--1300 -->
+    </div><!-- /.c-inner -->
 
 
     <!-- sp用ヘッダー（他では非表示） -->
     <!-- ハンバーガーボタン -->
-    <button class="c-drawer__icon js-icon u-hidden-pc u-hidden-tab"><span class="c-drawer__bars">
+    <button class="c-drawer__icon js-icon u-hidden-pc u-hidden-tab">
+      <span class="c-drawer__bars">
         <span class="c-drawer__bar"></span>
         <span class="c-drawer__bar"></span>
         <span class="c-drawer__bar"></span>

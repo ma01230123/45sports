@@ -4,50 +4,86 @@
 @use "./../0_foundation/vars"as *;
 
 .l-header {
-  // background-color: $color-main;
+  background-color: rgba(255,255,255,0.8);
   position: fixed;
   top: 0rem;
   left: 0;
   right:0;
   width: 100%;
   z-index: map-get($layer, "header");
-}
 
 
-.l-header__flex {
-  padding: 1.5rem 0;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap:3.7rem;
-  height: $header-height-pc;
-  @include mq("sp") {
-    height: $header-height-sp;
-    padding: 0;
+  .l-header__flex {
+    // padding: 0 2rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:3.7rem;
+    height: $header-height-pc;
+    @include mq("tab") {
+      height: $header-height-tab;
+    }
+    @include mq("sp") {
+      height: $header-height-sp;
+    }
   }
-}
-
-.l-header__left-logo {
-  margin-top: 1.6rem;
-  // width: 29.3rem;
-  height: 7.6rem;
-  display: inline-block;
-  @include mq("sp") {
-    margin-top: 1.1rem;
-    // width: calc(29.3rem * 0.8);
-    height: 5.7rem;
+  .l-header__left{
+    width: 28%;
+    @include mq("sp") {
+      width: 100%;
+    }
   }
-  &:hover {
-    opacity: $hover-opacity;
+  .l-header__left-logo {
+    display: inline-block;
+    .l-header__left-logo-link {
+      display: block;
+    }
+    .l-header__left-logo-link img{
+      height: 7.6rem;
+      display: block;
+      @include mq("sp") {
+        height: 5.7rem;
+      }
+      &:hover {
+        opacity: $hover-opacity;
+      }
+    }
   }
-  // .l-header__left-logo-link {
-  //   display: block;
-  //   margin-top: -0.8rem;
-  // }
-}
 
-.l-header__right {
-  margin-top: 1.2rem;
-  margin-left: auto;
+  .l-header__right {
+    width: 65%;
+    flex:1;
+    // margin-top: 1.2rem;
+    // margin-left: auto;
+    padding: 1.1rem 1.1rem 1.1rem 3.4rem;
+    height: 7rem;
+    background: $color-main;
+    border-radius: 5rem;
+    display: flex;
+    align-items: center;
+    gap:6rem;
+    // justify-content: space-between;
+  }
+  .l-header__right-mail{
+    flex:0 0 5rem;
+    width: 5rem ;
+    height: 5rem ;
+    border-radius: 50vh;
+    background: #FFF;
+    border: 2px solid #FFF;
+    &:hover{
+      background: $color-main;
+      .l-header__right-mail-link{
+        color:#FFF;
+      }
+    }
+  }
+  .l-header__right-mail-link{
+    display: block;
+    color:$color-main;
+    text-align: center;
+    line-height: 4.5rem;
+    font-size: 2.5rem;
+  }
 }

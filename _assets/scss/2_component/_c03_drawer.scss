@@ -1,7 +1,7 @@
 @use "./../0_foundation/vars" as *;
 
 $drawer-bar-space: 0.7rem;
-$drawer-bar-width: 3.4rem;
+$drawer-bar-width: 2.6rem;
 $drawer-bar-height: 0.2rem;
 $drawer-content-width: 100%;
 //スライドインするメニューの幅
@@ -11,34 +11,28 @@ $drawer-content-width: 100%;
 // -----
 .c-drawer__icon {
   position: fixed;
-  top: 0.8rem;
+  top: 2.7rem;
   right: 1.5rem;
   z-index: map-get($layer, "drawer") + 1;
   cursor: pointer;
   transition: all 0.5s ease 0s;
-  background: transparent;
   box-shadow: none;
   border: none;
   display: block;
+  width: 4.5rem;
+  height: 4.5rem;
+  background: $color-main;
+  border-radius: 50vh;
+  text-align: center;
+  vertical-align: middle;
 }
-
-// トップページのみ
-.top .c-drawer__icon {
-  top: 4.8rem;
-}
-.top .l-header.is-scroll .c-drawer__icon{
-  top:0.8rem;
-}
-
 
 .c-drawer__bars {
-  margin-bottom: 1rem;
-  margin-left: 1rem;
+  margin-top: 0.7rem;
   display: inline-block;
   width: $drawer-bar-width;
   height: $drawer-bar-height + ($drawer-bar-space + $drawer-bar-height) * 2;
   position: relative;
-  vertical-align: middle;
 }
 
 .c-drawer__bar {
@@ -92,34 +86,49 @@ $drawer-content-width: 100%;
   max-width: 100%;
   height: 100%;
   overflow-y: scroll;
-  background: #f1f1f1;
+  background:$color-main;
   &.is-checked {
     transform: translateX(0);
-  }
-}
-// トップページのみ
-.top .c-drawer__content {
-  top: calc($header-height-sp + 5rem) ;
-  &.is-scroll{
-    top:$header-height-sp;
   }
 }
 
 .c-drawer__content{
   .c-drawer__menus ul{
-    margin-top: 0rem;
+    padding: 3rem 1.5rem 1.5rem;
     list-style: none;
     & > li {
       padding: 1rem 1.5rem;
-      border-bottom: 1px solid $color-main;
+      border-bottom: 2px solid #FFF;
       position: relative;
       & > a {
-        color: $color-main;
+        color: #FFF;
         font-size: 1.6rem;
-        // letter-spacing: 0.25em;
+        font-weight: bold;
         text-decoration: none;
-        text-align: center;
+        display: block;
+        position: relative;
+        &::before{
+          content: "\f054";
+          position: absolute;
+          top:50%;
+          transform: translateY(-50%);
+          right:0rem;
+          width: 2.1rem;
+          height: 2.1rem;
+          line-height: 2.1rem;
+          background: #fff;
+          border-radius: 50vh;
+          color:$color-main;
+          font-family: "Font Awesome 6 Free";
+          font-size: 1.4rem;
+          font-weight: bold;
+          text-align: center;
+        }
       }
+    }
+    & > li:first-child{
+      border-top: 2px solid #FFF;
+
     }
   }
   .menu-item-has-children{
