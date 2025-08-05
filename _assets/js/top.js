@@ -38,23 +38,67 @@ function escapeStr(idname) {
 
 
 
-jQuery(function ($) {
+// document.addEventListener('DOMContentLoaded', function () {
+//   const swiper_top = new Swiper('.swiper--top', {
+//     slidesPerView: 'auto',      // CSS の幅をそのまま使う
+//     loop: true,                 // 無限ループ
+//     speed: 5000,                // 一周あたりの時間（ミリ秒）
+//     spaceBetween: 30,           // スライド間の余白
+//     allowTouchMove: false,      // タッチスワイプ禁止
+//     freeMode: true,             // freeMode を有効化すると“慣性スクロール”が働く
+//     freeModeMomentum: false,    // 慣性をオフにして一定速に
+//     autoplay: {
+//       delay: 0,                 // 途切れなく再生
+//       disableOnInteraction: false,
+//     },
+//   });
 
-  // トップページメインビジュアルスライダー
-$('.js-top-mv').slick({
-  autoplay: true, //自動でスクロール
-  autoplaySpeed: 5000, //自動再生のスライド切り替えまでの時間を設定
-  speed: 1000, //スライドが流れる速度を設定
-  cssEase: "linear", //スライドの流れ方を等速に設定
-  fade: true,
-  slidesToShow: 1, //表示するスライドの数
-  swipe: false, // 操作による切り替えはさせない
-  arrows: false, //矢印非表示
-  pauseOnFocus: false, //スライダーをフォーカスした時にスライドを停止させるか
-  pauseOnHover: false, //スライダーにマウスホバーした時にスライドを停止させるか
-  dots: false,
+//   const swiper_bottom = new Swiper('.swiper--bottom', {
+//     slidesPerView: 'auto',      // CSS の幅をそのまま使う
+//     loop: true,                 // 無限ループ
+//     speed: 5000,                // 一周あたりの時間（ミリ秒）
+//     spaceBetween: 30,           // スライド間の余白
+//     allowTouchMove: false,      // タッチスワイプ禁止
+//     freeMode: true,             // freeMode を有効化すると“慣性スクロール”が働く
+//     freeModeMomentum: false,    // 慣性をオフにして一定速に
+//     autoplay: {
+//       delay: 0,                 // 途切れなく再生
+//       disableOnInteraction: false,
+//       reverseDirection: true,
+//     },
+//   });
+// });
+
+document.addEventListener('DOMContentLoaded', () => {
+  // ─── 共通オプション ───
+  const commonOptions = {
+    slidesPerView: 'auto',      // CSS の幅をそのまま使う
+    loop: true,                 // 無限ループ
+    speed: 5000,                // 一周時間（ms）
+    spaceBetween: 30,           // スライド間余白
+    allowTouchMove: false,      // タッチ禁止
+    freeMode: true,             // freeMode（慣性スクロール）
+    freeModeMomentum: false,    // 慣性をオフに
+    autoplay: {
+      delay: 0,                 // 途切れなく再生
+      disableOnInteraction: false,
+      // reverseDirection: false // ← デフォルトで逆回転なし
+    },
+  };
+
+  // ─── スライダー初期化用ヘルパー ───
+  function initAutoSwiper(selector, reverse = false) {
+    const opts = {
+      ...commonOptions,
+      autoplay: {
+        ...commonOptions.autoplay,
+        ...(reverse && { reverseDirection: true }),
+      },
+    };
+    new Swiper(selector, opts);
+  }
+
+  // トップは通常回転、ボトムは逆回転
+  initAutoSwiper('.swiper--top');
+  initAutoSwiper('.swiper--bottom', true);
 });
-
-});
-
-

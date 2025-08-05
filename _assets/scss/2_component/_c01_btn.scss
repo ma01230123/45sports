@@ -1,5 +1,30 @@
 @use "./../0_foundation/vars"as *;
 
+
+.c-btn{
+  a{
+    display: inline-block;
+    width: 32.5rem;
+    height: 5.4rem;
+    // padding: 0rem 1.5rem;
+    background:url('../img/btn-bg.png');
+          background-position: center center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      color:#FFF;
+      font-size: 1.7rem;
+      font-weight: bold;
+      line-height: 5.4rem;
+      letter-spacing: 0.07em;
+      &:hover{
+        opacity: $hover-opacity;
+      }
+  }
+
+}
+
+
+
 /* ヘッダー　お問い合わせ */
 .c-btn-header {
   a {

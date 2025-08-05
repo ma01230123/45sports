@@ -4,12 +4,11 @@ l-footer
 @use "./../0_foundation/vars"as *;
 
 .l-footer {
-  position: relative;
+  background: $color-bg-dark;
   .l-footer__inner {
     padding-top: 3.5rem;
     padding-bottom: 7.6rem;
-    width: 100%;
-    background: $color-bg-dark;
+    // width: 100%;
     color: #fff;
     display: flex;
     justify-content: space-between;
@@ -59,10 +58,26 @@ l-footer
   .l-footer__menu{
     margin-top: 3rem;
     width: calc(100% - 47rem);
+    border-top: 2px solid #FFF;
+    @include mq("sp") {
+      width: 100%;
+      // スマホ用
+      li{
+        padding: 1rem 1.5rem;
+        border-bottom: 2px solid #FFF;
+      }
+      li a{
+        font-weight: bold;
+      }
+    }
   }
   .l-footer__menu-top ul{
     display: flex;
     gap: 8rem;
+    @include mq("sp") {
+      flex-direction: column;
+      gap:0;
+    }
   }
   .l-footer__menu-top ul li a{
     font-size: 1.8rem;
@@ -77,15 +92,24 @@ l-footer
   .l-footer__menu-club{
     font-weight: bold;
     margin-top: 2rem;
+    @include mq("sp") {
+      margin-top: 0rem;
+      font-size: 1.6rem;
+    }
   }
   .l-footer__menu-club-warp{
     margin-left: 2rem;
     column-count: 2;
     font-size: 1.5rem;
+    @include mq("sp") {
+      column-count: 1;
+      gap:0;
+    }
   }
 
 
   .l-footer__copyright{
+    background: #fff;
     font-size:1.4rem ;
     padding: 1rem 1.5rem;
     text-align: center;

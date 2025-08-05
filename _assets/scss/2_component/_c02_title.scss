@@ -1,5 +1,22 @@
 @use "./../0_foundation/vars" as *;
 
+.c-ttl{
+  font-weight: bold;
+  letter-spacing: 0.05em;
+  &.c-ttl--44{
+    font-size: 4.4rem;
+    @include mq("sp") {
+      font-size: 3.4rem;
+    }
+  }
+  &.c-ttl--32{
+    font-size: 3.2rem;
+    @include mq("sp") {
+      font-size: 2.5rem;
+    }
+  }
+}
+
 .c-ttl-orange {
   color: $color-main;
   font-weight: 700;
@@ -8,9 +25,6 @@
     font-size: 2.2rem;
     line-height: 1.5;
     letter-spacing: 0;
-    @include mq("sp") {
-      font-size: 1.8rem;
-    }
   }
   &.c-ttl-orange--24 {
     font-size: 2.4rem;

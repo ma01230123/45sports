@@ -18,7 +18,7 @@
         FAX：078-200-4166<br>
         業務時間：9時～12時、13時～17時30分<br>
       </div><!-- /.l-footer__address-item -->
-      <div class="l-footer__address-link">
+      <div class="l-footer__address-link u-hidden-sp">
         <!-- メニューより表示 -->
         <?php wp_nav_menu(array('theme_location' => 'footer_menu_bottom')); ?>
       </div><!-- /.l-footer__address-item-link -->
@@ -70,6 +70,9 @@
         }
         ?>
       </div><!-- /.l-footer__menu-club -->
+      <div class="l-footer__menu-sp u-hidden-pc">
+      <?php wp_nav_menu(array('theme_location' => 'footer_menu_bottom')); ?>
+      </div>
     </div>
 
 

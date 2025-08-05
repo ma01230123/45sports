@@ -221,6 +221,41 @@
   }
 }
 
+.c-slide{
+  width: 23.3rem;
+  height: 22.6rem;
+  position: relative;
+  img{
+    border-radius: 2rem;
+    width: 100%;
+    height: 100%;
+  }
+  .c-slide__title{
+    position: absolute;
+    top:50%;
+    transform: translateY(-50%);
+    padding: 1rem;
+    color:#FFF;
+    font-family: $font-ttl;
+    font-size: 1.8rem;
+    -webkit-text-stroke:1px #ccc;
+    paint-order: stroke;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+  }
+  .c-slide__bg{
+    position: absolute;
+    top:0.8rem;
+    left:0.8rem;
+    width: 23.3rem;
+    height: 22.6rem;
+    border-radius: 2rem;
+    z-index: -1;
+    //「area-color」が指定されていない場合用
+    background: #ccc;
+  }
+ }
+
 /*　インタビューページ　*/
 .c-bg-interview{
   position: relative;
