@@ -177,7 +177,7 @@
   }
 }
 
-
+/*トップページ　お知らせ*/
 .p-top-news{
   margin-top: calc(0px - clamp(7.5rem, -17.389rem + 51.85vw, 21.5rem));
   padding-top: 30rem;
@@ -197,125 +197,73 @@
     text-align: center;
   }
 }
-/*トップページ　メッセージ*/
+
 
 
 /*トップページ　黒の背景　強みと製品*/
-
+.p-top-consider{
+  margin-top: 16rem;
+  padding: 4.3rem 0;
+  background:url("../img/top-consider-bg.jpg");
+  background-position: center, center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  // min-height: 55.8rem;
+  .p-top-consider__inner{
+    margin: 0 auto;
+    max-width: 95.2rem;
+    padding: 4rem 9rem;
+    background: rgba(255,255,255,0.9);
+    border-radius: 2.1rem;
+  }
+  .p-top-consider__title{
+    text-align: center;
+    img{
+      margin: 0 auto;
+      width: 10rem;
+      display: block;
+    }
+  }
+  .p-top-consider__text{
+    margin-top: 3rem;
+  }
+  .p-top-consider__btn{
+    margin-top: 4rem;
+    text-align: center;
+  }
+}
+/*トップページ　アクセス*/
+.p-top-access{
+  margin-top: 15rem;
+  .p-top-access__map{
+    margin-top: 2.3rem;
+    width: 100%;
+    height: 47.2rem;
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+    }
+  }
+}
 
 /*トップページ　リンク*/
 .p-top-link {
-  margin-top: 8.6rem;
+  margin-top: 4.1rem;
+  margin-bottom: 7.5rem;
   color: #fff;
   @include mq("sp") {
-    margin-top: 4.6rem;
+    margin-top: 2.6rem;
   }
-  .p-top-link__flex {
+  .p-top-link__items {
     display: flex;
+    flex-wrap: wrap;
+    gap: 2.3rem;
     @include mq("sp") {
       flex-direction: column;
-      gap: 1rem;
     }
   }
-  .p-top-link__item {
 
-  }
-  .p-top-link__item-title-jp {
-    margin-top: 1.5rem;
-    font-size: 1.7rem;
-    @include mq("sp") {
-      margin-top: 0rem;
-    }
-  }
-  .p-top-link__item-text {
-    margin-top: 1rem;
-    line-height: 1.8;
-  }
-  .p-top-link__item-link {
-    margin-top: 4.5rem;
-    @include mq("sp") {
-      margin-top: 2.5rem;
-    }
-    a {
-      margin-left: auto;
-    }
-  }
 }
 
-/*トップページ　求人情報*/
-.p-top-recruit {
-  margin-top: 8.6rem;
-  @include mq("sp") {
-    margin-top: 4.6rem;
-  }
-  position: relative;
-  &::before{
-    content:"";
-    position: absolute;
-    width: 100%;
-    height: 45.5rem;
-    background: $color-main;
-    z-index: -1;
-    @include mq("sp") {
-      height: 35rem;
-    }
-  }
-  .p-top-recruit__title-flex{
-   padding-top: 9rem;
-   display: flex;
-   gap: 10rem;
-   color: #fff;;
-   @include mq("sp") {
-    padding-top: 4rem;
-    display: block;
-  }
- }
- .p-top-recruit__title-jp{
-  margin-top: -1.2rem;
-  font-weight: 500;
- }
- .p-top-recruit__title-flex-right{
-  margin-top: 2.2rem;
-  max-width: 55rem;
- }
- .p-top-recruit__mv{
-  margin-top: 4rem;
- }
- .p-top-recruit__content{
-  margin-top: 6.5rem;
-  @include mq("sp") {
-    margin-top: 4rem;
-  }
- }
- .p-top-recruit__link{
-  margin-top: 6rem;
-  a{
-    margin: 0 auto;
-  }
- }
-}
-
-/*トップページ　新着情報*/
-
-
-
-/*トップページ　トピックス*/
-.p-top-topics{
-  padding-top: 6.5rem;
-  padding-bottom: 17rem;
-  background: #f2f2f2;
-  @include mq("sp") {
-    padding-top: 3.5rem;
-    padding-bottom: 15rem;
-  }
-  .p-top-topics__title-jp{
-    margin-top: -2.5rem;
-    font-weight: 500;
-    @include mq("sp") {
-      margin-top: -1.5rem;
-    }
-  }
-  .p-top-topics__content{
-    margin-top: 4rem;
-  }
-}

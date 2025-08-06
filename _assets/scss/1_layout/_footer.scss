@@ -11,7 +11,11 @@ l-footer
     // width: 100%;
     color: #fff;
     display: flex;
-    justify-content: space-between;
+    gap:0 12rem;
+    @include mq("tab") {
+      gap:0 3rem;
+    }
+    // justify-content: space-between;
     @include mq("sp") {
       // padding-top: 2rem;
       padding-bottom: 3rem;
@@ -44,6 +48,9 @@ l-footer
     margin-left: 2.5rem;
     line-height: 1.7;
     font-weight: 500;
+    @include mq("tab") {
+      font-size: 1.5rem;
+    }
     @include mq("sp") {
       margin-top: 2rem;
     }
@@ -57,9 +64,9 @@ l-footer
 
   .l-footer__menu{
     margin-top: 3rem;
-    width: calc(100% - 47rem);
-    border-top: 2px solid #FFF;
+    width: calc(100% - 32rem);
     @include mq("sp") {
+      border-top: 2px solid #FFF;
       width: 100%;
       // スマホ用
       li{
@@ -84,6 +91,9 @@ l-footer
     font-weight: bold;
     &:hover{
       opacity: $hover-opacity;
+    }
+    @include mq("tab") {
+      font-size: 1.6rem;
     }
     @include mq("sp") {
       font-size: 1.6rem;

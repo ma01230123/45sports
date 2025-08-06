@@ -38,6 +38,22 @@
   }
 }
 
+.c-btn-link{
+  padding: 1.5rem 2rem;
+  width: 27.1rem;
+  height: 7.5rem;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  a{
+    color:#FFF;
+    font-size: 1.7rem;
+    font-weight: bold;
+    line-height: 1.3;
+    letter-spacing: -0.05em;
+  }
+}
+
 /* ヘッダー　お問い合わせ */
 .c-btn-header {
   a {
