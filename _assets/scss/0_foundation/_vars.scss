@@ -34,6 +34,12 @@ $hover-opacity: 0.6; // 透過度
 $layout-width-inner: 115.3rem;
 $layout-width-inner-break: 1200px;
 
+@media screen and (min-width: 768px) and (max-width: 1000px) {
+	html {
+		font-size: 1vw;
+	}
+}
+
 // フォント
 $font_jp: 'Noto Sans JP',sans-serif;
 $font_ttl: 'M PLUS Rounded 1c',sans-serif;

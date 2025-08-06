@@ -121,15 +121,36 @@
     margin: 0rem auto 0; /* センター */
     border-left: 50vw solid transparent;
     border-right: 50vw solid transparent;
-    border-top: 15vw solid #FFF;
+    border-top: clamp(7.5rem, -17.389rem + 51.85vw, 21.5rem) solid #FFF;
     z-index: 1;
   }
 }
 
 .p-top-club{
-  margin-top: -14.9vw;
+  margin-top: calc(0px - clamp(7.5rem, -17.389rem + 51.85vw, 21.5rem));
+  padding-top: 30rem;
   background: $color-bg-light;
-  height: 20rem;
+  height: 50rem;
+  position: relative;
+  &::before{
+    content:'';
+    position: absolute;
+    top:0;
+    left:-3px;
+    background:url("../img/top-club-bg.png");
+    background-position: center, center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 26.3rem;
+    height: 31rem;
+  }
+  @include mq("sp") {
+    padding-top: 12rem;
+    &::before{
+      width: 13.2rem;
+      height: 15.5rem;
+    }
+  }
 }
 
 /*トップページ　メッセージ*/

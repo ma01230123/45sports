@@ -29,7 +29,7 @@
     </div>
     <div class="p-top-mv__text">
       スポーツ
-      <span class="p-top-mv__text-small">でつながる、</span>
+      <span class="p-top-mv__text-small">でつながる、</span><br class="u-hidden-pc u-hidden-tab">
       <span class="p-top-mv__text-blue">ま<span class="p-top-mv__text-narrow">ち</span></span>
       <span class="p-top-mv__text-narrow">・</span>
       <span class="p-top-mv__text-orange">ひ<span class="p-top-mv__text-narrow">と</span></span>
@@ -88,7 +88,15 @@
 
   <!-- トップ　各クラブのご紹介 -->
   <section class="p-top-club">
-    <h2>aaaa</h2>
+    <div class="p-top-club__inner c-inner">
+      <h2 class="c-ttl-img c-ttl-img--white">
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/icon-club.png" alt="">
+        各クラブのご紹介
+        <span>Club Introduction</span>
+      </h2>
+      
+
+    </div><!-- /.p-top-club__inner -->
 
   </section>
 

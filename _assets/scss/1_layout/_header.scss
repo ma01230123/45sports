@@ -23,6 +23,7 @@
     height: $header-height-pc;
     @include mq("tab") {
       height: $header-height-tab;
+      gap: 0rem;
     }
     @include mq("sp") {
       height: $header-height-sp;
@@ -42,6 +43,9 @@
     .l-header__left-logo-link img{
       height: 7.6rem;
       display: block;
+      @include mq("tab") {
+        height: 6rem;
+      }
       @include mq("sp") {
         height: 5.7rem;
       }
@@ -63,7 +67,11 @@
     display: flex;
     align-items: center;
     gap:6rem;
-    // justify-content: space-between;
+    justify-content: space-between;
+    @include mq("tab") {
+      padding: 1.1rem 1.1rem 1.1rem 1.1rem;
+      gap:1rem;
+    }
   }
   .l-header__right-mail{
     flex:0 0 5rem;
