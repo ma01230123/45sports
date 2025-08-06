@@ -4,7 +4,7 @@
   <div class="c-tab__btn-wrap">
     <button class="c-tab__btn js-tab-btn is-active" data-tab="tab1">最新</button>
     <button class="c-tab__btn js-tab-btn" data-tab="tab2">お知らせ</button>
-    <button class="c-tab__btn js-tab-btn" data-tab="tab3">教室・イベント</button>
+    <button class="c-tab__btn js-tab-btn" data-tab="tab3">教室・<br class="u-hidden-pc u-hidden-tab">イベント</button>
   </div>
 
   <div id="tab1" class="c-tab__content js-tab-content is-active">

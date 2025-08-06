@@ -171,6 +171,9 @@
     border-right: 50vw solid transparent;
     border-top: clamp(7.5rem, -17.389rem + 51.85vw, 21.5rem) solid $color-bg-light;
     z-index: 2;
+    @include mq("sp") {
+      border-top: 7.5rem solid $color-bg-light;
+    }
   }
 }
 
@@ -179,16 +182,18 @@
   margin-top: calc(0px - clamp(7.5rem, -17.389rem + 51.85vw, 21.5rem));
   padding-top: 30rem;
   background: #FFF;
+  border-top: 1px solid $color-bg-light;
   position: relative;
   z-index: 1;
   @include mq("sp") {
+    margin-top: -7.5rem;
     padding-top: 12rem;
   }
   .p-top-news__tab{
     margin-top: 5.8rem;
   }
   .p-top-news__btn{
-    margin-top: 3rem;
+    margin-top: 4rem;
     text-align: center;
   }
 }
