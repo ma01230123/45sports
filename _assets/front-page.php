@@ -101,6 +101,27 @@
     <div class="p-top-club__triangle"></div>
   </section>
 
+  <!-- トップ　おしらせ -->
+  <section class="p-top-news">
+    <div class="p-top-news__inner c-inner">
+      <h2 class="c-ttl-img">
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/icon-note.png" alt="">
+        お知らせ
+        <span>NEWS</span>
+      </h2>
+      <div class="p-top-news__tab">
+        <?php get_template_part('template/top-tab'); ?>
+      </div>
+    </div>
+    <div class="p-top-news__btn c-btn">
+      <a href="<?php echo esc_url(home_url('/')); ?>news">
+        お知らせ一覧
+      </a>
+    </div>
+    </div><!-- /.c-inner -->
+  </section><!-- /.p-top-news -->
+
+
   <!-- トップ　登録制度について-->
   <section class="p-top-consider">
     <h2>aaa</h2>
@@ -120,13 +141,7 @@
   </section>
 
 
-  <!-- トップ　メッセージ -->
-  <section class="p-top-news">
-    <div class="c-inner">
-      <?php get_template_part('template/news-tab'); ?>
-    </div>
-    </div><!-- /.c-inner -->
-  </section><!-- /.p-top-message -->
+
 
 
   <!-- トップ　アクセス -->

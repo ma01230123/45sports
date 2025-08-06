@@ -33,6 +33,7 @@
     font-size: 1.8rem;
     line-height: 1.3;
     font-weight: 500;
+    color:$color-news;
     @include mq("sp") {
       font-size: 1.4rem;
     }

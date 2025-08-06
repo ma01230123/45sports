@@ -1,12 +1,13 @@
-<!-- news-tab.php start -->
+<!-- top-tab.php start -->
+<!-- JS で動くタブ -->
 <div class="c-tab">
   <div class="c-tab__btn-wrap">
-    <button class="c-tab__btn is-active" data-tab="tab1">最新</button>
-    <button class="c-tab__btn" data-tab="tab2">お知らせ</button>
-    <button class="c-tab__btn" data-tab="tab3">教室・イベント</button>
+    <button class="c-tab__btn js-tab-btn is-active" data-tab="tab1">最新</button>
+    <button class="c-tab__btn js-tab-btn" data-tab="tab2">お知らせ</button>
+    <button class="c-tab__btn js-tab-btn" data-tab="tab3">教室・イベント</button>
   </div>
 
-  <div id="tab1" class="c-tab__content is-active">
+  <div id="tab1" class="c-tab__content js-tab-content is-active">
     <?php
     // $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
     $args = array(
@@ -24,7 +25,7 @@
     ?>
   </div>
 
-  <div id="tab2" class="c-tab__content">
+  <div id="tab2" class="c-tab__content js-tab-content">
     <?php
     $args = array(
       'post_type' => array_merge(['post'], get_custom_post_types()),
@@ -45,7 +46,7 @@
     ?>
   </div>
 
-  <div id="tab3" class="c-tab__content">
+  <div id="tab3" class="c-tab__content js-tab-content">
   <?php
     $args = array(
       'post_type' => array_merge(['post'], get_custom_post_types()),
@@ -66,4 +67,4 @@
     ?>
   </div>
 </div>
-<!-- news-tab.php end -->
+<!-- top-tab.php end -->

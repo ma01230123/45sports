@@ -14,9 +14,9 @@ if ($query && $query->have_posts()):
     }
     // ─── 投稿者の「名」を取得 ───
     // 投稿者ID を取得
-    $author_id  = get_the_author_meta( 'ID' );
+    $author_id = get_the_author_meta('ID');
     // 「名」を取得（ユーザープロフィールの「名」フィールド）
-    $first_name = get_the_author_meta( 'first_name', $author_id );
+    $first_name = get_the_author_meta('first_name', $author_id);
     ?>
     <article class="c-post">
       <time class="c-post__date">
@@ -31,10 +31,14 @@ if ($query && $query->have_posts()):
         <span class="c-post__category"><?php echo esc_html($term_name); ?></span>
       <?php endif; ?>
 
-      <a href="<?php the_permalink(); ?>">
-      <?php if ( $first_name ) : ?>
-        <span class="c-post__author"><?php echo esc_html( $first_name ); ?></span>
-      <?php endif; ?><h2><?php the_title(); ?></h2>
+      <a href="<?php the_permalink(); ?>" class="c-post__link">
+
+        <h3>
+          <?php if ($first_name): ?>
+            <span class="c-post__author"><?php echo esc_html($first_name); ?></span>
+          <?php endif; ?>
+          <?php the_title(); ?>
+        </h3>
       </a>
     </article>
   <?php endwhile;
