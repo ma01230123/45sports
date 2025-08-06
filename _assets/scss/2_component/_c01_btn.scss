@@ -20,10 +20,22 @@
         opacity: $hover-opacity;
       }
   }
-
 }
 
-
+.c-btn-club{
+  width: 23.8rem;
+  padding: 0.5rem 2.5rem ;
+  border-radius: 50vh;
+  text-align: center;
+  &:hover{
+    opacity: $hover-opacity;
+  }
+  a{
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 0.05rem;
+  }
+}
 
 /* ヘッダー　お問い合わせ */
 .c-btn-header {

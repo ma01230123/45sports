@@ -94,14 +94,16 @@
         各クラブのご紹介
         <span>Club Introduction</span>
       </h2>
-      
-
+      <div class="p-top-club__warp">
+        <?php get_template_part('template/top-club-card'); ?>
+      </div>
     </div><!-- /.p-top-club__inner -->
-
+    <div class="p-top-club__triangle"></div>
   </section>
 
   <!-- トップ　登録制度について-->
   <section class="p-top-consider">
+    <h2>aaa</h2>
     <!-- <div class="p-top-product__inner">
       <div class="p-top-product__warp">
         <div class="p-top-product__title-en c-ttl-bordering c-ttl-bordering--2row">

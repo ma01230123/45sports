@@ -1,6 +1,48 @@
 @use "./../0_foundation/vars" as *;
 
 /*ラインナップページ　一覧表示*/
+
+.c-card-club{
+  padding: 2rem;
+  border-radius: 1.6rem;
+  width: 35.6rem;
+  background: #FFF;
+  .c-card-club__area{
+    text-align: center;
+    color:#FFF;
+    font-size: 1.5rem;
+    font-weight: 500;
+  }
+  .c-card-club__title{
+    margin-top: 1rem;
+    margin-left: 1rem;
+    line-height: 1.3;
+    height: 4rem;
+    display: flex;
+    align-items: center;
+  }
+  .c-card-club__address{
+    margin-top: 0.4rem;
+    margin-left: 2rem;
+    font-size: 1.5rem;
+    line-height: 1.4;
+    letter-spacing: 0.05;
+  }
+  .c-card-club__img{
+    margin-top: 1rem;
+    img{
+      width: 100%;
+      height: 18.4rem;
+      object-fit: cover;
+    }
+  }
+  .c-card-club__btn{
+    margin: 2rem auto 0;
+  }
+}
+
+
+
 .c-card-lineup{
   margin-bottom: 0;
   gap: 0;
@@ -41,7 +83,7 @@
           height: 4px;
           background: $color-main;
           bottom: 0;
-          
+
       }
     }
     p{
