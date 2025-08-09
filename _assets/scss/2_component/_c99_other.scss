@@ -139,47 +139,66 @@
 
 
 /*　ページナビ　*/
-.c-pagenavi {
-  .wp-pagenavi {
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-  }
+.c-pagenavi.wp-pagenavi {
+  margin-top:0.5rem;
+  margin-left: -2rem;
+  width: calc(100% + 4rem);
+  padding-top: 6rem;
+  border-top: 3px solid $color-news;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  @include mq("sp") {
+    padding-top: 3rem;
+    margin-left: 0rem;
+    width: 100%;
+    }
   span,
   a {
     /*数字部分の共通CSS　大きさなど*/
     margin: 0.7rem;
-    padding: 1.2rem 1.6rem;
+    padding: 0.7rem 1.1rem;
     display: inline-block;
     background: #FFF;
-    border: 1px solid $color-main;
-    color:$color-main;
-    font-size: 1.9rem;
+    border: 1px solid $color-news;
+    color:$color-news;
+    font-size: 2rem;
     font-weight: 500;
     line-height: 1;
     text-decoration: none;
     transition: all 0.3s;
     &:hover {
-      border: 1px solid $color-main;
-      background: $color-main;
+      border: 1px solid $color-news;
+      background: $color-news;
       color: #fff;
     }
   }
   span.current {
-    border-color:$color-main;
-    border: 1px solid $color-main;
-    background: $color-main;
+    border-color:$color-news;
+    border: 1px solid $color-news;
+    background: $color-news;
     color: #fff;
   }
   .nextpostslink,
   .previouspostslink {
     border: none;
-    background: #fff;
-    border: 1px solid #fff;
-    i {
-      font-size: 1.3rem;
+    background: #868788;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50vh;
+    position: relative;
+    i{
+      position: absolute;
+      top:50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      &::before {
+        font-size: 1.5rem;
+        color:#FFF;
+        vertical-align: middle;
+        line-height: 2.5rem;
+      }
     }
   }
 }
@@ -285,7 +304,10 @@
 
   .c-tab__btn {
     width: 17.3rem;
-    padding: 1rem;
+    min-height: 5.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
     background: #FFF;
     border-top: 2px solid $color-news;

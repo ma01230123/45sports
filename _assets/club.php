@@ -44,18 +44,17 @@
 
 
     <div class="c-tab__contents">
+<!-- 基本情報のコンテンツ -->
       <div class="c-tab__content <?php if ($active_tab === 'tab01')
         echo 'is-active'; ?>">
         <?php the_content(); ?>
       </div>
-
-      <div class="c-tab__content <?php if ($active_tab === 'tab02')
+<!-- お知らせのコンテンツ -->
+      <div style=" border-bottom: none" class="c-tab__content <?php if ($active_tab === 'tab02')
         echo 'is-active'; ?>">
         <?php
-        // 固定ページのスラッグ（例：club-k01）
         $slug = get_post_field('post_name', get_post());
 
-        // club-*** → post-*** に変換
         $custom_post_type = str_replace('club-', 'post-', $slug);
 
         // ページャー用
@@ -75,7 +74,7 @@
         get_template_part('template/tab-loop');
         ?>
       </div>
-
+<!-- アクセスのコンテンツ -->
       <div class="c-tab__content <?php if ($active_tab === 'tab03')
         echo 'is-active'; ?>">
         <p>

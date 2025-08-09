@@ -43,8 +43,12 @@ if ($query && $query->have_posts()):
     </article>
     <?php endwhile;
   // WP-PageNaviを使ったページャー表示
-  if (function_exists('wp_pagenavi') && !is_front_page()) {
-    wp_pagenavi(array('query' => $query));
+  if ( function_exists('wp_pagenavi') && !is_front_page() ) {
+    wp_pagenavi([
+      'query'         => $query,
+      // 既定の 'wp-pagenavi' に加えてクラスを足したいなら両方書く
+      'wrapper_class' => 'wp-pagenavi c-pagenavi',
+    ]);
   }
   wp_reset_postdata();
 else:

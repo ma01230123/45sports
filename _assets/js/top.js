@@ -110,3 +110,39 @@ document.addEventListener('DOMContentLoaded', () => {
   initAutoSwiper('.swiper--bottom', true);
 });
 
+//トップページのタブの動き
+// document.addEventListener('DOMContentLoaded', () => {
+//   const buttons = document.querySelectorAll('.top .c-tab__btn');
+//   const contents = document.querySelectorAll('.top .c-tab__content');
+
+//   buttons.forEach(button => {
+//     button.addEventListener('click', () => {
+//       const target = button.dataset.tab;
+
+//       buttons.forEach(btn => btn.classList.remove('is-active'));
+//       contents.forEach(content => content.classList.remove('is-active'));
+
+//       button.classList.add('is-active');
+//       document.getElementById(target).classList.add('is-active');
+//     });
+//   });
+// });
+
+
+//トップページのタブの切替（ページの途中なのでJS）
+document.addEventListener('DOMContentLoaded', () => {
+  const buttons = document.querySelectorAll('.js-tab-btn');
+  const contents = document.querySelectorAll('.js-tab-content');
+
+  buttons.forEach(button => {
+    button.addEventListener('click', () => {
+      const target = button.dataset.tab;
+
+      buttons.forEach(btn => btn.classList.remove('is-active'));
+      contents.forEach(content => content.classList.remove('is-active'));
+
+      button.classList.add('is-active');
+      document.getElementById(target).classList.add('is-active');
+    });
+  });
+});

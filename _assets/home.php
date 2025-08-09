@@ -12,7 +12,7 @@
   </div>
 <div class="c-inner">
 <div class="l-home">
-  <?php get_template_part('template/top-tab'); ?>
+  <?php get_template_part('template/home-tab'); ?>
 </div><!-- /.l-home -->
 </div><!-- /.c-inner -->
 
