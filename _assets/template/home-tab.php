@@ -42,9 +42,10 @@ $active_tab = isset($_GET['tab']) ? $_GET['tab'] : 'tab01'; // デフォルト�
       $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
       $args = array(
         'post_type' => array_merge(['post'], get_custom_post_types()),
-        'posts_per_page' => -1,
+        'posts_per_page' => 5,
         'orderby' => 'date',
         'order' => 'DESC',
+        'paged' => $paged,
         'tax_query' => array(
           array(
             'taxonomy' => 'custom_category',   // タクソノミーのスラッグ
@@ -66,9 +67,10 @@ $active_tab = isset($_GET['tab']) ? $_GET['tab'] : 'tab01'; // デフォルト�
       $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
       $args = array(
         'post_type' => array_merge(['post'], get_custom_post_types()),
-        'posts_per_page' => -1,
+        'posts_per_page' => 5,
         'orderby' => 'date',
         'order' => 'DESC',
+        'paged' => $paged,
         'tax_query' => array(
           array(
             'taxonomy' => 'custom_category',   // タクソノミーのスラッグ
@@ -78,6 +80,7 @@ $active_tab = isset($_GET['tab']) ? $_GET['tab'] : 'tab01'; // デフォルト�
         ),
       );
       $custom_query = new WP_Query($args);
+      
       set_query_var('custom_query', $custom_query);
       get_template_part('template/tab-loop');
       ?>

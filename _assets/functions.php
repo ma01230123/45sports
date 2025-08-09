@@ -433,3 +433,19 @@ add_action('init', function () {
     ]);
   }
 });
+
+
+
+// 投稿ページ（/news/）のメインクエリを調整
+add_action('pre_get_posts', function($q) {
+  if (is_admin() || !$q->is_main_query()) return;
+
+  if ($q->is_home()) { // 設定 > 表示 で「投稿ページ」が /news の想定
+    if (function_exists('get_custom_post_types')) {
+      $q->set('post_type', array_merge(['post'], get_custom_post_types()));
+    }
+    $q->set('orderby', 'date');
+    $q->set('order', 'DESC');
+    $q->set('posts_per_page', 5); // タブ1と同じ件数に
+  }
+});

@@ -19,7 +19,7 @@ if ($query && $query->have_posts()):
     $first_name = get_the_author_meta('first_name', $author_id);
     ?>
     <article class="c-post">
-      <time class="c-post__date">
+      <time class="c-post__date c-btn-date">
         <?php
         // 投稿日時の Unix タイムスタンプを取得
         $timestamp = get_post_time('U');
@@ -28,7 +28,7 @@ if ($query && $query->have_posts()):
         ?>
       </time>
       <?php if ($term_name): ?>
-        <span class="c-post__category"><?php echo esc_html($term_name); ?></span>
+        <span class="c-post__category c-btn-category"><?php echo esc_html($term_name); ?></span>
       <?php endif; ?>
 
       <a href="<?php the_permalink(); ?>" class="c-post__link">
@@ -46,6 +46,7 @@ if ($query && $query->have_posts()):
   if ( function_exists('wp_pagenavi') && !is_front_page() ) {
     wp_pagenavi([
       'query'         => $query,
+      
       // 既定の 'wp-pagenavi' に加えてクラスを足したいなら両方書く
       'wrapper_class' => 'wp-pagenavi c-pagenavi',
     ]);

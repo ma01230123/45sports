@@ -73,6 +73,30 @@
 }
 
 
+.c-btn-date,
+.c-btn-category,
+.c-btn-author{
+  padding: 0.1rem 2.2rem 0.3rem;
+  border-radius: 50vh;
+  border: 1.5px solid $color-news;
+  font-weight: 500;
+  line-height: 1;
+  vertical-align: middle;
+  display: inline-block;
+}
+.c-btn-date{
+  color:$color-news;
+  letter-spacing: -0.05em;
+}
+.c-btn-category{
+  background:$color-news;
+  color:#FFF;
+}
+.c-btn-author{
+  color:$color-news;
+  background: #FFFF83;
+}
+
 /* カテゴリーボタン*/
 .c-btn-category {
   display: inline-block;

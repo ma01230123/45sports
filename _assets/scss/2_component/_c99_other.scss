@@ -355,24 +355,10 @@
   &:last-of-type{
     border-bottom: none;
   }
-  .c-post__date,
-  .c-post__category{
-    padding: 0.1rem 2.2rem 0.3rem;
-    border-radius: 50vh;
-    font-weight: 500;
-    line-height: 1;
-    vertical-align: middle;
-  }
   .c-post__date{
      margin-right: 1rem;
-    border: 1.5px solid $color-news;
-    color:$color-news;
-    letter-spacing: -0.05em;
    }
-  .c-post__category{
-    background:$color-news;
-    color:#FFF;
-  }
+
   .c-post__link{
     margin-top: 0.8rem;
     padding-right: 4rem;
