@@ -5,8 +5,12 @@ $club_children = get_query_var('club_children');
 while ($club_children->have_posts()):
   $club_children->the_post(); ?>
   <div class="swiper-slide c-slide">
-    <?php if (get_field('image')): ?>
-      <img src="<?php the_field('cf-slide'); ?>">
+    <?php
+    $slide_id = (int) get_post_meta(get_the_ID(), 'cf-slide', true);
+    $slide_url = $slide_id ? wp_get_attachment_image_url($slide_id, 'full') : '';
+    if ($slide_url):
+    ?>
+      <img src="<?php echo $slide_url; ?>">
     <?php else: ?>
       <img src="<?php echo get_template_directory_uri(); ?>/assets/img/no-image.jpg">
     <?php endif; ?>

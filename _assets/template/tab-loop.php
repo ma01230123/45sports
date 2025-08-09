@@ -41,7 +41,7 @@ if ($query && $query->have_posts()):
         </h3>
       </a>
     </article>
-  <?php endwhile;
+    <?php endwhile;
   // WP-PageNaviを使ったページャー表示
   if (function_exists('wp_pagenavi') && !is_front_page()) {
     wp_pagenavi(array('query' => $query));

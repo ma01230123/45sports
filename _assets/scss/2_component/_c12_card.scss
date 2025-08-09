@@ -6,6 +6,7 @@
   padding: 2rem;
   border-radius: 1.6rem;
   width: 35.6rem;
+  max-width: 100%;
   background: #FFF;
   .c-card-club__area{
     text-align: center;
@@ -27,6 +28,11 @@
     font-size: 1.5rem;
     line-height: 1.4;
     letter-spacing: 0.05;
+    @include mq("sp") {
+      margin-top: 0.8rem;
+      margin-left: 1.5rem;
+      line-height: 1.2;
+    }
   }
   .c-card-club__img{
     margin-top: 1rem;

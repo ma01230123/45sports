@@ -4,53 +4,65 @@
 
 //トップページ　メインビジュアル
 .p-top-mv {
-  background:url("../img/top-mv-bg.png");
+  background: url("../img/top-mv-bg.png");
   background-position: center, center;
   background-size: contain;
   background-repeat: no-repeat;
+  @include mq("sp") {
+    background-size: cover;
+  }
   .p-top-mv__slider-top,
   .p-top-mv__slider-bottom {
     height: 23.4rem;
+    @include mq("sp") {
+      height: 15.2rem;
+    }
   }
   /* トランジションをリニアに */
   .swiper--top .swiper-wrapper,
   .swiper--bottom .swiper-wrapper {
     transition-timing-function: linear !important;
   }
-  .p-top-mv__text{
-    padding: 5rem 2rem;
+  .p-top-mv__text {
+    padding: 2rem 2rem;
     font-family: $font_ttl;
     font-size: 5.1rem;
     font-weight: 800;
     text-align: center;
-    // letter-spacing: 0rem;
+    @include mq("sp") {
+      font-size: 4.1rem;
+      line-height: 1.5;
+    }
   }
-  .p-top-mv__text-small{
+  .p-top-mv__text-small {
     font-size: 3.9rem;
+    @include mq("sp") {
+      font-size: 2.9rem;
+    }
   }
-  .p-top-mv__text-blue{
-    color:$color-main;
+  .p-top-mv__text-blue {
+    color: $color-main;
   }
-  .p-top-mv__text-orange{
-    color:#EA740D;
+  .p-top-mv__text-orange {
+    color: #ea740d;
   }
-  .p-top-mv__text-green{
-    color:#80CA31;
+  .p-top-mv__text-green {
+    color: #80ca31;
   }
-  .p-top-mv__text-narrow{
+  .p-top-mv__text-narrow {
     letter-spacing: -2.5rem;
   }
 }
 
 /*トップページ　兵庫県協議会とは？*/
-.p-top-about{
+.p-top-about {
   margin-top: 8rem;
   @include mq("sp") {
     margin-top: 6rem;
   }
-  .p-top-about__inner{
+  .p-top-about__inner {
     display: flex;
-    gap:1.5rem;
+    gap: 1.5rem;
     position: relative;
     z-index: 2;
     @include mq("tab") {
@@ -60,19 +72,42 @@
       flex-direction: column;
     }
   }
-  .p-top-about__content{
+  .p-top-about__content {
     margin: 0 auto;
     max-width: 61rem;
     text-align: center;
+    position: relative;
+    &::before{
+      content: "";
+      position: absolute;
+      top:25%;
+      left:-98%;
+      width: 106.8rem;
+      height: 51.6rem;
+      background: url("../img/top-mv-bg.png");
+      background-position: center, center;
+      background-size: contain;
+      background-repeat: no-repeat;
+      overflow: hidden;
+      @include mq("tab") {
+        left:-128%;
+        // background-size: cover;
+      }
+      @include mq("sp") {
+        width: 60rem;
+        left:-30rem;
+        // background-size: cover;
+      }
+    }
   }
-  .p-top-about__content-title{
+  .p-top-about__content-title {
     margin-top: 0.4rem;
     line-height: 1.3;
     @include mq("sp") {
       margin-top: 3rem;
     }
   }
-  .p-top-about__content-title img{
+  .p-top-about__content-title img {
     width: 27.5rem;
     @include mq("tab") {
       width: 22rem;
@@ -81,7 +116,7 @@
       width: 17rem;
     }
   }
-  .p-top-about__content-text{
+  .p-top-about__content-text {
     margin-top: 4rem;
     font-size: 2.1rem;
     font-weight: bold;
@@ -93,7 +128,7 @@
       font-size: 1.5rem;
     }
   }
-  .p-top-about__content-btn{
+  .p-top-about__content-btn {
     margin-top: 2rem;
     @include mq("tab") {
       margin-top: 4rem;
@@ -102,10 +137,10 @@
       margin-top: 4rem;
     }
   }
-  .p-top-about__map{
+  .p-top-about__map {
     margin-top: 3rem;
     text-align: center;
-    img{
+    img {
       @include mq("tab") {
         max-width: 50rem;
       }
@@ -114,33 +149,33 @@
       }
     }
   }
-  .p-top-about__triangle{
+  .p-top-about__triangle {
     position: relative;
     width: 0;
     height: 0;
     margin: 0rem auto 0; /* センター */
     border-left: 50vw solid transparent;
     border-right: 50vw solid transparent;
-    border-top: clamp(7.5rem, -17.389rem + 51.85vw, 21.5rem) solid #FFF;
+    border-top: clamp(7.5rem, -17.389rem + 51.85vw, 21.5rem) solid #fff;
     z-index: 1;
     @include mq("sp") {
-      border-top: 7.5rem solid #FFF;
+      border-top: 7.5rem solid #fff;
     }
   }
 }
-
-.p-top-club{
+/*トップ　各クラブのご紹介（クラブ一覧）*/
+.p-top-look {
   margin-top: calc(0px - clamp(7.5rem, -17.389rem + 51.85vw, 21.5rem));
   padding-top: 30rem;
   background: $color-bg-light;
-  border-top: 1px solid #FFF;
+  border-top: 1px solid #fff;
   position: relative;
-  &::before{
-    content:'';
+  &::before {
+    content: "";
     position: absolute;
-    top:0;
-    left:-3px;
-    background:url("../img/top-club-bg.png");
+    top: 0;
+    left: -3px;
+    background: url("../img/top-club-bg.png");
     background-position: center, center;
     background-size: contain;
     background-repeat: no-repeat;
@@ -150,26 +185,34 @@
   @include mq("sp") {
     margin-top: -7.5rem;
     padding-top: 12rem;
-    &::before{
+    &::before {
       width: 13.2rem;
       height: 15.5rem;
     }
   }
-  .p-top-club__warp{
+  .p-top-look__warp {
     margin-top: 3.5rem;
-    display: flex;
-    flex-wrap: wrap;
-    gap:3.1rem 4.1rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3.1rem 4.1rem; /* 既存のgapと同じ */
     justify-content: center;
+    @include mq("tab") {
+      grid-template-columns: repeat(auto-fill, minmax(36.5rem, 36.5rem));
+    }
+    @include mq("sp") {
+      gap: 2rem 0rem; /* 既存のgapと同じ */
+      grid-template-columns: repeat(auto-fill, minmax(28rem, 36.5rem));
+    }
   }
-  .p-top-club__triangle{
+  .p-top-look__triangle {
     position: relative;
     width: 0;
     height: 0;
     margin: 0rem auto 0; /* センター */
     border-left: 50vw solid transparent;
     border-right: 50vw solid transparent;
-    border-top: clamp(7.5rem, -17.389rem + 51.85vw, 21.5rem) solid $color-bg-light;
+    border-top: clamp(7.5rem, -17.389rem + 51.85vw, 21.5rem) solid
+      $color-bg-light;
     z-index: 2;
     @include mq("sp") {
       border-top: 7.5rem solid $color-bg-light;
@@ -178,10 +221,10 @@
 }
 
 /*トップページ　お知らせ*/
-.p-top-news{
+.p-top-news {
   margin-top: calc(0px - clamp(7.5rem, -17.389rem + 51.85vw, 21.5rem));
   padding-top: 30rem;
-  background: #FFF;
+  background: #fff;
   border-top: 1px solid $color-bg-light;
   position: relative;
   z-index: 1;
@@ -189,53 +232,82 @@
     margin-top: -7.5rem;
     padding-top: 12rem;
   }
-  .p-top-news__tab{
+  .p-top-news__tab {
     margin-top: 5.8rem;
   }
-  .p-top-news__btn{
+  .p-top-news__btn {
     margin-top: 4rem;
     text-align: center;
   }
 }
 
-
-
-/*トップページ　黒の背景　強みと製品*/
-.p-top-consider{
+/*トップページ　登録制度について-*/
+.p-top-consider {
   margin-top: 16rem;
   padding: 4.3rem 0;
-  background:url("../img/top-consider-bg.jpg");
+  background: url("../img/top-consider-bg.jpg");
   background-position: center, center;
   background-size: cover;
   background-repeat: no-repeat;
-  // min-height: 55.8rem;
-  .p-top-consider__inner{
+  @include mq("sp") {
+    margin-top: 8rem;
+  }
+  .p-top-consider__inner {
     margin: 0 auto;
     max-width: 95.2rem;
     padding: 4rem 9rem;
-    background: rgba(255,255,255,0.9);
+    background: rgba(255, 255, 255, 0.9);
     border-radius: 2.1rem;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    @include mq("sp") {
+      padding: 3rem 2rem;
+    }
   }
-  .p-top-consider__title{
+  .p-top-consider__title {
     text-align: center;
-    img{
+    img {
       margin: 0 auto;
       width: 10rem;
       display: block;
     }
   }
-  .p-top-consider__text{
+  .p-top-consider__title-main,
+  .p-top-consider__title-sub{
+    color:$color-main;
+    font-family: $font-ttl;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    line-height: 1.3;
+    display: block;
+  }
+  .p-top-consider__title-sub{
+    margin-top: 2.5rem;
+    font-size: 2.8rem;
+    @include mq("sp") {
+      font-size: 2.2rem;
+    }
+    @include mq("xs") {
+      font-size: 1.8rem;
+    }
+  }
+  .p-top-consider__title-main{
+    font-size: 3.1rem;
+    @include mq("sp") {
+      font-size: 2.7rem;
+    }
+  }
+  .p-top-consider__text {
     margin-top: 3rem;
   }
-  .p-top-consider__btn{
+  .p-top-consider__btn {
     margin-top: 4rem;
     text-align: center;
   }
 }
 /*トップページ　アクセス*/
-.p-top-access{
+.p-top-access {
   margin-top: 15rem;
-  .p-top-access__map{
+  .p-top-access__map {
     margin-top: 2.3rem;
     width: 100%;
     height: 47.2rem;
@@ -257,13 +329,25 @@
     margin-top: 2.6rem;
   }
   .p-top-link__items {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2.3rem;
-    @include mq("sp") {
-      flex-direction: column;
+
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2.3rem; /* 既存のgapと同じ */
+    justify-content: center;
+    @include mq("tab") {
+      grid-template-columns: repeat(auto-fill, minmax(27.1rem, 27.1rem));
+      // grid-template-columns: repeat(3, 1fr);
     }
+    @include mq("sp") {
+      grid-template-columns: repeat(auto-fill, minmax(23rem, 23rem));
+      gap: 1.5rem; /* 既存のgapと同じ */
+    }
+    // display: flex;
+    // flex-wrap: wrap;
+    // gap: 2.3rem;
+    // @include mq("sp") {
+    //   gap: 1rem;
+    // }
   }
-
 }
-

@@ -357,6 +357,11 @@ function register_custom_category_taxonomy() {
             'delete_terms' => 'delete_custom_category',
             'assign_terms' => 'assign_custom_category',
         ],
+        'default_term'      => [
+          'name'        => 'お知らせ',
+          'slug'        => 'cat-notice',
+          'description' => '未選択時に自動付与される既定のカテゴリ',
+        ],
     ];
 
     register_taxonomy( 'custom_category', $post_types, $args );
@@ -389,20 +394,42 @@ function filter_media_library_for_current_user($query)
 
 
 
-add_action( 'admin_head', function() {
-  echo '<style>
-  /* 投稿編集画面本体のカスタムタクソノミー「なし」を非表示 */
-  #taxonomy-custom_category ul > li:first-child {
-      display: none !important;
+// add_action( 'admin_head', function() {
+//   echo '<style>
+//   /* 投稿編集画面本体のカスタムタクソノミー「なし」を非表示 */
+//   #taxonomy-custom_category ul > li:first-child {
+//       display: none !important;
+//   }
+//   /* クイック編集の「なし」も再度隠す */
+//   .inline-edit-col.column-custom_category input[type="radio"][value="0"],
+//   .inline-edit-col.column-custom_category label[for*="custom_category-0"],
+//   .quick-edit-row input[type="radio"][value="0"],
+//   .quick-edit-row label[for*="custom_category-0"],
+//   .quick-edit-row li#custom_category-0,
+//   .editor-editor-interface fieldset#inspector-radio-control-0 {
+//       display: none !important;
+//   }
+//   </style>';
+// } );
+
+
+
+// SCFのメタキーをREST公開。画像はURLを入れるので type:string
+add_action('init', function () {
+  $map = [
+    'cf-corporation' => 'string',
+    'cf-name'        => 'string',
+    'cf-area-name'   => 'string',
+    'cf-area-color'  => 'string',
+    'cf-slide'       => 'integer', // 画像ID
+    'cf-look'        => 'integer', // 画像ID
+  ];
+  foreach ($map as $key => $type) {
+    register_post_meta('page', $key, [
+      'single'       => true,
+      'type'         => $type,
+      'show_in_rest' => true,
+      'auth_callback'=> fn() => current_user_can('edit_pages'),
+    ]);
   }
-  /* クイック編集の「なし」も再度隠す */
-  .inline-edit-col.column-custom_category input[type="radio"][value="0"],
-  .inline-edit-col.column-custom_category label[for*="custom_category-0"],
-  .quick-edit-row input[type="radio"][value="0"],
-  .quick-edit-row label[for*="custom_category-0"],
-  .quick-edit-row li#custom_category-0,
-  .editor-editor-interface fieldset#inspector-radio-control-0 {
-      display: none !important;
-  }
-  </style>';
-} );
+});

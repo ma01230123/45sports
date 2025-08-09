@@ -1,19 +1,18 @@
 <?php get_header(); ?>
-<div class="u-headerHight"></div>
-<!-- 固定ページタイトル部分 -->
-<div class="c-thumbnail c-thumbnail--mini">
-  <div class="c-thumbnail__body c-inner">
-    <h1 class="c-thumbnail__title c-ttl-thumbnail c-ttl-thumbnail--black">
-      ニュース一覧&emsp;<span class="c-ttl-orange c-ttl-orange--22 ">NEWS</span>
-    </h1>
-  </div><!-- /.c-thumbnail__body -->
-</div>
+<!-- <div class="u-headerHight"></div> -->
 <!-- 固定ページパンくずリスト -->
 <?php get_template_part('template/bread'); ?>
-
+<!-- ページタイトル部分 -->
+ <div class="l-title">
+   <h1 class="c-ttl-img">
+     <img src="<?php echo get_template_directory_uri(); ?>/assets/img/icon-note.png" alt="">
+     お知らせ
+     <span>NEWS</span>
+    </h1>
+  </div>
 <div class="c-inner">
 <div class="l-home">
-<?php get_template_part('template/newsContent'); ?>
+  <?php get_template_part('template/top-tab'); ?>
 </div><!-- /.l-home -->
 </div><!-- /.c-inner -->
 

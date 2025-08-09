@@ -127,75 +127,27 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
-
-jQuery(function ($) {
-
-//ハッシュタグをクリックした時の動き
-  $(document).ready(function () {
-    //位置・時間調整
-    var time = 500;
-    var adjust = -100;
-    jQuery(window).scroll(function () {
-      var winW = $(window).width();
-      var SpW = 640;
-        if (winW <= SpW) {
-          adjust = -80;
-        }
-      });
-    //URLのハッシュ値を取得
-    var urlHash = location.hash;
-    //ハッシュ値があればページ内スクロール
-    if (urlHash) {
-      //スクロールを0に戻しておく
-      $('body,html').stop().scrollTop(0);
-      setTimeout(function () {
-        //ロード時の処理を待ち、時間差でスクロール実行
-        scrollToAnchor(urlHash);
-      }, 100);
-    }
-
-    //通常のクリック時
-    $('a[href^="#"]').on('click', function (event) {
-      event.preventDefault();
-      // ハッシュ値を取得して URI デコードする
-      var decodedHash = decodeURI(this.hash);
-      // ハッシュの確認
-      // console.log(decodedHash);
-      //リンク先が#か空だったらhtmlに
-      var hash = decodedHash == "#" || decodedHash == "" ? 'html' : decodedHash;
-      //スクロール実行
-      // alert(adjust);
-      scrollToAnchor(hash);
-      return false;
-    });
-
-    // 関数：スムーススクロール
-    // 指定したアンカー(#ID)へアニメーションでスクロール
-    function scrollToAnchor(hash) {
-      var target = $(hash);
-      if(target.length){
-        var position = target.offset().top + adjust;
-        $('body,html').stop().animate({ scrollTop: position }, time, 'swing');
-      }
-    }
-  });
-
-  $(document).ready(function() {
-    $('a[href^="#"]').on('click', function (event) {
-        event.preventDefault();
-        var decodedHash = decodeURI(this.hash);
-        var hash = decodedHash == "#" || decodedHash == "" ? 'html' : decodedHash;
-        scrollToAnchor(hash);
-    });
-});
-
-
-});
-
 //トップページのタブの動き
+// document.addEventListener('DOMContentLoaded', () => {
+//   const buttons = document.querySelectorAll('.top .c-tab__btn');
+//   const contents = document.querySelectorAll('.top .c-tab__content');
+
+//   buttons.forEach(button => {
+//     button.addEventListener('click', () => {
+//       const target = button.dataset.tab;
+
+//       buttons.forEach(btn => btn.classList.remove('is-active'));
+//       contents.forEach(content => content.classList.remove('is-active'));
+
+//       button.classList.add('is-active');
+//       document.getElementById(target).classList.add('is-active');
+//     });
+//   });
+// });
+
 document.addEventListener('DOMContentLoaded', () => {
-  const buttons = document.querySelectorAll('.top .c-tab__btn');
-  const contents = document.querySelectorAll('.top .c-tab__content');
+  const buttons = document.querySelectorAll('.js-tab-btn');
+  const contents = document.querySelectorAll('.js-tab-content');
 
   buttons.forEach(button => {
     button.addEventListener('click', () => {

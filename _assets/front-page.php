@@ -86,19 +86,19 @@
     <div class="p-top-about__triangle"></div>
   </section><!-- /.p-top-about -->
 
-  <!-- トップ　各クラブのご紹介 -->
-  <section class="p-top-club">
-    <div class="p-top-club__inner c-inner">
+  <!-- トップ　各クラブのご紹介（クラブ一覧） -->
+  <section class="p-top-look">
+    <div class="p-top-look__inner c-inner">
       <h2 class="c-ttl-img c-ttl-img--white">
         <img src="<?php echo get_template_directory_uri(); ?>/assets/img/icon-club.png" alt="">
         各クラブのご紹介
         <span>Club Introduction</span>
       </h2>
-      <div class="p-top-club__warp">
-        <?php get_template_part('template/top-club-card'); ?>
+      <div class="p-top-look__warp">
+        <?php get_template_part('template/top-card-club'); ?>
       </div>
     </div><!-- /.p-top-club__inner -->
-    <div class="p-top-club__triangle"></div>
+    <div class="p-top-look__triangle"></div>
   </section>
 
   <!-- トップ　おしらせ -->
@@ -112,12 +112,11 @@
       <div class="p-top-news__tab">
         <?php get_template_part('template/top-tab'); ?>
       </div>
-    </div>
-    <div class="p-top-news__btn c-btn">
-      <a href="<?php echo esc_url(home_url('/')); ?>news">
-        お知らせ一覧
-      </a>
-    </div>
+      <div class="p-top-news__btn c-btn">
+        <a href="<?php echo esc_url(home_url('/')); ?>news">
+          お知らせ一覧
+        </a>
+      </div>
     </div><!-- /.c-inner -->
   </section><!-- /.p-top-news -->
 
@@ -128,9 +127,8 @@
       <div class="p-top-consider__inner">
         <h2 class="p-top-consider__title">
           <img src="<?php echo get_template_directory_uri(); ?>/assets/img/icon-consider.png" alt="">
-          <span>総合型地域スポーツクラブ</span>
-          <span>登録制度について</span>
-
+          <span class="p-top-consider__title-sub">総合型地域スポーツクラブ</span>
+          <span class="p-top-consider__title-main">登録制度について</span>
         </h2>
         <p class="p-top-consider__text">
           本制度は、国の第２期スポーツ基本計画に則り、日本スポーツ協会及び都道府県体育・スポーツ協会が関係機関と連携いて策定した制度です。本制度では、「総合型地域スポーツクラブ」の登録基準が示されており、すべての基準を満たしたクラブを「登録クラブ」として認定しています。<br>
@@ -163,6 +161,7 @@
         referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div><!-- /.p-top-access__map -->
   </section>
+
   <!-- トップ　リンク -->
   <section class="p-top-link">
     <div class="c-inner">
@@ -182,7 +181,7 @@
         while ($club_children->have_posts()):
           $club_children->the_post(); ?>
           <li class="p-top-link__item c-btn-link" style="background:<?php the_field('cf-area-color'); ?>;">
-            <a href="<?php echo esc_url(get_permalink()); ?>" >
+            <a href="<?php echo esc_url(get_permalink()); ?>">
               <h3>
                 <?php if (get_field('cf-corporation')): ?>
                   <?php the_field('cf-corporation'); ?><br>

@@ -30,15 +30,17 @@ while ($club_children->have_posts()):
       ?>
     </div>
     <div class="c-card-club__img">
-      <?php if (get_field('image')): ?>
-        <img src="<?php the_field('cf-look'); ?>">
+      <?php
+      $look_id  = (int) get_post_meta(get_the_ID(), 'cf-look', true);
+      $look_url  = $look_id  ? wp_get_attachment_image_url($look_id) : '';
+      if($look_url): ?>
+        <img src="<?php echo $look_url ?>">
       <?php else: ?>
         <img src="<?php echo get_template_directory_uri(); ?>/assets/img/no-image.jpg">
       <?php endif; ?>
     </div><!-- /.c-card-club__img -->
     <div class="c-card-club__btn c-btn-club" style="border:2px solid <?php the_field('cf-area-color'); ?>;">
-      <a href="<?php echo esc_url(get_permalink()); ?>" style="color:<?php the_field('cf-area-color'); ?>;">クラブ紹介はこちら　　<i
-          class="fa-solid fa-angle-right"></i></a>
+      <a href="<?php echo esc_url(get_permalink()); ?>" style="color:<?php the_field('cf-area-color'); ?>;">クラブ紹介はこちら　　<i class="fa-solid fa-angle-right"></i></a>
     </div><!-- /.c-card-club__btn -->
   </article>
 <?php endwhile; ?>

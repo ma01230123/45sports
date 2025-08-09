@@ -16,7 +16,11 @@ page.php
   }
 }
 
-
+/*共通ページタイトル*/
+.l-title{
+  margin-top: 5rem;
+  text-align: center;
+}
 
 /*投稿ページ*/
 .l-single {
@@ -46,7 +50,6 @@ page.php
 .l-home,
 .l-archive {
   margin: 9rem auto 0rem;
-  max-width: 80rem;
   width: 100%;
   @include mq("sp") {
     margin: 4rem auto 0rem;

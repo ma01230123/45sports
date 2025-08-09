@@ -69,38 +69,28 @@ function escapeStr(idname) {
 //   });
 // });
 
-document.addEventListener('DOMContentLoaded', () => {
-  const buttons = document.querySelectorAll('.js-tab-btn');
-  const contents = document.querySelectorAll('.js-tab-content');
 
-  buttons.forEach(button => {
-    button.addEventListener('click', () => {
-      const target = button.dataset.tab;
 
-      buttons.forEach(btn => btn.classList.remove('is-active'));
-      contents.forEach(content => content.classList.remove('is-active'));
-
-      button.classList.add('is-active');
-      document.getElementById(target).classList.add('is-active');
-    });
-  });
-});
 
 document.addEventListener('DOMContentLoaded', () => {
   // ─── 共通オプション ───
   const commonOptions = {
-    slidesPerView: 'auto',      // CSS の幅をそのまま使う
-    loop: true,                 // 無限ループ
-    speed: 5000,                // 一周時間（ms）
-    spaceBetween: 30,           // スライド間余白
-    allowTouchMove: false,      // タッチ禁止
-    freeMode: true,             // freeMode（慣性スクロール）
-    freeModeMomentum: false,    // 慣性をオフに
+    slidesPerView: 'auto',
+    loop: true,
+    speed: 5000,
+    spaceBetween: 21,            // ← スマホをデフォルトにする
+    allowTouchMove: false,
+    freeMode: true,
+    freeModeMomentum: false,
     autoplay: {
-      delay: 0,                 // 途切れなく再生
+      delay: 0,
       disableOnInteraction: false,
-      // reverseDirection: false // ← デフォルトで逆回転なし
+      // reverseDirection: false
     },
+    // 768px 以上は 30 に上書き
+    breakpoints: {
+      768: { spaceBetween: 30 }
+    }
   };
 
   // ─── スライダー初期化用ヘルパー ───
@@ -119,3 +109,4 @@ document.addEventListener('DOMContentLoaded', () => {
   initAutoSwiper('.swiper--top');
   initAutoSwiper('.swiper--bottom', true);
 });
+
