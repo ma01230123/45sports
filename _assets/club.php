@@ -4,23 +4,21 @@
  **/
 ?>
 <?php get_header(); ?>
-<div class="u-headerHight"></div>
 <!-- 固定ページタイトル部分 -->
-<div class="c-thumbnail c-thumbnail--lineup">
+<div class="c-thumbnail">
   <div class="c-thumbnail__img">
     <?php the_post_thumbnail(); ?>
   </div>
   <div class="c-thumbnail__skew"></div>
   <div class="c-thumbnail__skew c-thumbnail__skew--right"></div>
   <div class="c-thumbnail__body c-inner">
-    <!-- <div class="c-thumbnail__title-en c-ttl-thumbnail-lineup">
-    LINE UP
-  </div> -->
-    <h1 class="c-thumbnail__title c-ttl-thumbnail c-ttl-thumbnail--black u-fwm">
-      <span style="color:<?php the_field('cf-area-color'); ?>"><?php the_field('cf-area-name'); ?></span>
+    <h1 class="c-thumbnail__title c-ttl-thumbnail">
+      <span class="c-ttl-thumbnail__area"><?php the_field('cf-area-name'); ?></span>
+      <span class="c-ttl-thumbnail__text">
 
-      <?php the_field('cf-corporation'); ?>
-      <?php the_field('cf-name'); ?>
+        <?php the_field('cf-corporation'); ?>
+        <?php the_field('cf-name'); ?>
+      </span>
     </h1>
   </div>
 </div>

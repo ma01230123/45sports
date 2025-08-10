@@ -449,3 +449,9 @@ add_action('pre_get_posts', function($q) {
     $q->set('posts_per_page', 5); // タブ1と同じ件数に
   }
 });
+
+
+// アップロード時の中間サイズを一切生成しない
+add_filter('intermediate_image_sizes_advanced', function ($sizes) {
+  return []; // すべての登録サイズを無効化
+});

@@ -98,34 +98,34 @@
 }
 
 /* カテゴリーボタン*/
-.c-btn-category {
-  display: inline-block;
-  ul {
-    display: flex;
-    gap: 1rem;
-  }
-  a {
-    padding: 0.2rem 0.5rem;
-    width: 9rem;
-    background: #FFF;
-    color: #000;
-    font-size: 1.1rem;
-    text-align: center;
-    display:inline-block;
-    @include mq("sp") {
-      padding: 0 1rem;
-      line-height: 1.7;
-      display: block;
-    }
-    &:hover {
-      color: #fff;
-      background: $color-main;
-    }
-  }
-  @include mq("sp") {
-    display: block;
-  }
-}
+// .c-btn-category {
+//   display: inline-block;
+//   ul {
+//     display: flex;
+//     gap: 1rem;
+//   }
+//   a {
+//     padding: 0.2rem 0.5rem;
+//     width: 9rem;
+//     background: #FFF;
+//     color: #000;
+//     font-size: 1.1rem;
+//     text-align: center;
+//     display:inline-block;
+//     @include mq("sp") {
+//       padding: 0 1rem;
+//       line-height: 1.7;
+//       display: block;
+//     }
+//     &:hover {
+//       color: #fff;
+//       background: $color-main;
+//     }
+//   }
+//   @include mq("sp") {
+//     display: block;
+//   }
+// }
 
 
 /* ボタン　フォーム用　*/

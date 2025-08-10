@@ -121,189 +121,40 @@
   }
 }
 
-/*トップページのタイトル*/
-.c-ttl-bordering {
-  color: #000;
-  font-size: 7.3rem;
-  font-weight: bold;
-  line-height: 1.2;
-  -webkit-text-stroke: 2px #fff;
-  text-stroke: 2px #fff;
-  @include mq("sp") {
-    font-size: 5rem;
-  }
-  &.c-ttl-bordering--2row {
-    font-size: 5.3rem;
-    @include mq("sp") {
-      font-size: 3.8rem;
-    }
-  }
-}
 
-.c-ttl-white {
-  color: #fff;
-  font-weight: bold;
-  &.c-ttl-white--37 {
-    font-size: 3.7rem;
-    @include mq("sp") {
-      font-size: 2.5rem;
-    }
-  }
-  &.c-ttl-white--40 {
-    font-size: 4rem;
-    @include mq("sp") {
-      font-size: 3rem;
-    }
-  }
-  &.c-ttl-white--2row {
-    font-size: 3.2rem;
-    font-weight: 900;
-    line-height: 1.5;
-    @include mq("sp") {
-      font-size: 2.5rem;
-    }
-  }
-}
-
-.c-ttl-line2color {
-  padding-bottom: 2rem;
-  color: #fff;
-  font-size: 1.8rem;
-  font-weight: bold;
-  text-align: center;
-  @include mq("sp") {
-    font-size: 1.6rem;
-    padding-bottom: 1rem;
-  }
-  position: relative;
-  &::before,
-  &::after {
-    content: "";
-    position: absolute;
-    width: 3.8rem;
-    height: 7px;
-    bottom: 0;
-    left: 50%;
-  }
-  &::before {
-    background-color: $color-main;
-    transform: translate(-100%, 0);
-  }
-  &::after {
-    background-color: #fff;
-  }
-  &.c-ttl-line2color--fz20 {
-    font-size: 2rem;
-    letter-spacing: 0.15rem;
-    @include mq("sp") {
-      font-size: 1.7rem;
-    }
-  }
-  &.c-ttl-line2color--orange {
-    color: $color-main;
-    &::after {
-      background: #000;
-    }
-  }
-}
 
 /*サムネイル デフォルト*/
 .c-ttl-thumbnail {
   color: #fff;
-  font-size: 3.2rem;
-  font-weight: bold;
-  @include mq("sp") {
-    font-size: 2.5rem;
-  }
-  &.c-ttl-thumbnail--black {
-    font-size: 2.9rem;
-    color: #000;
-    line-height: 1.8;
-  }
-  &.c-ttl-thumbnail--blackShadow {
-    color: #000;
-    font-size: 2.9rem;
-    line-height: 1.8;
-    text-shadow: 3px 3px 0 #fff, -3px -3px 0 #fff, -3px 3px 0 #fff,
-      3px -3px 0 #fff, 3px 0 0 #fff, -3px 0 0 #fff, 0 3px 0 #fff, 0 -3px 0 #fff;
-  }
-}
-.c-ttl-thumbnail-en {
-  color: $color-main;
-  font-size: 4.3rem;
-  font-weight: bold;
-  letter-spacing: 0.1em;
-  margin-top: -2rem;
-  @include mq("sp") {
-    margin-top: -1rem;
-    font-size: 2.5rem;
-  }
-}
-.c-ttl-thumbnail-lineup {
-  padding: 0.4rem 3rem 0.5rem;
-  display: inline-block;
-  color: #fff;
-  font-size: 2.4rem;
-  font-weight: bold;
-  letter-spacing: 0.1em;
-  line-height: 1;
-  background: $color-main;
-  @include mq("sp") {
-    font-size: 2rem;
-  }
-}
-.c-thumbnail__interview-title {
   text-align: center;
-  margin-bottom: 1rem;
-  .c-thumbnail__interview-title-orange {
-    padding: 0 3.5rem;
-    vertical-align: middle;
-    color: #fff;
-    font-size: 1.5rem;
+  .c-ttl-thumbnail__area{
+    // margin: 0 2rem;
+    padding: 0.2rem 2.5rem;
+    background: #fff;
+    border-radius: 50vh;
+    color:$color-main;
+    font-size: 1.7rem;
     font-weight: bold;
+    line-height: 1.5;
     text-align: center;
-    @include mq("sp") {
-      padding: 0 2rem;
-    }
-    position: relative;
-    &::before {
-      content: "";
-      position: absolute;
-      width: 100%;
-      height: 4.4rem;
-      background: $color-main;
-      transform: translate(-50%, -50%) skew(-20deg);
-      top: 50%;
-      left: 50%;
-      z-index: -1;
-    }
+    // display: block;
   }
-  .c-thumbnail__interview-title-white {
-    padding: 0 3.5rem;
-    vertical-align: middle;
-    color: #4a4949;
-    font-size: 2.2rem;
+  .c-ttl-thumbnail__text{
+    margin-top: 1rem;
+    font-size: 3.1rem;
     font-weight: bold;
-    letter-spacing: 0.25em;
-    text-align: center;
-    @include mq("sp") {
-      font-size: 2rem;
-      padding: 0 2rem;
-    }
-    position: relative;
-    &::before {
-      content: "";
-      position: absolute;
-      width: 100%;
-      height: 4.4rem;
-      background: #fff;
-      transform: translate(-50%, -50%) skew(-20deg);
-      top: 50%;
-      left: 50%;
-      z-index: -1;
-    }
+    letter-spacing: -0.1rem;
+    line-height: 1.5;
+    display: block;
+    text-align: left;
+      @include mq("sp") {
+        font-size: 2.5rem;
+      }
+
   }
 }
+
+
 
 /*子ページタイトル*/
 .c-ttl-interview {
