@@ -6,26 +6,25 @@ page.php
 
 /*固定ページ*/
 .l-page {
-  p{
-    a{
-     color:$color-main;
-     &:hover{
-      opacity: $hover-opacity;
-     }
+  .l-page__title{
+    margin-top: 6rem;
+    text-align: center;
+    @include mq("sp") {
+      margin-top: 3rem;
     }
   }
+.l-page__content{
+  margin: 10rem auto 0;
+  @include mq("sp") {
+    margin-top: 5rem;
+  }
+}
 }
 
-/*共通ページタイトル*/
-.l-title{
-  margin-top: 5rem;
-  text-align: center;
-}
 
 /*投稿ページ*/
 .l-single {
   padding-top: 6rem;
-  // background: #E3E2E2;
   @include mq("sp") {
     padding-top: 3rem;
   }
@@ -104,7 +103,6 @@ page.php
       padding-left: 0rem;
     }
   }
-
 }
 
 /*投稿ページ　アーカイブ*/

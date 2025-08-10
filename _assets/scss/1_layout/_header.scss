@@ -3,6 +3,9 @@
 --------------------------- */
 @use "./../0_foundation/vars"as *;
 
+.top .l-header {
+  box-shadow: none;
+}
 .l-header {
   background-color: rgba(255,255,255,0.8);
   position: fixed;
