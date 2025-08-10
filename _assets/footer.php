@@ -29,49 +29,49 @@
         <?php wp_nav_menu(array('theme_location' => 'footer_menu_top')); ?>
       </div><!-- /.l-footer__bottom -->
       <div class="l-footer__menu-club">
-      <div class="l-footer__menu-club-title c-text-18">
-        各クラブのご紹介
-      </div><!-- /.l-footer__menu-club-title -->
-        <?php
-        // slug が "club" の固定ページを取得
-        $club_page = get_page_by_path('club');
+        <div class="l-footer__menu-club-title c-text-18 js-footer-btn">
+          各クラブのご紹介
+          <?php
+          // slug が "club" の固定ページを取得
+          $club_page = get_page_by_path('club');
 
-        if ($club_page) {
+          if ($club_page) {
 
-          // 子ページを取得するクエリ
-          $club_children = new WP_Query(array(
-            'post_type' => 'page',
-            'post_parent' => $club_page->ID,
-            'posts_per_page' => -1,
-            'orderby' => 'menu_order',
-            'order' => 'ASC',
-          ));
+            // 子ページを取得するクエリ
+            $club_children = new WP_Query(array(
+              'post_type' => 'page',
+              'post_parent' => $club_page->ID,
+              'posts_per_page' => -1,
+              'orderby' => 'menu_order',
+              'order' => 'ASC',
+            ));
 
-          if ($club_children->have_posts()): ?>
-            <ul class="l-footer__menu-club-warp">
-              <?php while ($club_children->have_posts()):
-                $club_children->the_post(); ?>
-                <li>
-                  <a href="<?php the_permalink(); ?>">
-                    <?php
-                    // the_field() は ACF の関数です。
-                    // cf-corporation と cf-name をタイトル代わりに出力します。
-                    the_field('cf-corporation');
-                    echo ' ';
-                    the_field('cf-name');
-                    ?>
-                  </a>
-                </li>
-              <?php endwhile; ?>
-            </ul>
-            <?php
-            wp_reset_postdata();
-          endif;
-        }
-        ?>
+            if ($club_children->have_posts()): ?>
+              <ul class="l-footer__menu-club-warp js-footer-menu">
+                <?php while ($club_children->have_posts()):
+                  $club_children->the_post(); ?>
+                  <li>
+                    <a href="<?php the_permalink(); ?>">
+                      <?php
+                      // the_field() は ACF の関数です。
+                      // cf-corporation と cf-name をタイトル代わりに出力します。
+                      the_field('cf-corporation');
+                      echo ' ';
+                      the_field('cf-name');
+                      ?>
+                    </a>
+                  </li>
+                <?php endwhile; ?>
+              </ul>
+              <?php
+              wp_reset_postdata();
+            endif;
+          }
+          ?>
+        </div><!-- /.l-footer__menu-club-title -->
       </div><!-- /.l-footer__menu-club -->
-      <div class="l-footer__menu-sp u-hidden-pc">
-      <?php wp_nav_menu(array('theme_location' => 'footer_menu_bottom')); ?>
+      <div class="l-footer__menu-sp u-hidden-pc u-hidden-tab">
+        <?php wp_nav_menu(array('theme_location' => 'footer_menu_bottom')); ?>
       </div>
     </div>
 

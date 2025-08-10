@@ -127,4 +127,52 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
+document.addEventListener('DOMContentLoaded', function () {
+  var mq = window.matchMedia('(max-width: 767px)'); // SPだけ有効
+  var toggles = document.querySelectorAll('.js-footer-btn');
+
+  // 初期状態：SPは閉じる / PCは常時表示
+  function setInitial() {
+    toggles.forEach(function (el) {
+      var sub = el.querySelector('.js-footer-menu') || el.lastElementChild;
+      if (!sub) return;
+      if (mq.matches) {
+        el.classList.remove('is-checked');
+        sub.classList.remove('is-checked');
+        sub.style.display = 'none';
+        el.setAttribute('aria-expanded', 'false');
+      } else {
+        el.classList.remove('is-checked');
+        sub.classList.remove('is-checked');
+        sub.style.display = '';
+        el.removeAttribute('aria-expanded');
+      }
+    });
+  }
+
+  // クリックで開閉（SPのみ）
+  toggles.forEach(function (el) {
+    el.addEventListener('click', function (event) {
+      if (!mq.matches) return;                          // PCは何もしない
+      if (event.target.closest('.js-footer-menu')) return; // サブメニュー内のリンクは素通し
+
+      var sub = this.querySelector('.js-footer-menu') || this.lastElementChild;
+      if (!sub) return;
+
+      // あなたの参考コードと同じトグル
+      sub.classList.toggle('is-checked');
+      this.classList.toggle('is-checked');
+
+      // 表示/非表示を反映
+      var open = this.classList.contains('is-checked');
+      sub.style.display = open ? 'block' : 'none';
+      this.setAttribute('aria-expanded', open);
+    });
+  });
+
+  setInitial();
+  mq.addEventListener('change', setInitial); // 画面幅が変わったら挙動を切替
+});
+
+
 
