@@ -111,6 +111,7 @@
       </h2>
       <div class="p-top-news__tab">
         <?php get_template_part('template/top-tab'); ?>
+        <hr class="c-hr-news">
       </div>
       <div class="p-top-news__btn c-btn">
         <a href="<?php echo esc_url(home_url('/')); ?>news">
@@ -154,7 +155,7 @@
       アクセス
       <span>Access</span>
     </h2>
-    <div class="p-top-access__map">
+    <div class="p-top-access__map c-map">
       <iframe
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d699.3542560957293!2d135.19921661966436!3d34.68849091750406!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60008ef641e566d7%3A0x9721a18edd6ed3fb!2z56We5oi45ZWG5bel6LK_5piT44K744Oz44K_44O844OT44Or!5e0!3m2!1sja!2sjp!4v1754478704911!5m2!1sja!2sjp"
         width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"

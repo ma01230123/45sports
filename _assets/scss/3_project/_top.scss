@@ -235,6 +235,9 @@
   .p-top-news__tab {
     margin-top: 5.8rem;
   }
+  .c-tab__content{
+    padding: 0.5rem 2.5rem 0.5rem;
+  }
   .p-top-news__btn {
     margin-top: 4rem;
     text-align: center;
@@ -307,16 +310,11 @@
 /*トップページ　アクセス*/
 .p-top-access {
   margin-top: 15rem;
+  @include mq("sp") {
+    margin-top: 7rem;
+  }
   .p-top-access__map {
     margin-top: 2.3rem;
-    width: 100%;
-    height: 47.2rem;
-    iframe {
-      width: 100%;
-      height: 100%;
-      border: 0;
-      display: block;
-    }
   }
 }
 

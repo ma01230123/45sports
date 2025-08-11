@@ -145,8 +145,7 @@
 /*　ページナビ　*/
 .c-pagenavi.wp-pagenavi {
   margin-top: 0.5rem;
-  margin-left: -2rem;
-  width: calc(100% + 4rem);
+  width: 100%;
   padding-top: 6rem;
   border-top: 3px solid $color-news;
   display: flex;
@@ -155,7 +154,6 @@
   flex-wrap: wrap;
   @include mq("sp") {
     padding-top: 3rem;
-    margin-left: 0rem;
     width: 100%;
   }
   span,
@@ -207,27 +205,27 @@
 }
 
 /*　箇条書き　*/
-.c-itemization {
-  li {
-    margin-bottom: 1.6rem;
-    padding-left: 1.2rem;
-    text-indent: -0.8rem;
-    line-height: 1.5;
-    &::before {
-      content: "●";
-      font-size: 1.2rem;
-      margin-right: 0.3rem;
-      display: inline-block;
-    }
-  }
-  &.c-itemization--orange {
-    li {
-      &::before {
-        color: $color-main;
-      }
-    }
-  }
-}
+// .c-itemization {
+//   li {
+//     margin-bottom: 1.6rem;
+//     padding-left: 1.2rem;
+//     text-indent: -0.8rem;
+//     line-height: 1.5;
+//     &::before {
+//       content: "●";
+//       font-size: 1.2rem;
+//       margin-right: 0.3rem;
+//       display: inline-block;
+//     }
+//   }
+//   &.c-itemization--orange {
+//     li {
+//       &::before {
+//         color: $color-main;
+//       }
+//     }
+//   }
+// }
 
 .c-slide {
   width: 23.3rem;
@@ -311,25 +309,31 @@
       line-height: 1.3;
     }
   }
-
   .c-tab__btn.is-active {
     background: $color-news;
     color: #fff;
   }
 
   .c-tab__content {
-    padding: 0.5rem 2.5rem;
+    padding: 8rem 2.5rem 0.5rem;
     border-top: 3px solid $color-news;
-    border-bottom: 3px solid $color-news;
+    // border-bottom: 3px solid $color-news;
     display: none;
     background: #fff;
     @include mq("sp") {
-      padding: 0.5rem 0rem;
+      padding: 3rem 0rem 0.5rem;
+    }
+    .c-ttl-img{
+      margin-bottom: 6rem;
+      @include mq("sp") {
+        margin-bottom: 3rem;
+      }
     }
   }
   .c-tab__content.is-active {
     display: block;
   }
+
 }
 
 .c-post {
@@ -387,4 +391,24 @@
   .c-post__author {
     margin-right: 2rem;
   }
+}
+
+
+.c-map {
+  margin: 0 calc(50% - 50vw);
+width: 100vw;
+  height: 47.2rem;
+  iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+  }
+}
+
+
+.c-hr-news{
+  color:$color-news;
+  border-top: 3px solid;
+
 }

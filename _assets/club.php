@@ -42,14 +42,25 @@
 
 
     <div class="c-tab__contents">
-<!-- 基本情報のコンテンツ -->
+      <!-- 基本情報のコンテンツ -->
       <div class="c-tab__content <?php if ($active_tab === 'tab01')
         echo 'is-active'; ?>">
+        <h2 class="c-ttl-img">
+          <img src="<?php echo get_template_directory_uri(); ?>/assets/img/icon-note.png" alt="">
+          基本情報
+          <span>Information</span>
+        </h2>
         <?php the_content(); ?>
       </div>
-<!-- お知らせのコンテンツ -->
-      <div style=" border-bottom: none" class="c-tab__content <?php if ($active_tab === 'tab02')
+      <!-- お知らせのコンテンツ -->
+      <div class="c-tab__content <?php if ($active_tab === 'tab02')
         echo 'is-active'; ?>">
+        <h2 class="c-ttl-img">
+          <img src="<?php echo get_template_directory_uri(); ?>/assets/img/icon-note.png" alt="">
+          お知らせ
+          <span>NEWS</span>
+        </h2>
+        <hr class="c-hr-news">
         <?php
         $slug = get_post_field('post_name', get_post());
 
@@ -72,22 +83,28 @@
         get_template_part('template/tab-loop');
         ?>
       </div>
-<!-- アクセスのコンテンツ -->
-      <div class="c-tab__content <?php if ($active_tab === 'tab03')
-        echo 'is-active'; ?>">
+      <!-- アクセスのコンテンツ -->
+      <div class="c-tab__content <?php if ($active_tab === 'tab03') echo 'is-active'; ?>">
+      <h2 class="c-ttl-img">
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/icon-access.png" alt="">
+        アクセス
+        <span>Access</span>
+      </h2>
         <p>
           <?php
-            $text = get_field('cf-map-text');
-            // HTML エスケープ＋改行を <br> に変換して出力
-            echo nl2br(esc_html($text));
+          $text = get_field('cf-map-text');
+          // HTML エスケープ＋改行を <br> に変換して出力
+          echo nl2br(esc_html($text));
           ?>
         </p>
-        <?php get_template_part('template/club-map'); ?>
+        <div style="height:5rem" aria-hidden="true" class="wp-block-spacer"></div>
+        <div class="c-map">
+          <?php get_template_part('template/club-map'); ?>
+        </div><!-- /.c-map -->
       </div>
     </div>
   </div>
 </div>
-<div style="height:8rem"></div>
 <div style="height:8rem" aria-hidden="true" class="wp-block-spacer"></div>
 <div style="height:8rem" aria-hidden="true" class="wp-block-spacer"></div>
 <?php get_footer(); ?>
