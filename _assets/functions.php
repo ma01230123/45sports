@@ -13,9 +13,20 @@ function get_custom_post_types(): array {
       'post-04',
       'post-05',
       'post-06',
+      'post-07',
+      'post-08',
+      'post-09',
+      'post-10',
+      'post-11',
+      'post-12',
+      'post-13',
+      'post-14',
+      'post-15',
+      'post-16',
+      'post-17',
+      'post-18',
   ];
 }
-
 
 
 
