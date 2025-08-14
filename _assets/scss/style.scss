@@ -5,7 +5,7 @@
 //  @use "./0_foundation/system";
  @use "./0_foundation/base";
  @use "./0_foundation/vars";
- 
+
  /*--------------------------------------*
  * 1_layout
  *--------------------------------------*/
@@ -13,12 +13,12 @@
  @use "./1_layout/footer";
  //  @use "./1_layout/side";
  @use "./1_layout/page";
- 
- 
+
+
  /*-------------------
  * 2_component
  -------------------*/
- 
+
  @use "./2_component/c00_inner";
  @use "./2_component/c01_btn";
  @use "./2_component/c02_title";
@@ -30,17 +30,13 @@
  @use "./2_component/c09_table";
  @use "./2_component/c12_card";
  @use "./2_component/c99_other";
- 
+
  /*-------------------
  * 3_project
  -------------------*/
  @use "./3_project/top";
- @use "./3_project/company";
  @use "./3_project/template-fixed";
  @use "./3_project/template-bread";
- @use "./3_project/template-loop";
- @use "./3_project/template-contact";
- 
+
  @use "./0_foundation/utility";
- 
- 
+

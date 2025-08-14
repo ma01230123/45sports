@@ -1,26 +1,6 @@
 @use "./../0_foundation/vars" as *;
 
 
-/*　製品ページ　成分情報*/
-.c-table-product{
-  margin-left: auto;
-  margin-right: auto;
-  overflow-x: auto;
-  white-space: nowrap;
-  width: 100%;
-  max-width: 90rem;
-  table {
-    width: 100%;
-  }
-  td{
-    padding: 1rem 0.5rem;
-    vertical-align: middle;
-    @include mq("sp") {
-      padding: 0.5rem 0.5rem;
-      font-size: 1.5rem;
-    }
-  }
-}
 
 /*　２列テーブルの表*/
 .c-table-2col{
@@ -40,7 +20,7 @@
     vertical-align: middle;
     @include mq("sp") {
       display: block;
-      padding:1.5rem 0rem 0rem 1rem; 
+      padding:1.5rem 0rem 0rem 1rem;
     }
   }
   td{
@@ -48,7 +28,7 @@
     vertical-align: middle;
     @include mq("sp") {
       display: block;
-      padding:0rem 1.5rem 1.5rem 3rem; 
+      padding:0rem 1.5rem 1.5rem 3rem;
     }
   }
 }

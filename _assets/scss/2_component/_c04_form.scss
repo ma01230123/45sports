@@ -1,7 +1,6 @@
 @use "./../0_foundation/vars" as *;
 
 .c-form {
-
   .smf-item__col--label {
     margin-top: 4rem;
     .smf-item__label__text{
@@ -98,7 +97,6 @@ text-align: center;
     max-width: 100%;
     height: 5.4rem;
     text-align: center;
-    // padding: 0rem 1.5rem;
     background:url('../img/btn-bg.png');
           background-position: center center;
       background-repeat: no-repeat;
@@ -123,30 +121,6 @@ text-align: center;
   }
 }
 
-
-
-// .c-form__bottom-text {
-//   text-align: center;
-// }
-
-// .confirm {
-//   .c-form__select {
-//     display: inline-flex;
-//     align-items: center;
-//     position: relative;
-//     &::after {
-//       display: none;
-//       position: absolute;
-//       right: 15px;
-//       width: 10px;
-//       height: 7px;
-//       background-color: #535353;
-//       clip-path: polygon(0 0, 100% 0, 50% 100%);
-//       content: "";
-//       pointer-events: none;
-//     }
-//   }
-// }
 
 
 .c-contact__box{
@@ -176,118 +150,3 @@ text-align: center;
     }
   }
 }
-
-//
-
-// .c-form__table {
-//   margin: 0 auto;
-//   padding: 0 2rem;
-//   width: 100%;
-//   dl {
-//     display: flex;
-//     padding: 3rem 0rem;
-//     @include mq("sp") {
-//       display: block;
-//       padding: 1rem 1.5rem 0;
-//       border-bottom: none;
-//     }
-//   }
-//   dt {
-//     width: 35rem;
-//     font-size: 1.6rem;
-//     @include mq("sp") {
-//       width: 28rem;
-//     }
-//   }
-//   dd {
-//     width: calc(100% - 35rem);
-//     font-size: 1.6rem;
-//     @include mq("sp") {
-//       width: 100%;
-//     }
-//   }
-
-//   .c-form__select {
-//     display: inline-flex;
-//     align-items: center;
-//     position: relative;
-//     &::after {
-//       position: absolute;
-//       right: 15px;
-//       width: 10px;
-//       height: 7px;
-//       background-color: #535353;
-//       clip-path: polygon(0 0, 100% 0, 50% 100%);
-//       content: "";
-//       pointer-events: none;
-//     }
-//   }
-
-//   textarea,
-//   select,
-//   input[type="text"],
-//   input[type="tel"],
-//   input[type="email"] {
-//     padding: 0.8rem 1rem;
-//     border: 1px solid #aaa;
-//     background: #fff;
-//     width: 100%;
-//     &.c-form__w500 {
-//       max-width: 50rem;
-//     }
-//     &.c-form__w760 {
-//       max-width: 76rem;
-//     }
-//   }
-//   textarea {
-//     overflow-wrap: break-word;
-//   }
-//   select {
-//     width: 26.8rem;
-//   }
-// }
-// .c-form__link {
-//   color: #2125aa;
-//   &:hover {
-//     opacity: $hover-opacity;
-//   }
-// }
-
-// .c-form__required {
-//   &::before {
-//     margin-right: 1rem;
-//     content: "必須";
-//     padding: 0.3rem 1.1rem;
-//     display: inline-block;
-//     width: 5rem;
-//     height: 2.2rem;
-//     background: $color-main;
-//     color: #fff;
-//     font-size: 1.4rem;
-//     line-height: 1;
-//     text-align: center;
-//   }
-// }
-
-// .c-form__bottom-text {
-//   text-align: center;
-// }
-
-// .confirm {
-//   .c-form__select {
-//     display: inline-flex;
-//     align-items: center;
-//     position: relative;
-//     &::after {
-//       display: none;
-//       position: absolute;
-//       right: 15px;
-//       width: 10px;
-//       height: 7px;
-//       background-color: #535353;
-//       clip-path: polygon(0 0, 100% 0, 50% 100%);
-//       content: "";
-//       pointer-events: none;
-//     }
-//   }
-// }

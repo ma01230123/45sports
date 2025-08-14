@@ -91,12 +91,10 @@
       overflow: hidden;
       @include mq("tab") {
         left:-128%;
-        // background-size: cover;
       }
       @include mq("sp") {
         width: 60rem;
         left:-30rem;
-        // background-size: cover;
       }
     }
   }
@@ -327,8 +325,6 @@
     margin-top: 2.6rem;
   }
   .p-top-link__items {
-
-
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 2.3rem; /* 既存のgapと同じ */
@@ -341,11 +337,5 @@
       grid-template-columns: repeat(auto-fill, minmax(23rem, 23rem));
       gap: 1.5rem; /* 既存のgapと同じ */
     }
-    // display: flex;
-    // flex-wrap: wrap;
-    // gap: 2.3rem;
-    // @include mq("sp") {
-    //   gap: 1rem;
-    // }
   }
 }

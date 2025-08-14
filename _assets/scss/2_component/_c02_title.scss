@@ -28,6 +28,8 @@
     }
   }
 }
+
+/*　画像付きタイトル　*/
 .c-ttl-img {
   @extend .c-ttl;
   font-size: 3.2rem;
@@ -57,78 +59,12 @@
   }
 }
 
-.c-ttl-orange {
-  color: $color-main;
-  font-weight: 700;
-  position: relative;
-  &.c-ttl-orange--22 {
-    font-size: 2.2rem;
-    line-height: 1.5;
-    letter-spacing: 0;
-  }
-  &.c-ttl-orange--24 {
-    font-size: 2.4rem;
-    line-height: 1.5;
-    @include mq("sp") {
-      font-size: 1.9rem;
-    }
-  }
-  &.c-ttl-orange--26 {
-    font-size: 2.6rem;
-    line-height: 1.5;
-    @include mq("sp") {
-      font-size: 2rem;
-    }
-  }
-  &.c-ttl-orange--28 {
-    font-size: 2.8rem;
-    line-height: 1.5;
-    @include mq("sp") {
-      font-size: 2rem;
-    }
-  }
-  &.c-ttl-orange--29 {
-    font-size: 2.9rem;
-    line-height: 1.5;
-    @include mq("sp") {
-      font-size: 2rem;
-    }
-  }
-  &.c-ttl-orange--33 {
-    font-size: 3.3rem;
-    line-height: 1.5;
-    @include mq("sp") {
-      font-size: 2.2rem;
-    }
-  }
-  &.c-ttl-orange--37 {
-    font-size: 3.7rem;
-    @include mq("sp") {
-      font-size: 2.5rem;
-    }
-  }
-  &.c-ttl-orange--39 {
-    font-size: 3.9rem;
-    @include mq("sp") {
-      font-size: 2.5rem;
-    }
-  }
-  &.c-ttl-orange--50 {
-    font-size: 5rem;
-    @include mq("sp") {
-      font-size: 3rem;
-    }
-  }
-}
 
-
-
-/*サムネイル デフォルト*/
+/*クラブサムネイル用 タイトル*/
 .c-ttl-thumbnail {
   color: #fff;
   text-align: center;
   .c-ttl-thumbnail__area{
-    // margin: 0 2rem;
     padding: 0.2rem 2.5rem;
     background: #fff;
     border-radius: 50vh;
@@ -137,7 +73,6 @@
     font-weight: bold;
     line-height: 1.5;
     text-align: center;
-    // display: block;
   }
   .c-ttl-thumbnail__text{
     margin-top: 1rem;
@@ -150,216 +85,7 @@
       @include mq("sp") {
         font-size: 2.5rem;
       }
-
   }
 }
 
 
-
-/*子ページタイトル*/
-.c-ttl-interview {
-  position: relative;
-  @include mq("sp") {
-    height: 35rem;
-  }
-  figure {
-    position: relative;
-    img {
-      @include mq("sp") {
-        height: 20rem;
-        object-fit: cover;
-        object-position: center right;
-      }
-    }
-    &::before {
-      content: "";
-      position: absolute;
-      width: calc(50vw + 12rem);
-      height: 100%;
-      background: #868686;
-      mix-blend-mode: multiply;
-      top: 0;
-      left: 0;
-      @include mq("sp") {
-        background: transparent;
-      }
-    }
-  }
-  .c-ttl-interview__content {
-    position: absolute;
-    top: 50%;
-    left: calc(50vw - 50rem);
-    transform: translateY(-50%);
-    width: 66rem;
-    color: #fff;
-    @include mq("tab") {
-      left: 5%;
-    }
-    @include mq("sp") {
-      gap: 0;
-      width: auto;
-      position: static;
-      color: #000;
-      padding-top: 6rem;
-      padding-left: 1.5rem;
-    }
-    h2 {
-      color: $color-main;
-      font-weight: bold;
-      font-size: 2.1rem;
-      span {
-        font-size: 9.6rem;
-        @include mq("sp") {
-          font-size: 6rem;
-          line-height: 1.4;
-        }
-      }
-    }
-  }
-}
-
-.c-ttl-children {
-  margin-left: calc(50% - 50vw);
-  padding: 6.9rem 0;
-  padding-left: calc(50vw - 54rem);
-  width: 55vw;
-  background: $color-accent;
-  color: #fff;
-  font-size: 2.8rem;
-  letter-spacing: 0.25em;
-  @include mq("sp") {
-    font-size: 2rem;
-    width: 85vw;
-    padding: 2.9rem 0;
-    padding-left: 2rem;
-    letter-spacing: 0.1em;
-  }
-  position: relative;
-  &::after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: calc(50vw - 10rem);
-    transform: translate(-50%, -50%);
-    width: 16.6rem;
-    height: 1px;
-    background: #fff;
-    @include mq("sp") {
-      left: 75%;
-      width: 10rem;
-    }
-  }
-}
-
-/*製品ページのタイトル*/
-// .c-ttl-product {
-//   margin-bottom: 5rem;
-//   font-size: 2.8rem;
-//   color: #743410;
-//   line-height: 1.5;
-//   text-align: center;
-//   @include mq("sp") {
-//     font-size: 2rem;
-//   }
-//   position: relative;
-//   &::after {
-//     content: "";
-//     position: absolute;
-//     bottom: -2rem;
-//     left: 50%;
-//     transform: translate(-50%, -50%);
-//     width: 6.25rem;
-//     height: 2px;
-//     background: #743410;
-//     @include mq("sp") {
-//       width: 3rem;
-//     }
-//   }
-// }
-
-/*投稿ページタイトル*/
-// .c-ttl-single,
-// .c-ttl-job {
-//   color: $color-main;
-//   font-size: 3.6rem;
-//   font-weight: 500;
-//   letter-spacing: 0.02em;
-//   text-align: center;
-//   @include mq("sp") {
-//     font-size: 2rem;
-//   }
-// }
-
-/*求人ページ　下線の入ったタイトル*/
-// .c-ttl-border {
-//   margin-top: 3rem;
-//   padding-bottom: 0.5rem;
-//   color: $color-accent;
-//   font-size: 2.4rem;
-//   font-weight: 500;
-//   letter-spacing: 0.1em;
-//   border-bottom: 3px solid $color-main;
-//   @include mq("sp") {
-//     margin-top: 2rem;
-//     font-size: 1.8rem;
-//   }
-// }
-/*求人ページ　リンクタイトル*/
-// .c-ttl-link {
-//   color: $color-main;
-//   font-size: 1.8rem;
-//   font-weight: 500;
-//   text-decoration: underline;
-//   @include mq("sp") {
-//     font-size: 1.6rem;
-//   }
-// }
-
-/*fフォーム等で使われているタイトル*/
-// .c-ttl-square {
-//   padding: 1.2rem 0;
-//   background: $color-main;
-//   color: #fff;
-//   font-size: 1.6rem;
-//   font-weight: bold;
-//   letter-spacing: 0.1rem;
-//   text-align: center;
-//   @include mq("sp") {
-//     font-size: 1.5rem;
-//   }
-// }
-
-/*アバウトページで、使用しているタイトル*/
-// .c-ttl-about {
-//   font-size: 2.8rem;
-//   letter-spacing: 0.25em;
-//   @include mq("sp") {
-//     font-size: 2rem;
-//   }
-//   position: relative;
-//   &::after {
-//     content: "";
-//     position: absolute;
-//     top: 50%;
-//     right: 0%;
-//     transform: translate(0%, -50%);
-//     width: calc(100% - 16rem);
-//     height: 1px;
-//     background: #000;
-//     @include mq("sp") {
-//       width: calc(100% - 11rem);
-//     }
-//   }
-// }
-
-/*アクセスページ　下線の入ったタイトル*/
-// .c-ttl-access {
-//   padding-bottom: 0.2rem;
-//   color: $color-accent;
-//   font-weight: 500;
-//   letter-spacing: 0.1em;
-//   border-bottom: 3px solid $color-main;
-//   @include mq("sp") {
-//     font-size: 1.6rem;
-//   }
-// }

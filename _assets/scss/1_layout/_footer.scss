@@ -8,23 +8,19 @@ l-footer
   .l-footer__inner {
     padding-top: 3.5rem;
     padding-bottom: 7.6rem;
-    // width: 100%;
     color: #fff;
     display: flex;
     gap: 0 10rem;
     @include mq("tab") {
       gap: 0 1rem;
     }
-    // justify-content: space-between;
     @include mq("sp") {
-      // padding-top: 2rem;
       padding-bottom: 3rem;
       flex-direction: column;
     }
   }
 
   .l-footer__address {
-    // flex: 0 0 47rem;
     @include mq("sp") {
       margin: 0 auto;
       max-width: 32rem;
@@ -126,7 +122,6 @@ l-footer
         content: "\2b";
         position: absolute;
         top: 1.5rem;
-        // transform: translateY(-50%);
         right: 0rem;
         width: 2.1rem;
         height: 2.1rem;
@@ -145,7 +140,6 @@ l-footer
     margin-left: 2rem;
     column-count: 2;
     font-size: 1.5rem;
-    // white-space: nowrap ;
     @include mq("tab") {
       letter-spacing: -0.05em;
       white-space: nowrap;

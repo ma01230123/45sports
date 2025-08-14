@@ -4,27 +4,22 @@
 .c-nav-header {
   ul{
     display: flex;
-    // flex-wrap: wrap;
     align-items: center;
     gap:0.5rem 4.6rem;
     @include mq("tab") {
       gap:0.5rem 3rem;
     }
-    // justify-content: space-between;
   }
   ul > li{
     margin-left: 0.7rem;
     @include mq("tab") {
       margin-left: 0.3rem;
     }
-    // padding-left: 0.7rem;
-    // border-left: 1px solid #FFF;
   }
   li > a {
     padding-right: 0.5rem;
     display: block;
     color: #fff;
-    // font-size: 1.7rem;
     font-weight: 700;
     line-height: 1.5;
     white-space: nowrap;
@@ -50,7 +45,6 @@
       position: absolute;
       left: 0;
       content: "";
-      // width: calc(100% + 2.3rem);
       width: calc(100%);
       height: 1.5px;
       background: #fff;
@@ -61,52 +55,10 @@
       opacity: 0;
     }
     &:hover {
-      // opacity: $hover-opacity;
       &::after {
         transform: translateX(0%);
         opacity: 1;
       }
     }
   }
-  // .sub-menu {
-  //   margin-left: -0.8rem;
-  //   padding-bottom: 1rem;
-  //   padding-right: 2rem;
-  //   background-color: $color-main;
-  //   position: absolute;
-  //   height: auto;
-  //   top: 7rem;
-  //   justify-content: center;
-  //   flex-direction: column;
-  //   transition: transform 0.4s, visibility 0.4s;
-  //   transition-delay: 0.1s;
-  //   visibility: hidden;
-  //   transform: scaleY(0);
-  //   transform-origin: top;
-  //   z-index: 1;
-  //   &:hover {
-  //     visibility: visible;
-  //     transform: scaleY(1);
-  //   }
-  // }
-  // .sub-menu li {
-  //   border: none;
-  //   width: 100%;
-  // }
-  // .sub-menu li a {
-  //   margin-top: 1rem;
-  //   font-size: 1.5rem;
-  // }
-  // a:hover ~ .sub-menu {
-  //   visibility: visible;
-  //   transform: scaleY(1);
-  //   transform-origin: top;
-  // }
-  // a:hover ~ .sub-menu-cover {
-  //   visibility: visible;
-  // }
-  // .sub-menu:hover ~ .sub-menu-cover {
-  //   visibility: visible;
-  // }
 }
-

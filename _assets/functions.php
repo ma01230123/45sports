@@ -325,7 +325,7 @@ function register_custom_post_types()
         'singular_name' => $label_name,
       ],
       'public' => true,
-      'has_archive' => true,
+      'has_archive' => false,
       'hierarchical' => false,
       'menu_position' => null,
       'show_in_rest' => true,

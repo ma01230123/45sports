@@ -105,9 +105,8 @@ page.php
   }
 }
 
-/*投稿ページ　アーカイブ*/
-.l-home,
-.l-archive {
+/*投稿ページ　一覧*/
+.l-home{
   margin: 9rem auto 0rem;
   width: 100%;
   @include mq("sp") {
