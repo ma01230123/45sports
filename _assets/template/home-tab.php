@@ -1,5 +1,5 @@
 <!-- home-tab.php start -->
-<!-- php で動くタブ -->
+<!-- php で動くタブ home.php　club.phpで使用-->
 <?php
 $active_tab = isset($_GET['tab']) ? $_GET['tab'] : 'tab01'; // デフォルトは tab01
 ?>
@@ -80,7 +80,7 @@ $active_tab = isset($_GET['tab']) ? $_GET['tab'] : 'tab01'; // デフォルト�
         ),
       );
       $custom_query = new WP_Query($args);
-      
+
       set_query_var('custom_query', $custom_query);
       get_template_part('template/tab-loop');
       ?>

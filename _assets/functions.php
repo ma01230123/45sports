@@ -620,32 +620,35 @@ if (!function_exists('my_get_club_child_label')) {
 }
 
 
-
-
 /**
- * オリジナル パンくず（テンプレート判定版）
- * - ページテンプレートが club.php のときだけ「cf-corporation + cf-name」で表示
- * - 投稿（single post）は「ホーム > 記事タイトル」
- * - schema.org/BreadcrumbList 対応
+ * オリジナル パンくず（テンプレ判定 安定版）
+ * - club.php テンプレのページは「cf-corporation + cf-name」で表示
+ * - 投稿(single post)は「ホーム > 記事タイトル」
+ * - schema.org 対応
  */
-/** club.php テンプレ判定（テンプレートが /templates/club.php でもOK） */
-if (!function_exists('my_is_club_template')) {
-  function my_is_club_template(int $post_id): bool {
-      $slug = (string) get_page_template_slug($post_id); // 例: 'club.php' or 'templates/club.php' / ''(=default)
+
+/** 指定した post_id のページテンプレが club.php かを判定 */
+if (!function_exists('my_is_club_template_by_id')) {
+  function my_is_club_template_by_id(int $post_id): bool {
+      $slug = (string) get_page_template_slug($post_id); // 例: 'club.php' / 'templates/club.php' / ''(default)
       if ($slug === '' || $slug === 'default') return false;
       $base = function_exists('wp_basename') ? wp_basename($slug) : basename($slug);
-      return ($slug === 'club.php') || ($base === 'club.php');
+      return ($base === 'club.php');
   }
 }
 
-/** club.php のときだけ cf-corporation + cf-name を返す（なければ null） */
-if (!function_exists('my_club_template_label')) {
-  function my_club_template_label(int $post_id): ?string {
-      if (!my_is_club_template($post_id)) return null;
-      $corp = (string) get_post_meta($post_id, 'cf-corporation', true);
-      $name = (string) get_post_meta($post_id, 'cf-name', true);
-      $joined = trim($corp . (($corp && $name) ? ' ' : '') . $name);
-      return $joined !== '' ? wp_strip_all_tags($joined) : null;
+/** ページ用ラベル: club.php なら cf-corporation + cf-name、なければ通常タイトル */
+if (!function_exists('my_page_label')) {
+  function my_page_label(int $post_id): string {
+      if (my_is_club_template_by_id($post_id)) {
+          $corp = (string) get_post_meta($post_id, 'cf-corporation', true);
+          $name = (string) get_post_meta($post_id, 'cf-name', true);
+          $joined = trim($corp . (($corp && $name) ? ' ' : '') . $name);
+          if ($joined !== '') {
+              return wp_strip_all_tags($joined);
+          }
+      }
+      return get_the_title($post_id);
   }
 }
 
@@ -657,25 +660,25 @@ if (!function_exists('my_breadcrumbs')) {
       $home_label = $args['home_label'] ?? 'ホーム';
       $home_url   = home_url('/');
 
-      $crumbs = [];
+      $crumbs   = [];
       $crumbs[] = ['url' => $home_url, 'label' => $home_label];
 
-      // 投稿：ホーム > 記事タイトル
-      if (is_singular()) {
+      // ※順番が重要：投稿 → 固定ページ → その他
+      if (is_single('')) {
+          // 投稿は「ホーム > 記事タイトル」
           $crumbs[] = ['url' => '', 'label' => get_the_title(get_the_ID())];
 
-      // 固定ページ：祖先 + 自分（テンプレが club.php ならラベル差し替え）
       } elseif (is_page()) {
           $post_id   = get_the_ID();
-          $ancestors = array_reverse(get_post_ancestors($post_id));
+          $ancestors = array_reverse(get_post_ancestors($post_id)); // 祖先を上位→下位へ
 
           foreach ($ancestors as $aid) {
-              $label = my_club_template_label($aid) ?? get_the_title($aid);
-              $crumbs[] = ['url' => get_permalink($aid), 'label' => $label];
+              $crumbs[] = [
+                  'url'   => get_permalink($aid),
+                  'label' => my_page_label($aid),
+              ];
           }
-
-          $self_label = my_club_template_label($post_id) ?? get_the_title($post_id);
-          $crumbs[] = ['url' => '', 'label' => $self_label];
+          $crumbs[] = ['url' => '', 'label' => my_page_label($post_id)];
 
       } elseif (is_post_type_archive()) {
           $crumbs[] = ['url' => '', 'label' => wp_strip_all_tags(get_the_archive_title())];
@@ -697,12 +700,10 @@ if (!function_exists('my_breadcrumbs')) {
           $crumbs[] = ['url' => '', 'label' => $title];
       }
 
-      // 出力（schema.org）
+      // 出力
       echo '<nav class="breadcrumbs" aria-label="breadcrumb">';
       echo '<ol itemscope itemtype="https://schema.org/BreadcrumbList">';
-      $pos = 1;
-      $last = count($crumbs) - 1;
-
+      $pos = 1; $last = count($crumbs) - 1;
       foreach ($crumbs as $i => $c) {
           $label = esc_html($c['label']);
           $url   = trim((string) ($c['url'] ?? ''));
