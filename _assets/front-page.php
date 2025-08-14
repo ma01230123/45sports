@@ -87,7 +87,7 @@
   </section><!-- /.p-top-about -->
 
   <!-- トップ　各クラブのご紹介（クラブ一覧） -->
-  <section class="p-top-look">
+  <section class="p-top-look" id="club">
     <div class="p-top-look__inner c-inner">
       <h2 class="c-ttl-img c-ttl-img--white">
         <img src="<?php echo get_template_directory_uri(); ?>/assets/img/icon-club.png" alt="">

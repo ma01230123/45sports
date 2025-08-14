@@ -5,26 +5,27 @@
  */
 
 // カスタム投稿タイプ（post-01〜post-06）の設定
-function get_custom_post_types(): array {
+function get_custom_post_types(): array
+{
   return [
-      'post-01',
-      'post-02',
-      'post-03',
-      'post-04',
-      'post-05',
-      'post-06',
-      'post-07',
-      'post-08',
-      'post-09',
-      'post-10',
-      'post-11',
-      'post-12',
-      'post-13',
-      'post-14',
-      'post-15',
-      'post-16',
-      'post-17',
-      'post-18',
+    'post-01',
+    'post-02',
+    'post-03',
+    'post-04',
+    'post-05',
+    'post-06',
+    'post-07',
+    'post-08',
+    'post-09',
+    'post-10',
+    'post-11',
+    'post-12',
+    'post-13',
+    'post-14',
+    'post-15',
+    'post-16',
+    'post-17',
+    'post-18',
   ];
 }
 
@@ -91,7 +92,7 @@ add_action('init', 'disable_author_archive');
 
 
 // 管理画面における不要メニューの非表示（必要ならON）
-add_action('admin_menu', function() {
+add_action('admin_menu', function () {
   remove_menu_page('edit-comments.php'); // コメントを非表示にしたい場合
 });
 
@@ -190,12 +191,13 @@ function add_page_slug_class_name($classes)
 }
 
 // 管理バーのバンプ処理を無効化
-function disable_admin_bar_bump() {
-  if ( is_admin_bar_showing() ) {
-      remove_action( 'wp_head', '_admin_bar_bump_cb' );
+function disable_admin_bar_bump()
+{
+  if (is_admin_bar_showing()) {
+    remove_action('wp_head', '_admin_bar_bump_cb');
   }
 }
-add_action( 'get_header', 'disable_admin_bar_bump' );
+add_action('get_header', 'disable_admin_bar_bump');
 
 /**
  * Gutenbergのカラーパレット設定
@@ -284,23 +286,25 @@ add_shortcode('myphp', 'Include_my_php');
 
 
 // デフォルトのカテゴリーとタグを非表示にする
-add_action( 'init', 'remove_default_taxonomies', 20 );
-function remove_default_taxonomies() {
-    // 投稿から「カテゴリー」を外す
-    unregister_taxonomy_for_object_type( 'category', 'post' );
-    // 投稿から「タグ」を外す
-    unregister_taxonomy_for_object_type( 'post_tag', 'post' );
+add_action('init', 'remove_default_taxonomies', 20);
+function remove_default_taxonomies()
+{
+  // 投稿から「カテゴリー」を外す
+  unregister_taxonomy_for_object_type('category', 'post');
+  // 投稿から「タグ」を外す
+  unregister_taxonomy_for_object_type('post_tag', 'post');
 
-    // 管理メニューの「カテゴリー」「タグ」も非表示に
-    remove_submenu_page( 'edit.php', 'edit-tags.php?taxonomy=category' );
-    remove_submenu_page( 'edit.php', 'edit-tags.php?taxonomy=post_tag' );
+  // 管理メニューの「カテゴリー」「タグ」も非表示に
+  remove_submenu_page('edit.php', 'edit-tags.php?taxonomy=category');
+  remove_submenu_page('edit.php', 'edit-tags.php?taxonomy=post_tag');
 }
 
 // 投稿編集画面のサイドボックスも消す
-add_action( 'admin_menu', 'remove_default_taxonomy_metaboxes' );
-function remove_default_taxonomy_metaboxes() {
-    remove_meta_box( 'categorydiv',       'post', 'side' );
-    remove_meta_box( 'tagsdiv-post_tag',  'post', 'side' );
+add_action('admin_menu', 'remove_default_taxonomy_metaboxes');
+function remove_default_taxonomy_metaboxes()
+{
+  remove_meta_box('categorydiv', 'post', 'side');
+  remove_meta_box('tagsdiv-post_tag', 'post', 'side');
 }
 
 
@@ -308,74 +312,76 @@ function remove_default_taxonomy_metaboxes() {
 
 
 // カスタム投稿タイプを登録（ラベルに「投稿-01」形式を使う）
-add_action( 'init', 'register_custom_post_types', 0 );
-function register_custom_post_types() {
-    foreach ( get_custom_post_types() as $post_type ) {
-        // "post-01" → "投稿-01" に変換
-        $label_name = str_replace( 'post', '投稿', $post_type );
+add_action('init', 'register_custom_post_types', 0);
+function register_custom_post_types()
+{
+  foreach (get_custom_post_types() as $post_type) {
+    // "post-01" → "投稿-01" に変換
+    $label_name = str_replace('post', '投稿', $post_type);
 
-        register_post_type( $post_type, [
-            'labels'        => [
-                'name'          => $label_name,
-                'singular_name' => $label_name,
-            ],
-            'public'        => true,
-            'has_archive'   => true,
-            'hierarchical'  => false,
-            'menu_position' => null,
-            'show_in_rest'  => true,
-            'supports'      => [ 'title', 'editor', 'excerpt', 'custom-fields' ],
-            'capability_type' => $post_type,
-            'map_meta_cap'    => true,
-        ] );
-    }
+    register_post_type($post_type, [
+      'labels' => [
+        'name' => $label_name,
+        'singular_name' => $label_name,
+      ],
+      'public' => true,
+      'has_archive' => true,
+      'hierarchical' => false,
+      'menu_position' => null,
+      'show_in_rest' => true,
+      'supports' => ['title', 'editor', 'excerpt', 'custom-fields'],
+      'capability_type' => $post_type,
+      'map_meta_cap' => true,
+    ]);
+  }
 }
 
 
 
 
 // タクソノミー「カスタムカテゴリー」の作成
-add_action( 'init', 'register_custom_category_taxonomy', 0 );
-function register_custom_category_taxonomy() {
-    // デフォルト投稿'post' と上記カスタム投稿をマージ
-    $post_types = array_merge( [ 'post' ], get_custom_post_types() );
+add_action('init', 'register_custom_category_taxonomy', 0);
+function register_custom_category_taxonomy()
+{
+  // デフォルト投稿'post' と上記カスタム投稿をマージ
+  $post_types = array_merge(['post'], get_custom_post_types());
 
-    $labels = [
-        'name'              => 'カスタムカテゴリー',
-        'singular_name'     => 'カスタムカテゴリー',
-        'search_items'      => 'カスタムカテゴリーを検索',
-        'all_items'         => 'すべてのカスタムカテゴリー',
-        'parent_item'       => '親カスタムカテゴリー',
-        'parent_item_colon' => '親カスタムカテゴリー：',
-        'edit_item'         => 'カスタムカテゴリーを編集',
-        'update_item'       => 'カスタムカテゴリーを更新',
-        'add_new_item'      => '新しいカスタムカテゴリーを追加',
-        'new_item_name'     => '新しいカスタムカテゴリー名',
-        'menu_name'         => 'カスタムカテゴリー',
-    ];
+  $labels = [
+    'name' => 'カスタムカテゴリー',
+    'singular_name' => 'カスタムカテゴリー',
+    'search_items' => 'カスタムカテゴリーを検索',
+    'all_items' => 'すべてのカスタムカテゴリー',
+    'parent_item' => '親カスタムカテゴリー',
+    'parent_item_colon' => '親カスタムカテゴリー：',
+    'edit_item' => 'カスタムカテゴリーを編集',
+    'update_item' => 'カスタムカテゴリーを更新',
+    'add_new_item' => '新しいカスタムカテゴリーを追加',
+    'new_item_name' => '新しいカスタムカテゴリー名',
+    'menu_name' => 'カスタムカテゴリー',
+  ];
 
-    $args = [
-        'labels'            => $labels,
-        'hierarchical'      => true,
-        'public'            => true,
-        'show_ui'           => true,
-        'show_admin_column' => true,
-        'show_in_rest'      => true,
-        'rewrite'           => [ 'slug' => 'custom_category' ],
-        'capabilities'      => [
-            'manage_terms' => 'manage_custom_category',
-            'edit_terms'   => 'edit_custom_category',
-            'delete_terms' => 'delete_custom_category',
-            'assign_terms' => 'assign_custom_category',
-        ],
-        'default_term'      => [
-          'name'        => 'お知らせ',
-          'slug'        => 'cat-notice',
-          'description' => '未選択時に自動付与される既定のカテゴリ',
-        ],
-    ];
+  $args = [
+    'labels' => $labels,
+    'hierarchical' => true,
+    'public' => true,
+    'show_ui' => true,
+    'show_admin_column' => true,
+    'show_in_rest' => true,
+    'rewrite' => ['slug' => 'custom_category'],
+    'capabilities' => [
+      'manage_terms' => 'manage_custom_category',
+      'edit_terms' => 'edit_custom_category',
+      'delete_terms' => 'delete_custom_category',
+      'assign_terms' => 'assign_custom_category',
+    ],
+    'default_term' => [
+      'name' => 'お知らせ',
+      'slug' => 'cat-notice',
+      'description' => '未選択時に自動付与される既定のカテゴリ',
+    ],
+  ];
 
-    register_taxonomy( 'custom_category', $post_types, $args );
+  register_taxonomy('custom_category', $post_types, $args);
 }
 
 
@@ -429,18 +435,18 @@ function filter_media_library_for_current_user($query)
 add_action('init', function () {
   $map = [
     'cf-corporation' => 'string',
-    'cf-name'        => 'string',
-    'cf-area-name'   => 'string',
-    'cf-area-color'  => 'string',
-    'cf-slide'       => 'integer', // 画像ID
-    'cf-look'        => 'integer', // 画像ID
+    'cf-name' => 'string',
+    'cf-area-name' => 'string',
+    'cf-area-color' => 'string',
+    'cf-slide' => 'integer', // 画像ID
+    'cf-look' => 'integer', // 画像ID
   ];
   foreach ($map as $key => $type) {
     register_post_meta('page', $key, [
-      'single'       => true,
-      'type'         => $type,
+      'single' => true,
+      'type' => $type,
       'show_in_rest' => true,
-      'auth_callback'=> fn() => current_user_can('edit_pages'),
+      'auth_callback' => fn() => current_user_can('edit_pages'),
     ]);
   }
 });
@@ -448,8 +454,9 @@ add_action('init', function () {
 
 
 // 投稿ページ（/news/）のメインクエリを調整
-add_action('pre_get_posts', function($q) {
-  if (is_admin() || !$q->is_main_query()) return;
+add_action('pre_get_posts', function ($q) {
+  if (is_admin() || !$q->is_main_query())
+    return;
 
   if ($q->is_home()) { // 設定 > 表示 で「投稿ページ」が /news の想定
     if (function_exists('get_custom_post_types')) {
@@ -466,3 +473,251 @@ add_action('pre_get_posts', function($q) {
 add_filter('intermediate_image_sizes_advanced', function ($sizes) {
   return []; // すべての登録サイズを無効化
 });
+
+/**
+ * Pages 一覧に「地区名」「地区カラー」「順序」を追加（club の子ページのみ表示）
+ */
+
+function my_get_club_page_id(): int
+{
+  $p = get_page_by_path('club', OBJECT, 'page');
+  return $p ? (int) $p->ID : 0;
+}
+
+// 列の追加：タイトル直後に差し込む
+add_filter('manage_edit-page_columns', function ($columns) {
+  $new = [];
+  foreach ($columns as $key => $label) {
+    $new[$key] = $label;
+    if ($key === 'title') {
+      $new['cf_area_name'] = '地区名';
+      $new['cf_area_color'] = '地区カラー';
+      $new['menu_order_col'] = '順序';
+    }
+  }
+  return $new;
+});
+
+// 各セルの中身
+add_action('manage_page_posts_custom_column', function ($column, $post_id) {
+  if (!in_array($column, ['cf_area_name', 'cf_area_color', 'menu_order_col'], true)) {
+    return;
+  }
+
+  // club の“直下の子ページ”のみ表示（それ以外はダッシュ）
+  $club_id = my_get_club_page_id();
+  $parent_id = wp_get_post_parent_id($post_id);
+  if (!$club_id || $parent_id !== $club_id) {
+    echo '—';
+    return;
+  }
+
+  if ($column === 'cf_area_name') {
+    $name = get_post_meta($post_id, 'cf-area-name', true);
+    echo $name !== '' ? esc_html($name) : '—';
+    return;
+  }
+
+  if ($column === 'cf_area_color') {
+    $color_raw = (string) get_post_meta($post_id, 'cf-area-color', true);
+    if ($color_raw === '') {
+      echo '—';
+      return;
+    }
+
+    $color_raw = '#' . ltrim($color_raw, "# \t\n\r\0\x0B");
+    $color = sanitize_hex_color($color_raw);
+    if (!$color) {
+      echo '<code>' . esc_html($color_raw) . '</code>';
+      return;
+    }
+
+    printf(
+      '<span aria-label="%1$s" style="display:inline-block;width:1.2em;height:1.2em;border:1px solid #ccc;border-radius:3px;vertical-align:middle;background:%1$s;margin-right:.4em;"></span><code>%2$s</code>',
+      esc_attr($color),
+      esc_html($color)
+    );
+    return;
+  }
+
+  if ($column === 'menu_order_col') {
+    // ページ属性 > 並び順（menu_order）
+    $order = (int) get_post_field('menu_order', $post_id);
+    echo esc_html($order);
+    return;
+  }
+}, 10, 2);
+
+// 列幅の調整（任意）
+add_action('admin_head-edit.php', function () {
+  $screen = get_current_screen();
+  if ($screen && $screen->id === 'edit-page') {
+    echo '<style>
+          .column-cf_area_name{ width: 14em; }
+          .column-cf_area_color{ width: 10em; }
+          .column-menu_order_col{ width: 6em; text-align:right; }
+          .column-menu_order_col a{ display:inline-block; width:100%; text-align:right; }
+      </style>';
+  }
+});
+
+// 「順序」列を並び替え可能に
+add_filter('manage_edit-page_sortable_columns', function ($sortable) {
+  $sortable['menu_order_col'] = 'menu_order';
+  return $sortable;
+});
+
+// 並び替え実行（管理画面のページ一覧のみ）
+add_action('pre_get_posts', function ($query) {
+  if (!is_admin() || !$query->is_main_query())
+    return;
+  if ($query->get('post_type') !== 'page')
+    return;
+
+  if ($query->get('orderby') === 'menu_order') {
+    // 数値の昇順（必要なら DESC に）
+    $query->set('orderby', 'menu_order');
+    if (!$query->get('order')) {
+      $query->set('order', 'ASC');
+    }
+  }
+});
+
+
+/**
+ * オリジナル パンくず
+ * - club 直下の子ページは「cf-corporation + cf-name」で表示
+ * - 投稿(single post)は「ホーム > 投稿ページ(あれば) > 記事タイトル」
+ * - それ以外は基本的なページ階層/アーカイブに対応（簡易版）
+ */
+
+if (!function_exists('my_get_club_page_id')) {
+  function my_get_club_page_id(): int
+  {
+    $p = get_page_by_path('club', OBJECT, 'page');
+    return $p ? (int) $p->ID : 0;
+  }
+}
+
+if (!function_exists('my_get_club_child_label')) {
+  /**
+   * club 直下の子ページならカスタムラベル（cf-corporation + cf-name）を返す
+   * それ以外は null
+   */
+  function my_get_club_child_label(int $post_id): ?string
+  {
+    $club_id = my_get_club_page_id();
+    if (!$club_id)
+      return null;
+    if ((int) wp_get_post_parent_id($post_id) !== $club_id)
+      return null;
+
+    $corp = (string) get_post_meta($post_id, 'cf-corporation', true);
+    $name = (string) get_post_meta($post_id, 'cf-name', true);
+    $joined = trim($corp . (($corp && $name) ? ' ' : '') . $name);
+    return $joined !== '' ? wp_strip_all_tags($joined) : null;
+  }
+}
+
+
+
+
+/**
+ * オリジナル パンくず（テンプレート判定版）
+ * - ページテンプレートが club.php のときだけ「cf-corporation + cf-name」で表示
+ * - 投稿（single post）は「ホーム > 記事タイトル」
+ * - schema.org/BreadcrumbList 対応
+ */
+/** club.php テンプレ判定（テンプレートが /templates/club.php でもOK） */
+if (!function_exists('my_is_club_template')) {
+  function my_is_club_template(int $post_id): bool {
+      $slug = (string) get_page_template_slug($post_id); // 例: 'club.php' or 'templates/club.php' / ''(=default)
+      if ($slug === '' || $slug === 'default') return false;
+      $base = function_exists('wp_basename') ? wp_basename($slug) : basename($slug);
+      return ($slug === 'club.php') || ($base === 'club.php');
+  }
+}
+
+/** club.php のときだけ cf-corporation + cf-name を返す（なければ null） */
+if (!function_exists('my_club_template_label')) {
+  function my_club_template_label(int $post_id): ?string {
+      if (!my_is_club_template($post_id)) return null;
+      $corp = (string) get_post_meta($post_id, 'cf-corporation', true);
+      $name = (string) get_post_meta($post_id, 'cf-name', true);
+      $joined = trim($corp . (($corp && $name) ? ' ' : '') . $name);
+      return $joined !== '' ? wp_strip_all_tags($joined) : null;
+  }
+}
+
+/** パンくず出力 */
+if (!function_exists('my_breadcrumbs')) {
+  function my_breadcrumbs(array $args = []): void {
+      if (is_front_page()) return;
+
+      $home_label = $args['home_label'] ?? 'ホーム';
+      $home_url   = home_url('/');
+
+      $crumbs = [];
+      $crumbs[] = ['url' => $home_url, 'label' => $home_label];
+
+      // 投稿：ホーム > 記事タイトル
+      if (is_singular()) {
+          $crumbs[] = ['url' => '', 'label' => get_the_title(get_the_ID())];
+
+      // 固定ページ：祖先 + 自分（テンプレが club.php ならラベル差し替え）
+      } elseif (is_page()) {
+          $post_id   = get_the_ID();
+          $ancestors = array_reverse(get_post_ancestors($post_id));
+
+          foreach ($ancestors as $aid) {
+              $label = my_club_template_label($aid) ?? get_the_title($aid);
+              $crumbs[] = ['url' => get_permalink($aid), 'label' => $label];
+          }
+
+          $self_label = my_club_template_label($post_id) ?? get_the_title($post_id);
+          $crumbs[] = ['url' => '', 'label' => $self_label];
+
+      } elseif (is_post_type_archive()) {
+          $crumbs[] = ['url' => '', 'label' => wp_strip_all_tags(get_the_archive_title())];
+
+      } elseif (is_tax() || is_category() || is_tag()) {
+          $crumbs[] = ['url' => '', 'label' => wp_strip_all_tags(get_the_archive_title())];
+
+      } elseif (is_search()) {
+          $crumbs[] = ['url' => '', 'label' => '検索結果: ' . get_search_query(false)];
+
+      } elseif (is_404()) {
+          $crumbs[] = ['url' => '', 'label' => 'ページが見つかりません'];
+
+      } elseif (is_date()) {
+          $crumbs[] = ['url' => '', 'label' => wp_strip_all_tags(get_the_archive_title())];
+
+      } elseif (is_home()) {
+          $title = get_the_title((int) get_option('page_for_posts')) ?: 'ブログ';
+          $crumbs[] = ['url' => '', 'label' => $title];
+      }
+
+      // 出力（schema.org）
+      echo '<nav class="breadcrumbs" aria-label="breadcrumb">';
+      echo '<ol itemscope itemtype="https://schema.org/BreadcrumbList">';
+      $pos = 1;
+      $last = count($crumbs) - 1;
+
+      foreach ($crumbs as $i => $c) {
+          $label = esc_html($c['label']);
+          $url   = trim((string) ($c['url'] ?? ''));
+          $is_last = ($i === $last);
+
+          echo '<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">';
+          if ($url && !$is_last) {
+              printf('<a itemprop="item" href="%s"><span itemprop="name">%s</span></a>', esc_url($url), $label);
+          } else {
+              printf('<span itemprop="name" aria-current="page">%s</span>', $label);
+          }
+          printf('<meta itemprop="position" content="%d">', $pos++);
+          echo '</li>';
+      }
+      echo '</ol>';
+      echo '</nav>';
+  }
+}
