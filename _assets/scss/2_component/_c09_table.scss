@@ -1,34 +1,88 @@
 @use "./../0_foundation/vars" as *;
 
-
-
 /*　２列テーブルの表*/
-.c-table-2col{
-  width: 100%;
-  tr{
-    border-bottom: 1px solid #000;
+.c-table-2col {
+  table {
+    border-spacing: 0;
+    border-radius: 2rem;
+    border-collapse: separate;
+    overflow: hidden;
+  }
+  td {
+    padding: 1.6rem 2rem;
+    background: #f2f2f2;
+    border: 1px solid #fff;
+    vertical-align: middle;
+    @include mq("sp") {
+      display: block;
+    }
     &:first-child {
-      border-top: 1px solid #000;
+      background: #d2eafd;
+      width: 20.6rem;
+      text-align: center;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      @include mq("sp") {
+        padding: 1rem 1.2rem;
+        width: 100%;
+        display: block;
+      }
     }
   }
-  th{
-    padding:1.6rem 0rem 1.6rem 4rem;
-    width: 18rem;
-    color:$color-main;
+  a{
+    text-decoration: underline;
+    &:hover{
+      opacity: $hover-opacity;
+    }
+  }
+}
+
+.c-table-3col {
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  @include mq("sp") {
+    overflow-y: auto;
+    height: 40rem;
+  }
+  table {
+    width: 100%;
+    border-spacing: 0;
+    border-radius: 2rem;
+    border-collapse: separate;
+    overflow: hidden;
+    table-layout: auto;
+    @include mq("sp") {
+      overflow: none;
+      min-width: 60rem;
+      table-layout: fixed;
+    }
+  }
+  th {
+    border: 1px solid #fff;
+    background: #d2eafd;
+    text-align: center;
     font-weight: 500;
-    line-height: 1.5;
+    letter-spacing: 0.05em;
     vertical-align: middle;
+    position: sticky;
+    top: 0;
+    z-index: 3;
     @include mq("sp") {
-      display: block;
-      padding:1.5rem 0rem 0rem 1rem;
+      padding: 1rem 1.2rem;
+      line-height: 1.5;
+      &:first-child{
+        border-radius: 2rem 0 0 0;
+      }
+      &:last-child{
+        border-radius: 0 2rem 0 0;
+      }
     }
   }
-  td{
-    padding:1.6rem 0;
+  td {
+    padding: 1.6rem 2rem;
+    background: #f2f2f2;
+    border: 1px solid #fff;
     vertical-align: middle;
-    @include mq("sp") {
-      display: block;
-      padding:0rem 1.5rem 1.5rem 3rem;
-    }
   }
 }

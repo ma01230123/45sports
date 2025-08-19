@@ -89,6 +89,7 @@
       background-size: contain;
       background-repeat: no-repeat;
       overflow: hidden;
+      z-index: -1;
       @include mq("tab") {
         left:-128%;
       }
@@ -327,11 +328,10 @@
   .p-top-link__items {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 2.3rem; /* 既存のgapと同じ */
+    gap: 2.3rem;
     justify-content: center;
     @include mq("tab") {
       grid-template-columns: repeat(auto-fill, minmax(27.1rem, 27.1rem));
-      // grid-template-columns: repeat(3, 1fr);
     }
     @include mq("sp") {
       grid-template-columns: repeat(auto-fill, minmax(23rem, 23rem));

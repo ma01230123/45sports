@@ -50,7 +50,9 @@
           基本情報
           <span>Information</span>
         </h2>
-        <?php the_content(); ?>
+        <div class="c-tab__content-information">
+          <?php the_content(); ?>
+        </div><!-- /.c-tab__content-information -->
       </div>
       <!-- お知らせのコンテンツ -->
       <div class="c-tab__content <?php if ($active_tab === 'tab02')
