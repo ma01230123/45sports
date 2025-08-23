@@ -14,7 +14,7 @@ while ($club_children->have_posts()):
     <?php else: ?>
       <img src="<?php echo get_template_directory_uri(); ?>/assets/img/no-image.jpg">
     <?php endif; ?>
-    <div class="c-slide__title" style="-webkit-text-stroke: 3px <?php the_field('cf-area-color'); ?>;">
+    <div class="c-slide__title" style="-webkit-text-stroke: 4px <?php the_field('cf-area-color'); ?>;">
       <?php if (get_field('cf-corporation')): ?>
         <?php the_field('cf-corporation'); ?><br>
       <?php endif; ?>

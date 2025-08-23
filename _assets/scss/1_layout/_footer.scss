@@ -113,9 +113,6 @@ l-footer
   }
   .l-footer__menu-club-title {
     font-weight: 500;
-    &:hover{
-      opacity: $hover-opacity;
-    }
     @include mq("sp") {
       padding: 1rem 1.5rem;
       border-bottom: 2px solid #fff;
@@ -137,6 +134,12 @@ l-footer
         font-weight: bold;
         text-align: center;
       }
+    }
+  }
+  .l-footer__menu-club-title li{
+
+    &:hover{
+      opacity: $hover-opacity;
     }
   }
   .l-footer__menu-club-warp {

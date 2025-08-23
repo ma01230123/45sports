@@ -9,13 +9,14 @@
   <div class="c-thumbnail__img">
     <?php the_post_thumbnail(); ?>
   </div>
-  <div class="c-thumbnail__skew"></div>
-  <div class="c-thumbnail__skew c-thumbnail__skew--right"></div>
-  <div class="c-thumbnail__body c-inner">
+  <div class="c-thumbnail__skew" style="background:<?php the_field('cf-area-color'); ?>;"></div>
+  <div class="c-thumbnail__skew c-thumbnail__skew--right" style="background:<?php the_field('cf-area-color'); ?>;"></div>
+  <div class="c-thumbnail__body">
     <h1 class="c-thumbnail__title c-ttl-thumbnail">
-      <span class="c-ttl-thumbnail__area"><?php the_field('cf-area-name'); ?></span>
+      <span class="c-ttl-thumbnail__area" style="color:<?php the_field('cf-area-color'); ?>;">
+        <?php the_field('cf-area-name'); ?>
+      </span>
       <span class="c-ttl-thumbnail__text">
-
         <?php the_field('cf-corporation'); ?>
         <?php the_field('cf-name'); ?>
       </span>
