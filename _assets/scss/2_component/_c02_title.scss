@@ -3,10 +3,28 @@
 .c-ttl {
   font-weight: bold;
   letter-spacing: 0.05em;
+  &.c-ttl--54 {
+    font-size: 5.4rem;
+    @include mq("sp") {
+      font-size: 4rem;
+    }
+  }
   &.c-ttl--44 {
     font-size: 4.4rem;
     @include mq("sp") {
       font-size: 3.4rem;
+    }
+  }
+  &.c-ttl--42 {
+    font-size: 4.2rem;
+    @include mq("sp") {
+      font-size: 3.2rem;
+    }
+  }
+  &.c-ttl--40 {
+    font-size: 4rem;
+    @include mq("sp") {
+      font-size: 3rem;
     }
   }
   &.c-ttl--32 {
@@ -95,3 +113,49 @@
 }
 
 
+/*about用 タイトル*/
+.c-ttl-about{
+  align-items: baseline;
+  min-height: auto;
+  .wp-block-cover__image-background{
+    margin: 3rem auto 0;
+    // padding-top: 3rem;
+    max-width: 75rem;
+    min-height: auto;
+    object-fit: contain;
+    @include mq("sp") {
+      margin-top: 7rem;
+      margin-left: -25%;
+      width: 60rem;
+      overflow: hidden;
+    }
+  }
+  .wp-block-columns{
+    margin: 0 auto;
+    max-width: 85rem;
+    text-align: center;
+    gap: 0;
+  }
+
+  .wp-block-column img{
+    width: 23.9rem;
+    @include mq("sp") {
+      width: 15rem;
+    }
+  }
+  p{
+    margin-top: 0rem;
+    @include mq("sp") {
+      margin-top: 0rem;
+      line-height: 1.3;
+    }
+  }
+  h1{
+    letter-spacing: 0.1em;
+    line-height: 1;
+    @include mq("sp") {
+      margin-top: 1rem;
+      line-height: 1.3;
+    }
+  }
+}

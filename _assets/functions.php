@@ -208,12 +208,12 @@ function aktk_editor_color_palette()
     array(
       'name' => 'Main',
       'slug' => 'main',
-      'color' => '#E95B3C',
+      'color' => '#5582D4',
     ),
     array(
       'name' => 'Accent',
       'slug' => 'accent',
-      'color' => '#222',
+      'color' => '#EA740D',
     ),
     array(
       'name' => 'Gray',

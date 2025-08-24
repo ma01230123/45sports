@@ -30,3 +30,9 @@
     font-size: 1.6rem;
   }
 }
+.c-text-15{
+  font-size: 1.5rem;
+  @include mq("sp") {
+    font-size: 1.4rem;
+  }
+}

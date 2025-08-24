@@ -73,83 +73,65 @@
       }
     }
   }
-  // .c-thumbnail__skew {
-  //   position: absolute;
-  //   top: 0%;
-  //   left: -10%;
-  //   left: -17rem;
-  //   transform: skew(-21deg) translateX(0%);
-  //   width: calc(50vw - 0rem);
-  //   min-width: 42rem;
-  //   height: 43.3rem;
-  //   overflow-x: hidden;
-  //   &::after{
-  //     content: "";
-  //     position: absolute;
-  //     top: 0%;
-  //     left:75rem;
-  //     background: #FFF;
-  //       width: 1rem;
-  //         height: 43.3rem;
-  //         overflow-x: hidden;
-  //         display: block;
-  //         transform: skew(0deg) translateX(0%);
-  //   }
-  //   @include mq("sp") {
-  //     left: -10rem;
-  //     min-width: 30rem;
-  //     height: 28.8rem;
-  //   }
-  //   &.c-thumbnail__skew--right{
-  //     left: calc(50% + 50rem);
-  //     &::after{
-  //       left: calc(50% - 48rem);
-  //       transform: skew(21deg) rotate(0deg) translateX(100%);
-  //     }
+  .c-thumbnail__skew {
+    position: absolute;
+    top: 0%;
+    left: max(-20vw, -16rem);
+    left: calc(-10rem - 5%);
+    width: clamp(70rem, 50vw, 500rem);
+    transform: skewX(-21deg);
+    z-index: 2;
+    pointer-events: none;
+    height: 43.3rem;
+    @include mq("tab") {
+      left: calc(-5rem - 20%);
+    }
+    @include mq("sp") {
+      width: calc(30rem + 20%);
+    }
+  }
+  .c-thumbnail__skew::after {
+    /* 内側に白2本ライン */
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: clamp(1rem, 2.4vw, 26px);
+    right: 1rem;
+    width: 2rem;
+    border-left: 6px solid #fff;
+    border-right: 3px solid #fff;
+  }
 
-  //   }
-  // }
+  .c-thumbnail__skew--right {
+    left: auto;
+    right: -50rem;
+    @include mq("tab") {
+      left: auto;
+      right: -60rem;
+    }
+    @include mq("sp") {
+      width: 0;
+    }
+  }
+  .c-thumbnail__skew--right::after {
+    left: clamp(10px, 2.4vw, 26px);
+    left: 1rem;
+    right: auto;
+    border-left: 3px solid #fff;
+    border-right: 6px solid #fff;
+  }
 
-
-  // .c-thumbnail__skew {
-  //   position: absolute;
-  //   top: 0%;
-  //   left: -11%;
-  //   background: url("../img/thumbnail-skew.png");
-  //   background-repeat: no-repeat;
-  //   background-size: cover;
-  //   background-position: right;
-  //   width: calc(50vw + 8rem);
-  //   min-width: 50rem;
-  //   height: 43.3rem;
-  //   overflow-x: hidden;
-  //   @include mq("tab") {
-  //     left: -8%;
-  //   }
-  //   @include mq("sp") {
-  //     left: -12rem;
-  //   }
-  //   &.c-thumbnail__skew--right {
-  //     background: url("../img/thumbnail-skew-right.png");
-  //     background-repeat: no-repeat;
-  //     background-size: cover;
-  //     background-position: left;
-  //     left: calc(50% + 42rem);
-  //     width: 50vw;
-  //     @include mq("tab") {
-  //       left: 85%;
-  //     }
-  //     @include mq("sp") {
-  //       display: none;
-  //     }
-  //   }
-  // }
   .c-thumbnail__body {
     width: 28rem;
     position: absolute;
     top: 50%;
     left: 26%;
     transform: translate(-50%, -50%);
+    z-index: 3;
+    display: flex;
+    align-items: center;
+
     @include mq("tab") {
       width: 25rem;
       left: 24%;
@@ -162,180 +144,19 @@
   }
 }
 
-
-/* ===== Main visual ===== */
-.c-thumbnail{
-  // position: relative;
-  // overflow: hidden;
-  // isolation: isolate;                     /* 擬似要素の重なりを安定させる */
-  // aspect-ratio: 16 / 5;                   /* 画角を保ちながら伸縮 */
-  // height: 43.3rem;
-  // background: #e9eef6;
-  // width: 100%;                    /* サムネイル未設定時の色 */
-}
-
-/* 背景画像 */
-.c-thumbnail__img{
-  // position: absolute;
-  // inset: 0;
-  // z-index: 1;
-
-}
-.c-thumbnail__img img{
-  // width: 100%;
-  // height: 100%;
-  // display: block;
-  // object-fit: cover;
-  // object-position: center;
-}
-
-/* 画像を少し落ち着かせて文字の可読性をUP（任意） */
-.c-thumbnail::after{
-  // content:"";
-  // position:absolute;
-  // inset:0;
-  // z-index: 1;
-  // background: linear-gradient(90deg,
-  //             rgba(0,0,0,.25) 0 30%,
-  //             rgba(0,0,0,.10) 30% 70%,
-  //             rgba(0,0,0,.25) 70% 100%);
-  // pointer-events: none;
-}
-
-/* 左右の斜め色帯（ダブル白ライン付き）
-   ※ 色は HTML の inline-style の background が使われます */
-.c-thumbnail__skew{
-  position: absolute;
-  top: 0%;
-  // bottom: -18%;
-  left: max(-20vw, -16rem);                /* はみ出し配置で大きめに */
-  left: -15rem;                /* はみ出し配置で大きめに */
-  left: -10%;                /* はみ出し配置で大きめに */
-  left: calc(-10rem - 5%);                /* はみ出し配置で大きめに */
-  width: clamp(70rem, 50vw, 500rem);
-  transform: skewX(-21deg);
-  z-index: 2;
-  pointer-events: none;
-  height: 43.3rem;
-  @include mq("tab") {
-    left: calc(-5rem - 20%);                /* はみ出し配置で大きめに */
-  }
+/*　サムネール　*/
+.c-thumbnail-simple {
+  overflow: hidden;
+  max-width: 100%;
+  height: 38.5rem;
+  position: relative;
   @include mq("sp") {
-    width: calc(30rem + 20%);
+    height: 28.8rem;
+  }
+  .c-thumbnail-simple__img img {
+    object-fit: cover;
   }
 }
-.c-thumbnail__skew::after{
-  /* 内側に白2本ライン */
-  content:"";
-  position:absolute;
-  top:0; bottom:0;
-  right: clamp(1rem, 2.4vw, 26px);
-  right: 1rem;
-  width: 2rem;
-  border-left: 6px solid #fff;
-  border-right: 3px solid #fff;
-  // box-shadow: -10px 0 0 0 #fff;           /* 2本目の白線 */
-  // opacity: .95;
-}
-
-.c-thumbnail__skew--right{
-  left: auto;
-  // right: max(-12vw, -90px);
-  right:-50rem;
-  @include mq("tab") {
-    left: auto;
-    right: -60rem;
-  }
-  @include mq("sp") {
-    width: 0;
-  }
-}
-.c-thumbnail__skew--right::after{
-  left: clamp(10px, 2.4vw, 26px);
-  left: 1rem;
-  right: auto;
-  border-left: 3px solid #fff;
-  border-right: 6px solid #fff;
-  // box-shadow: 10px 0 0 0 #fff;
-}
-
-/* タイトルブロック */
-.c-thumbnail__body{
-  position: absolute;
-  inset: 0;
-  z-index: 3;                             /* 斜め帯より前に出す */
-  display: flex;
-  align-items: center;
-}
-
-/* .c-inner を使っている前提（サイト共通の左右パディング） */
-.c-ttl-thumbnail{
-  // display: inline-block;
-  // max-width: min(50rem, 80vw);
-  // color: #fff;
-  // line-height: 1.35;
-  // text-shadow: 0 1px 3px rgba(0,0,0,.35);
-}
-
-/* エリア名のピル（白地 + エリアカラーの文字） */
-.c-ttl-thumbnail__area{
-  // display: inline-block;
-  // font-weight: 700;
-  // background: #fff;
-  // border: 2px solid currentColor;
-  //         /* span の inline-style の color をそのまま枠色に利用 */
-  // border-radius: 999px;
-  // padding: .4em .9em;
-  // line-height: 1;
-  // font-size: clamp(12px, 1.3vw, 14px);
-  // margin-bottom: clamp(8px, .8vw, 12px);
-}
-
-/* 団体名＋名称（白文字） */
-.c-ttl-thumbnail__text{
-  // display: block;
-  // font-weight: 800;
-  // letter-spacing: .04em;
-  // font-size: clamp(20px, 2.6vw, 36px);
-  // text-wrap: balance;
-}
-
-/* ====== Responsive tuning ====== */
-// @media (max-width: 1024px){
-//   .c-thumbnail{ aspect-ratio: 16 / 6; }
-//   .c-thumbnail__skew{
-//     width: clamp(56px, 16vw, 200px);
-//   }
-// }
-// @media (max-width: 768px){
-//   .c-thumbnail{ aspect-ratio: 16 / 8; }
-//   .c-thumbnail::after{
-//     background: linear-gradient(90deg,
-//                 rgba(0,0,0,.35) 0 45%,
-//                 rgba(0,0,0,.12) 45% 100%);
-//   }
-//   .c-thumbnail__skew{
-//     width: clamp(44px, 22vw, 160px);
-//     top: -24%; bottom: -24%;
-//   }
-//   .c-ttl-thumbnail__text{
-//     font-size: clamp(18px, 5vw, 28px);
-//   }
-// }
-// @media (max-width: 480px){
-//   .c-thumbnail{ aspect-ratio: 16 / 10; }
-//   .c-thumbnail__skew{
-//     width: clamp(40px, 26vw, 140px);
-//   }
-//   .c-ttl-thumbnail__area{
-//     font-size: 12px;
-//   }
-// }
-
-
-
-
-
 
 /*　ページナビ　*/
 .c-pagenavi.wp-pagenavi {
@@ -516,7 +337,7 @@
     @include mq("sp") {
       padding: 3rem 0rem 0.5rem;
     }
-    .c-ttl-img{
+    .c-ttl-img {
       margin-bottom: 6rem;
       @include mq("sp") {
         margin-bottom: 3rem;
@@ -526,7 +347,7 @@
   .c-tab__content.is-active {
     display: block;
   }
-  .c-tab__content-information{
+  .c-tab__content-information {
     margin: 0 auto;
     width: 100%;
     max-width: 93.4rem;
@@ -593,7 +414,7 @@
 /*　地図　*/
 .c-map {
   margin: 0 calc(50% - 50vw);
-width: 100vw;
+  width: 100vw;
   height: 47.2rem;
   iframe {
     width: 100%;
@@ -604,7 +425,43 @@ width: 100vw;
 }
 
 /*　各クラブのご紹介　＞　ニュース　調整用ライン　*/
-.c-hr-news{
-  color:$color-news;
+.c-hr-news {
+  color: $color-news;
   border-top: 3px solid;
+}
+
+.c-orange-box {
+  margin: 0 auto;
+  max-width: 93.2rem;
+  padding: 6rem 5.5rem 5rem;
+  background: #ffe2b9;
+  border-radius: 4.2rem;
+  @include mq("sp") {
+    padding: 2rem 2rem 3rem;
+  }
+  h2 {
+    letter-spacing: 0.2rem;
+  }
+  ol.wp-block-list {
+    margin: 0 0 1.5rem;
+    padding-left: 6rem;
+    list-style-type: decimal;
+    @include mq("sp") {
+       padding-left: 2rem;
+    }
+    li {
+      margin: 0.4em 0;
+      font-size: 3rem;
+      font-weight: bold;
+      @include mq("sp") {
+        font-size: 2rem;
+        line-height: 1.5;
+      }
+    }
+      li::marker {
+        font-weight: 700;
+        color: var(--wp--preset--color--primary, #222);
+        font-variant-numeric: tabular-nums;
+      }
+  }
 }
